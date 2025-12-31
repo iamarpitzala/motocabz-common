@@ -1,4 +1,4 @@
-module github.com/motocabz/common
+module github.com/iamarpitzala/motocabz-common
 
 go 1.25.3
 

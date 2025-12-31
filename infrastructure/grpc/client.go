@@ -5,7 +5,7 @@ import (
 	"log"
 	"time"
 
-	"github.com/motocabz/common/domain"
+	"github.com/iamarpitzala/motocabz-common/domain"
 	"go.opentelemetry.io/otel/attribute"
 	"go.opentelemetry.io/otel/codes"
 	"go.opentelemetry.io/otel/trace"

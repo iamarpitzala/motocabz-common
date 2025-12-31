@@ -1,6 +1,6 @@
 package validation
 
-import "github.com/motocabz/common"
+import common "github.com/iamarpitzala/motocabz-common"
 
 // IsValidTripStatus validates trip status using standardized constants
 func IsValidTripStatus(status string) bool {

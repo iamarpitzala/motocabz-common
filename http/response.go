@@ -3,7 +3,7 @@ package http
 import (
 	"net/http"
 
-	common "github.com/motocabz/common"
+	common "github.com/iamarpitzala/motocabz-common"
 
 	"github.com/gin-gonic/gin"
 )

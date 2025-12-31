@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/motocabz/common"
-	"github.com/motocabz/common/domain"
-	"github.com/motocabz/common/infrastructure/observability"
+	common "github.com/iamarpitzala/motocabz-common"
+	"github.com/iamarpitzala/motocabz-common/domain"
+	"github.com/iamarpitzala/motocabz-common/infrastructure/observability"
 
 	"github.com/gin-gonic/gin"
 	"go.opentelemetry.io/otel/attribute"
