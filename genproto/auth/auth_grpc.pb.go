@@ -21,8 +21,7 @@ const _ = grpc.SupportPackageIsVersion9
 const (
 	AuthService_SendOTP_FullMethodName      = "/auth.AuthService/SendOTP"
 	AuthService_VerifyOTP_FullMethodName    = "/auth.AuthService/VerifyOTP"
-	AuthService_GoogleSignup_FullMethodName = "/auth.AuthService/GoogleSignup"
-	AuthService_GoogleLogin_FullMethodName  = "/auth.AuthService/GoogleLogin"
+	AuthService_GoogleAuth_FullMethodName   = "/auth.AuthService/GoogleAuth"
 	AuthService_RefreshToken_FullMethodName = "/auth.AuthService/RefreshToken"
 	AuthService_ParseToken_FullMethodName   = "/auth.AuthService/ParseToken"
 	AuthService_UserAuth_FullMethodName     = "/auth.AuthService/UserAuth"
@@ -38,10 +37,8 @@ type AuthServiceClient interface {
 	SendOTP(ctx context.Context, in *RqSendOtp, opts ...grpc.CallOption) (*RsSendOtp, error)
 	// Verifies the OTP and returns access and refresh tokens.
 	VerifyOTP(ctx context.Context, in *RqVerifyOtp, opts ...grpc.CallOption) (*RsVerifyOtp, error)
-	// Google OAuth signup - creates a new user account
-	GoogleSignup(ctx context.Context, in *RqGoogleAuth, opts ...grpc.CallOption) (*RsGoogleAuth, error)
-	// Google OAuth login - authenticates existing user
-	GoogleLogin(ctx context.Context, in *RqGoogleAuth, opts ...grpc.CallOption) (*RsGoogleAuth, error)
+	// Google OAuth - authenticates existing user or creates a new user account
+	GoogleAuth(ctx context.Context, in *RqGoogleAuth, opts ...grpc.CallOption) (*RsGoogleAuth, error)
 	// Refreshes access token using refresh token (with rotation)
 	RefreshToken(ctx context.Context, in *RqRefreshToken, opts ...grpc.CallOption) (*RsToken, error)
 	// Parses and validates a JWT token, returns token claims
@@ -78,20 +75,10 @@ func (c *authServiceClient) VerifyOTP(ctx context.Context, in *RqVerifyOtp, opts
 	return out, nil
 }
 
-func (c *authServiceClient) GoogleSignup(ctx context.Context, in *RqGoogleAuth, opts ...grpc.CallOption) (*RsGoogleAuth, error) {
+func (c *authServiceClient) GoogleAuth(ctx context.Context, in *RqGoogleAuth, opts ...grpc.CallOption) (*RsGoogleAuth, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(RsGoogleAuth)
-	err := c.cc.Invoke(ctx, AuthService_GoogleSignup_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *authServiceClient) GoogleLogin(ctx context.Context, in *RqGoogleAuth, opts ...grpc.CallOption) (*RsGoogleAuth, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RsGoogleAuth)
-	err := c.cc.Invoke(ctx, AuthService_GoogleLogin_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, AuthService_GoogleAuth_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -138,10 +125,8 @@ type AuthServiceServer interface {
 	SendOTP(context.Context, *RqSendOtp) (*RsSendOtp, error)
 	// Verifies the OTP and returns access and refresh tokens.
 	VerifyOTP(context.Context, *RqVerifyOtp) (*RsVerifyOtp, error)
-	// Google OAuth signup - creates a new user account
-	GoogleSignup(context.Context, *RqGoogleAuth) (*RsGoogleAuth, error)
-	// Google OAuth login - authenticates existing user
-	GoogleLogin(context.Context, *RqGoogleAuth) (*RsGoogleAuth, error)
+	// Google OAuth - authenticates existing user or creates a new user account
+	GoogleAuth(context.Context, *RqGoogleAuth) (*RsGoogleAuth, error)
 	// Refreshes access token using refresh token (with rotation)
 	RefreshToken(context.Context, *RqRefreshToken) (*RsToken, error)
 	// Parses and validates a JWT token, returns token claims
@@ -164,11 +149,8 @@ func (UnimplementedAuthServiceServer) SendOTP(context.Context, *RqSendOtp) (*RsS
 func (UnimplementedAuthServiceServer) VerifyOTP(context.Context, *RqVerifyOtp) (*RsVerifyOtp, error) {
 	return nil, status.Error(codes.Unimplemented, "method VerifyOTP not implemented")
 }
-func (UnimplementedAuthServiceServer) GoogleSignup(context.Context, *RqGoogleAuth) (*RsGoogleAuth, error) {
-	return nil, status.Error(codes.Unimplemented, "method GoogleSignup not implemented")
-}
-func (UnimplementedAuthServiceServer) GoogleLogin(context.Context, *RqGoogleAuth) (*RsGoogleAuth, error) {
-	return nil, status.Error(codes.Unimplemented, "method GoogleLogin not implemented")
+func (UnimplementedAuthServiceServer) GoogleAuth(context.Context, *RqGoogleAuth) (*RsGoogleAuth, error) {
+	return nil, status.Error(codes.Unimplemented, "method GoogleAuth not implemented")
 }
 func (UnimplementedAuthServiceServer) RefreshToken(context.Context, *RqRefreshToken) (*RsToken, error) {
 	return nil, status.Error(codes.Unimplemented, "method RefreshToken not implemented")
@@ -236,38 +218,20 @@ func _AuthService_VerifyOTP_Handler(srv interface{}, ctx context.Context, dec fu
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AuthService_GoogleSignup_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _AuthService_GoogleAuth_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(RqGoogleAuth)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AuthServiceServer).GoogleSignup(ctx, in)
+		return srv.(AuthServiceServer).GoogleAuth(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AuthService_GoogleSignup_FullMethodName,
+		FullMethod: AuthService_GoogleAuth_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AuthServiceServer).GoogleSignup(ctx, req.(*RqGoogleAuth))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AuthService_GoogleLogin_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RqGoogleAuth)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AuthServiceServer).GoogleLogin(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AuthService_GoogleLogin_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AuthServiceServer).GoogleLogin(ctx, req.(*RqGoogleAuth))
+		return srv.(AuthServiceServer).GoogleAuth(ctx, req.(*RqGoogleAuth))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -342,12 +306,8 @@ var AuthService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _AuthService_VerifyOTP_Handler,
 		},
 		{
-			MethodName: "GoogleSignup",
-			Handler:    _AuthService_GoogleSignup_Handler,
-		},
-		{
-			MethodName: "GoogleLogin",
-			Handler:    _AuthService_GoogleLogin_Handler,
+			MethodName: "GoogleAuth",
+			Handler:    _AuthService_GoogleAuth_Handler,
 		},
 		{
 			MethodName: "RefreshToken",

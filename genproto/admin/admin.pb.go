@@ -2464,7 +2464,7 @@ const file_admin_admin_proto_rawDesc = "" +
 	"\x13ListDriverDocuments\x12!.admin.ListDriverDocumentsRequest\x1a\".admin.ListDriverDocumentsResponse\x12V\n" +
 	"\x11GetDriverDocument\x12\x1f.admin.GetDriverDocumentRequest\x1a .admin.GetDriverDocumentResponse\x12_\n" +
 	"\x14DeleteDriverDocument\x12\".admin.DeleteDriverDocumentRequest\x1a#.admin.DeleteDriverDocumentResponse\x128\n" +
-	"\aGetEnum\x12\x15.admin.GetEnumRequest\x1a\x16.admin.GetEnumResponseB>Z<github.com/mihirk-khode/motocabz-common/genproto/admin;adminb\x06proto3"
+	"\aGetEnum\x12\x15.admin.GetEnumRequest\x1a\x16.admin.GetEnumResponseB>Z<github.com/iamarpitzala/motocabz-common/genproto/admin;adminb\x06proto3"
 
 var (
 	file_admin_admin_proto_rawDescOnce sync.Once

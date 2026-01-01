@@ -2424,7 +2424,7 @@ const file_payment_payment_proto_rawDesc = "" +
 	"\x10GetWalletBalance\x12 .payment.GetWalletBalanceRequest\x1a!.payment.GetWalletBalanceResponse\x12H\n" +
 	"\vTopupWallet\x12\x1b.payment.TopupWalletRequest\x1a\x1c.payment.TopupWalletResponse\x12]\n" +
 	"\x12WithdrawFromWallet\x12\".payment.WithdrawFromWalletRequest\x1a#.payment.WithdrawFromWalletResponse\x12f\n" +
-	"\x15GetWalletTransactions\x12%.payment.GetWalletTransactionsRequest\x1a&.payment.GetWalletTransactionsResponseBBZ@github.com/mihirk-khode/motocabz-common/genproto/payment;paymentb\x06proto3"
+	"\x15GetWalletTransactions\x12%.payment.GetWalletTransactionsRequest\x1a&.payment.GetWalletTransactionsResponseBBZ@github.com/iamarpitzala/motocabz-common/genproto/payment;paymentb\x06proto3"
 
 var (
 	file_payment_payment_proto_rawDescOnce sync.Once

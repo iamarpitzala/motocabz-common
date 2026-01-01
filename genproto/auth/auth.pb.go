@@ -904,16 +904,16 @@ const file_auth_auth_proto_rawDesc = "" +
 	"\x04role\x18\x02 \x01(\v2\f.auth.RqEnumR\x04role\"1\n" +
 	"\n" +
 	"RsUserAuth\x12#\n" +
-	"\x05token\x18\x01 \x01(\v2\r.auth.RsTokenR\x05token2\x85\x03\n" +
+	"\x05token\x18\x01 \x01(\v2\r.auth.RsTokenR\x05token2\xca\x02\n" +
 	"\vAuthService\x12-\n" +
 	"\aSendOTP\x12\x0f.auth.RqSendOtp\x1a\x0f.auth.RsSendOtp\"\x00\x123\n" +
-	"\tVerifyOTP\x12\x11.auth.RqVerifyOtp\x1a\x11.auth.RsVerifyOtp\"\x00\x128\n" +
-	"\fGoogleSignup\x12\x12.auth.RqGoogleAuth\x1a\x12.auth.RsGoogleAuth\"\x00\x127\n" +
-	"\vGoogleLogin\x12\x12.auth.RqGoogleAuth\x1a\x12.auth.RsGoogleAuth\"\x00\x125\n" +
+	"\tVerifyOTP\x12\x11.auth.RqVerifyOtp\x1a\x11.auth.RsVerifyOtp\"\x00\x126\n" +
+	"\n" +
+	"GoogleAuth\x12\x12.auth.RqGoogleAuth\x1a\x12.auth.RsGoogleAuth\"\x00\x125\n" +
 	"\fRefreshToken\x12\x14.auth.RqRefreshToken\x1a\r.auth.RsToken\"\x00\x126\n" +
 	"\n" +
 	"ParseToken\x12\x12.auth.RqParseToken\x1a\x12.auth.RsParseToken\"\x00\x120\n" +
-	"\bUserAuth\x12\x10.auth.RqUserAuth\x1a\x10.auth.RsUserAuth\"\x00B<Z:github.com/mihirk-khode/motocabz-common/genproto/auth;authb\x06proto3"
+	"\bUserAuth\x12\x10.auth.RqUserAuth\x1a\x10.auth.RsUserAuth\"\x00B<Z:github.com/iamarpitzala/motocabz-common/genproto/auth;authb\x06proto3"
 
 var (
 	file_auth_auth_proto_rawDescOnce sync.Once
@@ -955,20 +955,18 @@ var file_auth_auth_proto_depIdxs = []int32{
 	10, // 6: auth.RsUserAuth.token:type_name -> auth.RsToken
 	3,  // 7: auth.AuthService.SendOTP:input_type -> auth.RqSendOtp
 	5,  // 8: auth.AuthService.VerifyOTP:input_type -> auth.RqVerifyOtp
-	7,  // 9: auth.AuthService.GoogleSignup:input_type -> auth.RqGoogleAuth
-	7,  // 10: auth.AuthService.GoogleLogin:input_type -> auth.RqGoogleAuth
-	9,  // 11: auth.AuthService.RefreshToken:input_type -> auth.RqRefreshToken
-	11, // 12: auth.AuthService.ParseToken:input_type -> auth.RqParseToken
-	13, // 13: auth.AuthService.UserAuth:input_type -> auth.RqUserAuth
-	4,  // 14: auth.AuthService.SendOTP:output_type -> auth.RsSendOtp
-	6,  // 15: auth.AuthService.VerifyOTP:output_type -> auth.RsVerifyOtp
-	8,  // 16: auth.AuthService.GoogleSignup:output_type -> auth.RsGoogleAuth
-	8,  // 17: auth.AuthService.GoogleLogin:output_type -> auth.RsGoogleAuth
-	10, // 18: auth.AuthService.RefreshToken:output_type -> auth.RsToken
-	12, // 19: auth.AuthService.ParseToken:output_type -> auth.RsParseToken
-	14, // 20: auth.AuthService.UserAuth:output_type -> auth.RsUserAuth
-	14, // [14:21] is the sub-list for method output_type
-	7,  // [7:14] is the sub-list for method input_type
+	7,  // 9: auth.AuthService.GoogleAuth:input_type -> auth.RqGoogleAuth
+	9,  // 10: auth.AuthService.RefreshToken:input_type -> auth.RqRefreshToken
+	11, // 11: auth.AuthService.ParseToken:input_type -> auth.RqParseToken
+	13, // 12: auth.AuthService.UserAuth:input_type -> auth.RqUserAuth
+	4,  // 13: auth.AuthService.SendOTP:output_type -> auth.RsSendOtp
+	6,  // 14: auth.AuthService.VerifyOTP:output_type -> auth.RsVerifyOtp
+	8,  // 15: auth.AuthService.GoogleAuth:output_type -> auth.RsGoogleAuth
+	10, // 16: auth.AuthService.RefreshToken:output_type -> auth.RsToken
+	12, // 17: auth.AuthService.ParseToken:output_type -> auth.RsParseToken
+	14, // 18: auth.AuthService.UserAuth:output_type -> auth.RsUserAuth
+	13, // [13:19] is the sub-list for method output_type
+	7,  // [7:13] is the sub-list for method input_type
 	7,  // [7:7] is the sub-list for extension type_name
 	7,  // [7:7] is the sub-list for extension extendee
 	0,  // [0:7] is the sub-list for field type_name

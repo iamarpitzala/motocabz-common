@@ -3202,7 +3202,7 @@ const file_trip_trip_proto_rawDesc = "" +
 	"\n" +
 	"ListRating\x12\x17.trip.ListRatingRequest\x1a\x18.trip.ListRatingResponse\x12E\n" +
 	"\fDeleteRating\x12\x19.trip.DeleteRatingRequest\x1a\x1a.trip.DeleteRatingResponse\x12?\n" +
-	"\fUpdateRating\x12\x19.trip.UpdateRatingRequest\x1a\x14.trip.RatingResponseB<Z:github.com/mihirk-khode/motocabz-common/genproto/trip;tripb\x06proto3"
+	"\fUpdateRating\x12\x19.trip.UpdateRatingRequest\x1a\x14.trip.RatingResponseB<Z:github.com/iamarpitzala/motocabz-common/genproto/trip;tripb\x06proto3"
 
 var (
 	file_trip_trip_proto_rawDescOnce sync.Once

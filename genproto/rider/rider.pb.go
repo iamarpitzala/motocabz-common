@@ -844,7 +844,7 @@ const file_rider_rider_proto_rawDesc = "" +
 	"\fRiderService\x12C\n" +
 	"\fGetRiderInfo\x12\x17.rider.RiderInfoRequest\x1a\x18.rider.RiderInfoResponse\"\x00\x12Y\n" +
 	"\x13GetRiderPreferences\x12\x1d.rider.RiderPreferenceRequest\x1a!.rider.GetRiderPreferenceResponse\"\x00\x12e\n" +
-	"\x16UpdateRiderPreferences\x12#.rider.UpdateRiderPreferenceRequest\x1a$.rider.UpdateRiderPreferenceResponse\"\x00B>Z<github.com/mihirk-khode/motocabz-common/genproto/rider;riderb\x06proto3"
+	"\x16UpdateRiderPreferences\x12#.rider.UpdateRiderPreferenceRequest\x1a$.rider.UpdateRiderPreferenceResponse\"\x00B>Z<github.com/iamarpitzala/motocabz-common/genproto/rider;riderb\x06proto3"
 
 var (
 	file_rider_rider_proto_rawDescOnce sync.Once

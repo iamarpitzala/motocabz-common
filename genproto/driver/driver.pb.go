@@ -826,7 +826,7 @@ const file_driver_driver_proto_rawDesc = "" +
 	"\x0eUpdateLocation\x12\x1d.driver.UpdateLocationRequest\x1a\x1e.driver.UpdateLocationResponse\"\x00\x12T\n" +
 	"\x0fGetDriverStatus\x12\x1e.driver.GetDriverStatusRequest\x1a\x1f.driver.GetDriverStatusResponse\"\x00\x12C\n" +
 	"\x0eStreamLocation\x12\x16.driver.LocationUpdate\x1a\x13.driver.LocationAck\"\x00(\x010\x01\x12N\n" +
-	"\rGetDriverInfo\x12\x1c.driver.GetDriverInfoRequest\x1a\x1d.driver.GetDriverInfoResponse\"\x00B@Z>github.com/mihirk-khode/motocabz-common/genproto/driver;driverb\x06proto3"
+	"\rGetDriverInfo\x12\x1c.driver.GetDriverInfoRequest\x1a\x1d.driver.GetDriverInfoResponse\"\x00B@Z>github.com/iamarpitzala/motocabz-common/genproto/driver;driverb\x06proto3"
 
 var (
 	file_driver_driver_proto_rawDescOnce sync.Once
