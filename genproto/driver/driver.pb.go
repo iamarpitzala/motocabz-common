@@ -640,20 +640,25 @@ func (x *GetDriverInfoRequest) GetDriverId() string {
 
 // Driver info response
 type GetDriverInfoResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	DriverId      string                 `protobuf:"bytes,1,opt,name=driver_id,json=driverId,proto3" json:"driver_id,omitempty"`
-	Name          string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
-	Phone         string                 `protobuf:"bytes,3,opt,name=phone,proto3" json:"phone,omitempty"`
-	Rating        float64                `protobuf:"fixed64,4,opt,name=rating,proto3" json:"rating,omitempty"`
-	VehicleType   *EnumResponse          `protobuf:"bytes,5,opt,name=vehicle_type,json=vehicleType,proto3" json:"vehicle_type,omitempty"`
-	VehicleInfo   string                 `protobuf:"bytes,6,opt,name=vehicle_info,json=vehicleInfo,proto3" json:"vehicle_info,omitempty"`
-	Latitude      float64                `protobuf:"fixed64,7,opt,name=latitude,proto3" json:"latitude,omitempty"`
-	Longitude     float64                `protobuf:"fixed64,8,opt,name=longitude,proto3" json:"longitude,omitempty"`
-	DriverStatus  *EnumResponse          `protobuf:"bytes,9,opt,name=driver_status,json=driverStatus,proto3" json:"driver_status,omitempty"`
-	Eta           int32                  `protobuf:"varint,10,opt,name=eta,proto3" json:"eta,omitempty"`            // minutes
-	Distance      float64                `protobuf:"fixed64,11,opt,name=distance,proto3" json:"distance,omitempty"` // km
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state               protoimpl.MessageState `protogen:"open.v1"`
+	DriverId            string                 `protobuf:"bytes,1,opt,name=driver_id,json=driverId,proto3" json:"driver_id,omitempty"`
+	Name                string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+	Phone               string                 `protobuf:"bytes,3,opt,name=phone,proto3" json:"phone,omitempty"`
+	Rating              float64                `protobuf:"fixed64,4,opt,name=rating,proto3" json:"rating,omitempty"`
+	VehicleManufacturer *EnumResponse          `protobuf:"bytes,5,opt,name=vehicle_manufacturer,json=vehicleManufacturer,proto3" json:"vehicle_manufacturer,omitempty"`
+	VehicleModel        *EnumResponse          `protobuf:"bytes,6,opt,name=vehicle_model,json=vehicleModel,proto3" json:"vehicle_model,omitempty"`
+	VehicleClass        *EnumResponse          `protobuf:"bytes,7,opt,name=vehicle_class,json=vehicleClass,proto3" json:"vehicle_class,omitempty"`
+	VehicleInfo         string                 `protobuf:"bytes,8,opt,name=vehicle_info,json=vehicleInfo,proto3" json:"vehicle_info,omitempty"`
+	VehicleColor        string                 `protobuf:"bytes,9,opt,name=vehicle_color,json=vehicleColor,proto3" json:"vehicle_color,omitempty"`
+	VehicleReleaseYear  int32                  `protobuf:"varint,10,opt,name=vehicle_release_year,json=vehicleReleaseYear,proto3" json:"vehicle_release_year,omitempty"`
+	VehicleCityCode     string                 `protobuf:"bytes,11,opt,name=vehicle_city_code,json=vehicleCityCode,proto3" json:"vehicle_city_code,omitempty"`
+	Latitude            float64                `protobuf:"fixed64,12,opt,name=latitude,proto3" json:"latitude,omitempty"`
+	Longitude           float64                `protobuf:"fixed64,13,opt,name=longitude,proto3" json:"longitude,omitempty"`
+	DriverStatus        *EnumResponse          `protobuf:"bytes,14,opt,name=driver_status,json=driverStatus,proto3" json:"driver_status,omitempty"`
+	Eta                 int32                  `protobuf:"varint,15,opt,name=eta,proto3" json:"eta,omitempty"`            // minutes
+	Distance            float64                `protobuf:"fixed64,16,opt,name=distance,proto3" json:"distance,omitempty"` // km
+	unknownFields       protoimpl.UnknownFields
+	sizeCache           protoimpl.SizeCache
 }
 
 func (x *GetDriverInfoResponse) Reset() {
@@ -714,9 +719,23 @@ func (x *GetDriverInfoResponse) GetRating() float64 {
 	return 0
 }
 
-func (x *GetDriverInfoResponse) GetVehicleType() *EnumResponse {
+func (x *GetDriverInfoResponse) GetVehicleManufacturer() *EnumResponse {
 	if x != nil {
-		return x.VehicleType
+		return x.VehicleManufacturer
+	}
+	return nil
+}
+
+func (x *GetDriverInfoResponse) GetVehicleModel() *EnumResponse {
+	if x != nil {
+		return x.VehicleModel
+	}
+	return nil
+}
+
+func (x *GetDriverInfoResponse) GetVehicleClass() *EnumResponse {
+	if x != nil {
+		return x.VehicleClass
 	}
 	return nil
 }
@@ -724,6 +743,27 @@ func (x *GetDriverInfoResponse) GetVehicleType() *EnumResponse {
 func (x *GetDriverInfoResponse) GetVehicleInfo() string {
 	if x != nil {
 		return x.VehicleInfo
+	}
+	return ""
+}
+
+func (x *GetDriverInfoResponse) GetVehicleColor() string {
+	if x != nil {
+		return x.VehicleColor
+	}
+	return ""
+}
+
+func (x *GetDriverInfoResponse) GetVehicleReleaseYear() int32 {
+	if x != nil {
+		return x.VehicleReleaseYear
+	}
+	return 0
+}
+
+func (x *GetDriverInfoResponse) GetVehicleCityCode() string {
+	if x != nil {
+		return x.VehicleCityCode
 	}
 	return ""
 }
@@ -808,20 +848,25 @@ const file_driver_driver_proto_rawDesc = "" +
 	"\amessage\x18\x03 \x01(\tR\amessage\x12\x1c\n" +
 	"\ttimestamp\x18\x04 \x01(\x03R\ttimestamp\"3\n" +
 	"\x14GetDriverInfoRequest\x12\x1b\n" +
-	"\tdriver_id\x18\x01 \x01(\tR\bdriverId\"\xf5\x02\n" +
+	"\tdriver_id\x18\x01 \x01(\tR\bdriverId\"\xfe\x04\n" +
 	"\x15GetDriverInfoResponse\x12\x1b\n" +
 	"\tdriver_id\x18\x01 \x01(\tR\bdriverId\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12\x14\n" +
 	"\x05phone\x18\x03 \x01(\tR\x05phone\x12\x16\n" +
-	"\x06rating\x18\x04 \x01(\x01R\x06rating\x127\n" +
-	"\fvehicle_type\x18\x05 \x01(\v2\x14.driver.EnumResponseR\vvehicleType\x12!\n" +
-	"\fvehicle_info\x18\x06 \x01(\tR\vvehicleInfo\x12\x1a\n" +
-	"\blatitude\x18\a \x01(\x01R\blatitude\x12\x1c\n" +
-	"\tlongitude\x18\b \x01(\x01R\tlongitude\x129\n" +
-	"\rdriver_status\x18\t \x01(\v2\x14.driver.EnumResponseR\fdriverStatus\x12\x10\n" +
-	"\x03eta\x18\n" +
-	" \x01(\x05R\x03eta\x12\x1a\n" +
-	"\bdistance\x18\v \x01(\x01R\bdistance2\xcd\x02\n" +
+	"\x06rating\x18\x04 \x01(\x01R\x06rating\x12G\n" +
+	"\x14vehicle_manufacturer\x18\x05 \x01(\v2\x14.driver.EnumResponseR\x13vehicleManufacturer\x129\n" +
+	"\rvehicle_model\x18\x06 \x01(\v2\x14.driver.EnumResponseR\fvehicleModel\x129\n" +
+	"\rvehicle_class\x18\a \x01(\v2\x14.driver.EnumResponseR\fvehicleClass\x12!\n" +
+	"\fvehicle_info\x18\b \x01(\tR\vvehicleInfo\x12#\n" +
+	"\rvehicle_color\x18\t \x01(\tR\fvehicleColor\x120\n" +
+	"\x14vehicle_release_year\x18\n" +
+	" \x01(\x05R\x12vehicleReleaseYear\x12*\n" +
+	"\x11vehicle_city_code\x18\v \x01(\tR\x0fvehicleCityCode\x12\x1a\n" +
+	"\blatitude\x18\f \x01(\x01R\blatitude\x12\x1c\n" +
+	"\tlongitude\x18\r \x01(\x01R\tlongitude\x129\n" +
+	"\rdriver_status\x18\x0e \x01(\v2\x14.driver.EnumResponseR\fdriverStatus\x12\x10\n" +
+	"\x03eta\x18\x0f \x01(\x05R\x03eta\x12\x1a\n" +
+	"\bdistance\x18\x10 \x01(\x01R\bdistance2\xcd\x02\n" +
 	"\rDriverService\x12Q\n" +
 	"\x0eUpdateLocation\x12\x1d.driver.UpdateLocationRequest\x1a\x1e.driver.UpdateLocationResponse\"\x00\x12T\n" +
 	"\x0fGetDriverStatus\x12\x1e.driver.GetDriverStatusRequest\x1a\x1f.driver.GetDriverStatusResponse\"\x00\x12C\n" +
@@ -859,21 +904,23 @@ var file_driver_driver_proto_depIdxs = []int32{
 	2,  // 1: driver.UpdateLocationRequest.driver_status:type_name -> driver.EnumRequest
 	1,  // 2: driver.GetDriverStatusResponse.driver_status:type_name -> driver.EnumResponse
 	1,  // 3: driver.LocationUpdate.driver_status:type_name -> driver.EnumResponse
-	1,  // 4: driver.GetDriverInfoResponse.vehicle_type:type_name -> driver.EnumResponse
-	1,  // 5: driver.GetDriverInfoResponse.driver_status:type_name -> driver.EnumResponse
-	3,  // 6: driver.DriverService.UpdateLocation:input_type -> driver.UpdateLocationRequest
-	5,  // 7: driver.DriverService.GetDriverStatus:input_type -> driver.GetDriverStatusRequest
-	7,  // 8: driver.DriverService.StreamLocation:input_type -> driver.LocationUpdate
-	9,  // 9: driver.DriverService.GetDriverInfo:input_type -> driver.GetDriverInfoRequest
-	4,  // 10: driver.DriverService.UpdateLocation:output_type -> driver.UpdateLocationResponse
-	6,  // 11: driver.DriverService.GetDriverStatus:output_type -> driver.GetDriverStatusResponse
-	8,  // 12: driver.DriverService.StreamLocation:output_type -> driver.LocationAck
-	10, // 13: driver.DriverService.GetDriverInfo:output_type -> driver.GetDriverInfoResponse
-	10, // [10:14] is the sub-list for method output_type
-	6,  // [6:10] is the sub-list for method input_type
-	6,  // [6:6] is the sub-list for extension type_name
-	6,  // [6:6] is the sub-list for extension extendee
-	0,  // [0:6] is the sub-list for field type_name
+	1,  // 4: driver.GetDriverInfoResponse.vehicle_manufacturer:type_name -> driver.EnumResponse
+	1,  // 5: driver.GetDriverInfoResponse.vehicle_model:type_name -> driver.EnumResponse
+	1,  // 6: driver.GetDriverInfoResponse.vehicle_class:type_name -> driver.EnumResponse
+	1,  // 7: driver.GetDriverInfoResponse.driver_status:type_name -> driver.EnumResponse
+	3,  // 8: driver.DriverService.UpdateLocation:input_type -> driver.UpdateLocationRequest
+	5,  // 9: driver.DriverService.GetDriverStatus:input_type -> driver.GetDriverStatusRequest
+	7,  // 10: driver.DriverService.StreamLocation:input_type -> driver.LocationUpdate
+	9,  // 11: driver.DriverService.GetDriverInfo:input_type -> driver.GetDriverInfoRequest
+	4,  // 12: driver.DriverService.UpdateLocation:output_type -> driver.UpdateLocationResponse
+	6,  // 13: driver.DriverService.GetDriverStatus:output_type -> driver.GetDriverStatusResponse
+	8,  // 14: driver.DriverService.StreamLocation:output_type -> driver.LocationAck
+	10, // 15: driver.DriverService.GetDriverInfo:output_type -> driver.GetDriverInfoResponse
+	12, // [12:16] is the sub-list for method output_type
+	8,  // [8:12] is the sub-list for method input_type
+	8,  // [8:8] is the sub-list for extension type_name
+	8,  // [8:8] is the sub-list for extension extendee
+	0,  // [0:8] is the sub-list for field type_name
 }
 
 func init() { file_driver_driver_proto_init() }
