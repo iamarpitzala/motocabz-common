@@ -1279,7 +1279,7 @@ type TripResponse struct {
 	Status           *EnumResponse          `protobuf:"bytes,5,opt,name=status,proto3" json:"status,omitempty"`
 	PaymentStatus    *EnumResponse          `protobuf:"bytes,6,opt,name=payment_status,json=paymentStatus,proto3" json:"payment_status,omitempty"`
 	BiddingStatus    *EnumResponse          `protobuf:"bytes,7,opt,name=bidding_status,json=biddingStatus,proto3" json:"bidding_status,omitempty"`
-	VehicleCategory  *EnumResponse          `protobuf:"bytes,9,opt,name=vehicle_category,json=vehicleCategory,proto3" json:"vehicle_category,omitempty"`
+	VehicleClass     *EnumResponse          `protobuf:"bytes,9,opt,name=vehicle_class,json=vehicleClass,proto3" json:"vehicle_class,omitempty"`
 	Fare             *float64               `protobuf:"fixed64,10,opt,name=fare,proto3,oneof" json:"fare,omitempty"`
 	Location         *Location              `protobuf:"bytes,11,opt,name=location,proto3" json:"location,omitempty"`
 	BiddingSessionId *string                `protobuf:"bytes,12,opt,name=bidding_session_id,json=biddingSessionId,proto3,oneof" json:"bidding_session_id,omitempty"`
@@ -1368,9 +1368,9 @@ func (x *TripResponse) GetBiddingStatus() *EnumResponse {
 	return nil
 }
 
-func (x *TripResponse) GetVehicleCategory() *EnumResponse {
+func (x *TripResponse) GetVehicleClass() *EnumResponse {
 	if x != nil {
-		return x.VehicleCategory
+		return x.VehicleClass
 	}
 	return nil
 }
@@ -4904,7 +4904,7 @@ const file_trip_trip_proto_rawDesc = "" +
 	"\x0ebidding_status\x18\x06 \x01(\v2\x11.trip.EnumRequestR\rbiddingStatus\x126\n" +
 	"\rvehicle_class\x18\a \x01(\v2\x11.trip.EnumRequestR\fvehicleClass\x121\n" +
 	"\x12initial_fare_offer\x18\b \x01(\x01H\x00R\x10initialFareOffer\x88\x01\x01B\x15\n" +
-	"\x13_initial_fare_offer\"\xed\x04\n" +
+	"\x13_initial_fare_offer\"\xe7\x04\n" +
 	"\fTripResponse\x12\x17\n" +
 	"\atrip_id\x18\x01 \x01(\tR\x06tripId\x12\x19\n" +
 	"\brider_id\x18\x02 \x01(\tR\ariderId\x12 \n" +
@@ -4913,8 +4913,8 @@ const file_trip_trip_proto_rawDesc = "" +
 	"priceModel\x12*\n" +
 	"\x06status\x18\x05 \x01(\v2\x12.trip.EnumResponseR\x06status\x129\n" +
 	"\x0epayment_status\x18\x06 \x01(\v2\x12.trip.EnumResponseR\rpaymentStatus\x129\n" +
-	"\x0ebidding_status\x18\a \x01(\v2\x12.trip.EnumResponseR\rbiddingStatus\x12=\n" +
-	"\x10vehicle_category\x18\t \x01(\v2\x12.trip.EnumResponseR\x0fvehicleCategory\x12\x17\n" +
+	"\x0ebidding_status\x18\a \x01(\v2\x12.trip.EnumResponseR\rbiddingStatus\x127\n" +
+	"\rvehicle_class\x18\t \x01(\v2\x12.trip.EnumResponseR\fvehicleClass\x12\x17\n" +
 	"\x04fare\x18\n" +
 	" \x01(\x01H\x01R\x04fare\x88\x01\x01\x12*\n" +
 	"\blocation\x18\v \x01(\v2\x0e.trip.LocationR\blocation\x121\n" +
@@ -5425,7 +5425,7 @@ var file_trip_trip_proto_depIdxs = []int32{
 	11, // 30: trip.TripResponse.status:type_name -> trip.EnumResponse
 	11, // 31: trip.TripResponse.payment_status:type_name -> trip.EnumResponse
 	11, // 32: trip.TripResponse.bidding_status:type_name -> trip.EnumResponse
-	11, // 33: trip.TripResponse.vehicle_category:type_name -> trip.EnumResponse
+	11, // 33: trip.TripResponse.vehicle_class:type_name -> trip.EnumResponse
 	14, // 34: trip.TripResponse.location:type_name -> trip.Location
 	9,  // 35: trip.BidOrOfferRequest.price_model:type_name -> trip.EnumRequest
 	9,  // 36: trip.BidOrOfferRequest.user_role:type_name -> trip.EnumRequest
