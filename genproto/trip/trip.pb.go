@@ -1030,7 +1030,7 @@ type Trip struct {
 	Status           *EnumResponse          `protobuf:"bytes,5,opt,name=status,proto3" json:"status,omitempty"`
 	PaymentStatus    *EnumResponse          `protobuf:"bytes,6,opt,name=payment_status,json=paymentStatus,proto3" json:"payment_status,omitempty"`
 	BiddingStatus    *EnumResponse          `protobuf:"bytes,7,opt,name=bidding_status,json=biddingStatus,proto3" json:"bidding_status,omitempty"`
-	VehicleType      *EnumResponse          `protobuf:"bytes,8,opt,name=vehicle_type,json=vehicleType,proto3" json:"vehicle_type,omitempty"`
+	VehicleClass     *EnumResponse          `protobuf:"bytes,8,opt,name=vehicle_class,json=vehicleClass,proto3" json:"vehicle_class,omitempty"`
 	VehicleCategory  *EnumResponse          `protobuf:"bytes,9,opt,name=vehicle_category,json=vehicleCategory,proto3" json:"vehicle_category,omitempty"`
 	Fare             float64                `protobuf:"fixed64,10,opt,name=fare,proto3" json:"fare,omitempty"`
 	Location         *Location              `protobuf:"bytes,11,opt,name=location,proto3" json:"location,omitempty"`
@@ -1120,9 +1120,9 @@ func (x *Trip) GetBiddingStatus() *EnumResponse {
 	return nil
 }
 
-func (x *Trip) GetVehicleType() *EnumResponse {
+func (x *Trip) GetVehicleClass() *EnumResponse {
 	if x != nil {
-		return x.VehicleType
+		return x.VehicleClass
 	}
 	return nil
 }
@@ -1178,7 +1178,7 @@ type TripRequest struct {
 	TripStatus       *EnumRequest           `protobuf:"bytes,4,opt,name=trip_status,json=tripStatus,proto3" json:"trip_status,omitempty"`
 	PaymentStatus    *EnumRequest           `protobuf:"bytes,5,opt,name=payment_status,json=paymentStatus,proto3" json:"payment_status,omitempty"`
 	BiddingStatus    *EnumRequest           `protobuf:"bytes,6,opt,name=bidding_status,json=biddingStatus,proto3" json:"bidding_status,omitempty"`
-	VehicleCategory  *EnumRequest           `protobuf:"bytes,7,opt,name=vehicle_category,json=vehicleCategory,proto3" json:"vehicle_category,omitempty"`
+	VehicleClass     *EnumRequest           `protobuf:"bytes,7,opt,name=vehicle_class,json=vehicleClass,proto3" json:"vehicle_class,omitempty"`
 	InitialFareOffer *float64               `protobuf:"fixed64,8,opt,name=initial_fare_offer,json=initialFareOffer,proto3,oneof" json:"initial_fare_offer,omitempty"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
@@ -1256,9 +1256,9 @@ func (x *TripRequest) GetBiddingStatus() *EnumRequest {
 	return nil
 }
 
-func (x *TripRequest) GetVehicleCategory() *EnumRequest {
+func (x *TripRequest) GetVehicleClass() *EnumRequest {
 	if x != nil {
-		return x.VehicleCategory
+		return x.VehicleClass
 	}
 	return nil
 }
@@ -4870,7 +4870,7 @@ const file_trip_trip_proto_rawDesc = "" +
 	"\f_postal_code\"N\n" +
 	"\bLocation\x12\"\n" +
 	"\x05start\x18\x01 \x01(\v2\f.trip.LatLngR\x05start\x12\x1e\n" +
-	"\x03end\x18\x02 \x01(\v2\f.trip.LatLngR\x03end\"\x9d\x05\n" +
+	"\x03end\x18\x02 \x01(\v2\f.trip.LatLngR\x03end\"\x9f\x05\n" +
 	"\x04Trip\x12\x17\n" +
 	"\atrip_id\x18\x01 \x01(\tR\x06tripId\x12\x19\n" +
 	"\brider_id\x18\x02 \x01(\tR\ariderId\x12 \n" +
@@ -4879,8 +4879,8 @@ const file_trip_trip_proto_rawDesc = "" +
 	"priceModel\x12*\n" +
 	"\x06status\x18\x05 \x01(\v2\x12.trip.EnumResponseR\x06status\x129\n" +
 	"\x0epayment_status\x18\x06 \x01(\v2\x12.trip.EnumResponseR\rpaymentStatus\x129\n" +
-	"\x0ebidding_status\x18\a \x01(\v2\x12.trip.EnumResponseR\rbiddingStatus\x125\n" +
-	"\fvehicle_type\x18\b \x01(\v2\x12.trip.EnumResponseR\vvehicleType\x12=\n" +
+	"\x0ebidding_status\x18\a \x01(\v2\x12.trip.EnumResponseR\rbiddingStatus\x127\n" +
+	"\rvehicle_class\x18\b \x01(\v2\x12.trip.EnumResponseR\fvehicleClass\x12=\n" +
 	"\x10vehicle_category\x18\t \x01(\v2\x12.trip.EnumResponseR\x0fvehicleCategory\x12\x12\n" +
 	"\x04fare\x18\n" +
 	" \x01(\x01R\x04fare\x12*\n" +
@@ -4892,7 +4892,7 @@ const file_trip_trip_proto_rawDesc = "" +
 	"_driver_idB\x15\n" +
 	"\x13_bidding_session_idB\v\n" +
 	"\t_distanceB\v\n" +
-	"\t_duration\"\xb8\x03\n" +
+	"\t_duration\"\xb2\x03\n" +
 	"\vTripRequest\x12\x19\n" +
 	"\brider_id\x18\x01 \x01(\tR\ariderId\x12*\n" +
 	"\blocation\x18\x02 \x01(\v2\x0e.trip.LocationR\blocation\x122\n" +
@@ -4901,8 +4901,8 @@ const file_trip_trip_proto_rawDesc = "" +
 	"\vtrip_status\x18\x04 \x01(\v2\x11.trip.EnumRequestR\n" +
 	"tripStatus\x128\n" +
 	"\x0epayment_status\x18\x05 \x01(\v2\x11.trip.EnumRequestR\rpaymentStatus\x128\n" +
-	"\x0ebidding_status\x18\x06 \x01(\v2\x11.trip.EnumRequestR\rbiddingStatus\x12<\n" +
-	"\x10vehicle_category\x18\a \x01(\v2\x11.trip.EnumRequestR\x0fvehicleCategory\x121\n" +
+	"\x0ebidding_status\x18\x06 \x01(\v2\x11.trip.EnumRequestR\rbiddingStatus\x126\n" +
+	"\rvehicle_class\x18\a \x01(\v2\x11.trip.EnumRequestR\fvehicleClass\x121\n" +
 	"\x12initial_fare_offer\x18\b \x01(\x01H\x00R\x10initialFareOffer\x88\x01\x01B\x15\n" +
 	"\x13_initial_fare_offer\"\xed\x04\n" +
 	"\fTripResponse\x12\x17\n" +
@@ -5412,7 +5412,7 @@ var file_trip_trip_proto_depIdxs = []int32{
 	11, // 17: trip.Trip.status:type_name -> trip.EnumResponse
 	11, // 18: trip.Trip.payment_status:type_name -> trip.EnumResponse
 	11, // 19: trip.Trip.bidding_status:type_name -> trip.EnumResponse
-	11, // 20: trip.Trip.vehicle_type:type_name -> trip.EnumResponse
+	11, // 20: trip.Trip.vehicle_class:type_name -> trip.EnumResponse
 	11, // 21: trip.Trip.vehicle_category:type_name -> trip.EnumResponse
 	14, // 22: trip.Trip.location:type_name -> trip.Location
 	14, // 23: trip.TripRequest.location:type_name -> trip.Location
@@ -5420,7 +5420,7 @@ var file_trip_trip_proto_depIdxs = []int32{
 	9,  // 25: trip.TripRequest.trip_status:type_name -> trip.EnumRequest
 	9,  // 26: trip.TripRequest.payment_status:type_name -> trip.EnumRequest
 	9,  // 27: trip.TripRequest.bidding_status:type_name -> trip.EnumRequest
-	9,  // 28: trip.TripRequest.vehicle_category:type_name -> trip.EnumRequest
+	9,  // 28: trip.TripRequest.vehicle_class:type_name -> trip.EnumRequest
 	11, // 29: trip.TripResponse.price_model:type_name -> trip.EnumResponse
 	11, // 30: trip.TripResponse.status:type_name -> trip.EnumResponse
 	11, // 31: trip.TripResponse.payment_status:type_name -> trip.EnumResponse
