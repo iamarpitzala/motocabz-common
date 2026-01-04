@@ -1942,6 +1942,58 @@ func (x *GetTripRequest) GetTripId() string {
 	return ""
 }
 
+type GetTripResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Message       string                 `protobuf:"bytes,1,opt,name=message,proto3" json:"message,omitempty"`
+	Trip          *Trip                  `protobuf:"bytes,2,opt,name=trip,proto3" json:"trip,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTripResponse) Reset() {
+	*x = GetTripResponse{}
+	mi := &file_trip_trip_proto_msgTypes[25]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTripResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTripResponse) ProtoMessage() {}
+
+func (x *GetTripResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_trip_trip_proto_msgTypes[25]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTripResponse.ProtoReflect.Descriptor instead.
+func (*GetTripResponse) Descriptor() ([]byte, []int) {
+	return file_trip_trip_proto_rawDescGZIP(), []int{25}
+}
+
+func (x *GetTripResponse) GetMessage() string {
+	if x != nil {
+		return x.Message
+	}
+	return ""
+}
+
+func (x *GetTripResponse) GetTrip() *Trip {
+	if x != nil {
+		return x.Trip
+	}
+	return nil
+}
+
 type TripFilterRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	RiderId       *string                `protobuf:"bytes,1,opt,name=rider_id,json=riderId,proto3,oneof" json:"rider_id,omitempty"`
@@ -1956,7 +2008,7 @@ type TripFilterRequest struct {
 
 func (x *TripFilterRequest) Reset() {
 	*x = TripFilterRequest{}
-	mi := &file_trip_trip_proto_msgTypes[25]
+	mi := &file_trip_trip_proto_msgTypes[26]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1968,7 +2020,7 @@ func (x *TripFilterRequest) String() string {
 func (*TripFilterRequest) ProtoMessage() {}
 
 func (x *TripFilterRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_trip_trip_proto_msgTypes[25]
+	mi := &file_trip_trip_proto_msgTypes[26]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1981,7 +2033,7 @@ func (x *TripFilterRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use TripFilterRequest.ProtoReflect.Descriptor instead.
 func (*TripFilterRequest) Descriptor() ([]byte, []int) {
-	return file_trip_trip_proto_rawDescGZIP(), []int{25}
+	return file_trip_trip_proto_rawDescGZIP(), []int{26}
 }
 
 func (x *TripFilterRequest) GetRiderId() string {
@@ -2026,6 +2078,254 @@ func (x *TripFilterRequest) GetStatus() int32 {
 	return 0
 }
 
+type GetActiveTripsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	RiderId       *string                `protobuf:"bytes,1,opt,name=rider_id,json=riderId,proto3,oneof" json:"rider_id,omitempty"`
+	DriverId      *string                `protobuf:"bytes,2,opt,name=driver_id,json=driverId,proto3,oneof" json:"driver_id,omitempty"`
+	TripId        *string                `protobuf:"bytes,3,opt,name=trip_id,json=tripId,proto3,oneof" json:"trip_id,omitempty"`
+	Limit         *int32                 `protobuf:"varint,4,opt,name=limit,proto3,oneof" json:"limit,omitempty"`
+	Offset        *int32                 `protobuf:"varint,5,opt,name=offset,proto3,oneof" json:"offset,omitempty"`
+	Status        *int32                 `protobuf:"varint,6,opt,name=status,proto3,oneof" json:"status,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetActiveTripsRequest) Reset() {
+	*x = GetActiveTripsRequest{}
+	mi := &file_trip_trip_proto_msgTypes[27]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetActiveTripsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetActiveTripsRequest) ProtoMessage() {}
+
+func (x *GetActiveTripsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_trip_trip_proto_msgTypes[27]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetActiveTripsRequest.ProtoReflect.Descriptor instead.
+func (*GetActiveTripsRequest) Descriptor() ([]byte, []int) {
+	return file_trip_trip_proto_rawDescGZIP(), []int{27}
+}
+
+func (x *GetActiveTripsRequest) GetRiderId() string {
+	if x != nil && x.RiderId != nil {
+		return *x.RiderId
+	}
+	return ""
+}
+
+func (x *GetActiveTripsRequest) GetDriverId() string {
+	if x != nil && x.DriverId != nil {
+		return *x.DriverId
+	}
+	return ""
+}
+
+func (x *GetActiveTripsRequest) GetTripId() string {
+	if x != nil && x.TripId != nil {
+		return *x.TripId
+	}
+	return ""
+}
+
+func (x *GetActiveTripsRequest) GetLimit() int32 {
+	if x != nil && x.Limit != nil {
+		return *x.Limit
+	}
+	return 0
+}
+
+func (x *GetActiveTripsRequest) GetOffset() int32 {
+	if x != nil && x.Offset != nil {
+		return *x.Offset
+	}
+	return 0
+}
+
+func (x *GetActiveTripsRequest) GetStatus() int32 {
+	if x != nil && x.Status != nil {
+		return *x.Status
+	}
+	return 0
+}
+
+type GetActiveTripsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Trips         []*Trip                `protobuf:"bytes,1,rep,name=trips,proto3" json:"trips,omitempty"`
+	Message       string                 `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetActiveTripsResponse) Reset() {
+	*x = GetActiveTripsResponse{}
+	mi := &file_trip_trip_proto_msgTypes[28]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetActiveTripsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetActiveTripsResponse) ProtoMessage() {}
+
+func (x *GetActiveTripsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_trip_trip_proto_msgTypes[28]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetActiveTripsResponse.ProtoReflect.Descriptor instead.
+func (*GetActiveTripsResponse) Descriptor() ([]byte, []int) {
+	return file_trip_trip_proto_rawDescGZIP(), []int{28}
+}
+
+func (x *GetActiveTripsResponse) GetTrips() []*Trip {
+	if x != nil {
+		return x.Trips
+	}
+	return nil
+}
+
+func (x *GetActiveTripsResponse) GetMessage() string {
+	if x != nil {
+		return x.Message
+	}
+	return ""
+}
+
+type GetActiveTripsByRiderRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	RiderId       string                 `protobuf:"bytes,1,opt,name=rider_id,json=riderId,proto3" json:"rider_id,omitempty"`
+	Limit         *int32                 `protobuf:"varint,2,opt,name=limit,proto3,oneof" json:"limit,omitempty"`
+	Offset        *int32                 `protobuf:"varint,3,opt,name=offset,proto3,oneof" json:"offset,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetActiveTripsByRiderRequest) Reset() {
+	*x = GetActiveTripsByRiderRequest{}
+	mi := &file_trip_trip_proto_msgTypes[29]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetActiveTripsByRiderRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetActiveTripsByRiderRequest) ProtoMessage() {}
+
+func (x *GetActiveTripsByRiderRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_trip_trip_proto_msgTypes[29]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetActiveTripsByRiderRequest.ProtoReflect.Descriptor instead.
+func (*GetActiveTripsByRiderRequest) Descriptor() ([]byte, []int) {
+	return file_trip_trip_proto_rawDescGZIP(), []int{29}
+}
+
+func (x *GetActiveTripsByRiderRequest) GetRiderId() string {
+	if x != nil {
+		return x.RiderId
+	}
+	return ""
+}
+
+func (x *GetActiveTripsByRiderRequest) GetLimit() int32 {
+	if x != nil && x.Limit != nil {
+		return *x.Limit
+	}
+	return 0
+}
+
+func (x *GetActiveTripsByRiderRequest) GetOffset() int32 {
+	if x != nil && x.Offset != nil {
+		return *x.Offset
+	}
+	return 0
+}
+
+type GetActiveTripsByRiderResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Trips         []*Trip                `protobuf:"bytes,1,rep,name=trips,proto3" json:"trips,omitempty"`
+	Message       string                 `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetActiveTripsByRiderResponse) Reset() {
+	*x = GetActiveTripsByRiderResponse{}
+	mi := &file_trip_trip_proto_msgTypes[30]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetActiveTripsByRiderResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetActiveTripsByRiderResponse) ProtoMessage() {}
+
+func (x *GetActiveTripsByRiderResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_trip_trip_proto_msgTypes[30]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetActiveTripsByRiderResponse.ProtoReflect.Descriptor instead.
+func (*GetActiveTripsByRiderResponse) Descriptor() ([]byte, []int) {
+	return file_trip_trip_proto_rawDescGZIP(), []int{30}
+}
+
+func (x *GetActiveTripsByRiderResponse) GetTrips() []*Trip {
+	if x != nil {
+		return x.Trips
+	}
+	return nil
+}
+
+func (x *GetActiveTripsByRiderResponse) GetMessage() string {
+	if x != nil {
+		return x.Message
+	}
+	return ""
+}
+
 type ListTripResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Trips         []*Trip                `protobuf:"bytes,1,rep,name=trips,proto3" json:"trips,omitempty"`
@@ -2035,7 +2335,7 @@ type ListTripResponse struct {
 
 func (x *ListTripResponse) Reset() {
 	*x = ListTripResponse{}
-	mi := &file_trip_trip_proto_msgTypes[26]
+	mi := &file_trip_trip_proto_msgTypes[31]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2047,7 +2347,7 @@ func (x *ListTripResponse) String() string {
 func (*ListTripResponse) ProtoMessage() {}
 
 func (x *ListTripResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_trip_trip_proto_msgTypes[26]
+	mi := &file_trip_trip_proto_msgTypes[31]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2060,7 +2360,7 @@ func (x *ListTripResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListTripResponse.ProtoReflect.Descriptor instead.
 func (*ListTripResponse) Descriptor() ([]byte, []int) {
-	return file_trip_trip_proto_rawDescGZIP(), []int{26}
+	return file_trip_trip_proto_rawDescGZIP(), []int{31}
 }
 
 func (x *ListTripResponse) GetTrips() []*Trip {
@@ -2080,7 +2380,7 @@ type AcceptTripRequest struct {
 
 func (x *AcceptTripRequest) Reset() {
 	*x = AcceptTripRequest{}
-	mi := &file_trip_trip_proto_msgTypes[27]
+	mi := &file_trip_trip_proto_msgTypes[32]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2092,7 +2392,7 @@ func (x *AcceptTripRequest) String() string {
 func (*AcceptTripRequest) ProtoMessage() {}
 
 func (x *AcceptTripRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_trip_trip_proto_msgTypes[27]
+	mi := &file_trip_trip_proto_msgTypes[32]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2105,7 +2405,7 @@ func (x *AcceptTripRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AcceptTripRequest.ProtoReflect.Descriptor instead.
 func (*AcceptTripRequest) Descriptor() ([]byte, []int) {
-	return file_trip_trip_proto_rawDescGZIP(), []int{27}
+	return file_trip_trip_proto_rawDescGZIP(), []int{32}
 }
 
 func (x *AcceptTripRequest) GetTripId() string {
@@ -2122,6 +2422,66 @@ func (x *AcceptTripRequest) GetDriverId() string {
 	return ""
 }
 
+type AcceptTripResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	DriverId      string                 `protobuf:"bytes,1,opt,name=driver_id,json=driverId,proto3" json:"driver_id,omitempty"`
+	Message       string                 `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`
+	Trip          *Trip                  `protobuf:"bytes,3,opt,name=trip,proto3" json:"trip,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AcceptTripResponse) Reset() {
+	*x = AcceptTripResponse{}
+	mi := &file_trip_trip_proto_msgTypes[33]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AcceptTripResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AcceptTripResponse) ProtoMessage() {}
+
+func (x *AcceptTripResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_trip_trip_proto_msgTypes[33]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AcceptTripResponse.ProtoReflect.Descriptor instead.
+func (*AcceptTripResponse) Descriptor() ([]byte, []int) {
+	return file_trip_trip_proto_rawDescGZIP(), []int{33}
+}
+
+func (x *AcceptTripResponse) GetDriverId() string {
+	if x != nil {
+		return x.DriverId
+	}
+	return ""
+}
+
+func (x *AcceptTripResponse) GetMessage() string {
+	if x != nil {
+		return x.Message
+	}
+	return ""
+}
+
+func (x *AcceptTripResponse) GetTrip() *Trip {
+	if x != nil {
+		return x.Trip
+	}
+	return nil
+}
+
 type CancelTripRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	TripId        string                 `protobuf:"bytes,1,opt,name=trip_id,json=tripId,proto3" json:"trip_id,omitempty"`
@@ -2134,7 +2494,7 @@ type CancelTripRequest struct {
 
 func (x *CancelTripRequest) Reset() {
 	*x = CancelTripRequest{}
-	mi := &file_trip_trip_proto_msgTypes[28]
+	mi := &file_trip_trip_proto_msgTypes[34]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2146,7 +2506,7 @@ func (x *CancelTripRequest) String() string {
 func (*CancelTripRequest) ProtoMessage() {}
 
 func (x *CancelTripRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_trip_trip_proto_msgTypes[28]
+	mi := &file_trip_trip_proto_msgTypes[34]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2159,7 +2519,7 @@ func (x *CancelTripRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CancelTripRequest.ProtoReflect.Descriptor instead.
 func (*CancelTripRequest) Descriptor() ([]byte, []int) {
-	return file_trip_trip_proto_rawDescGZIP(), []int{28}
+	return file_trip_trip_proto_rawDescGZIP(), []int{34}
 }
 
 func (x *CancelTripRequest) GetTripId() string {
@@ -2200,7 +2560,7 @@ type CancelTripResponse struct {
 
 func (x *CancelTripResponse) Reset() {
 	*x = CancelTripResponse{}
-	mi := &file_trip_trip_proto_msgTypes[29]
+	mi := &file_trip_trip_proto_msgTypes[35]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2212,7 +2572,7 @@ func (x *CancelTripResponse) String() string {
 func (*CancelTripResponse) ProtoMessage() {}
 
 func (x *CancelTripResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_trip_trip_proto_msgTypes[29]
+	mi := &file_trip_trip_proto_msgTypes[35]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2225,7 +2585,7 @@ func (x *CancelTripResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CancelTripResponse.ProtoReflect.Descriptor instead.
 func (*CancelTripResponse) Descriptor() ([]byte, []int) {
-	return file_trip_trip_proto_rawDescGZIP(), []int{29}
+	return file_trip_trip_proto_rawDescGZIP(), []int{35}
 }
 
 func (x *CancelTripResponse) GetUserId() string {
@@ -2253,7 +2613,7 @@ type CompleteTripRequest struct {
 
 func (x *CompleteTripRequest) Reset() {
 	*x = CompleteTripRequest{}
-	mi := &file_trip_trip_proto_msgTypes[30]
+	mi := &file_trip_trip_proto_msgTypes[36]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2265,7 +2625,7 @@ func (x *CompleteTripRequest) String() string {
 func (*CompleteTripRequest) ProtoMessage() {}
 
 func (x *CompleteTripRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_trip_trip_proto_msgTypes[30]
+	mi := &file_trip_trip_proto_msgTypes[36]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2278,7 +2638,7 @@ func (x *CompleteTripRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CompleteTripRequest.ProtoReflect.Descriptor instead.
 func (*CompleteTripRequest) Descriptor() ([]byte, []int) {
-	return file_trip_trip_proto_rawDescGZIP(), []int{30}
+	return file_trip_trip_proto_rawDescGZIP(), []int{36}
 }
 
 func (x *CompleteTripRequest) GetTripId() string {
@@ -2314,7 +2674,7 @@ type CompleteTripResponse struct {
 
 func (x *CompleteTripResponse) Reset() {
 	*x = CompleteTripResponse{}
-	mi := &file_trip_trip_proto_msgTypes[31]
+	mi := &file_trip_trip_proto_msgTypes[37]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2326,7 +2686,7 @@ func (x *CompleteTripResponse) String() string {
 func (*CompleteTripResponse) ProtoMessage() {}
 
 func (x *CompleteTripResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_trip_trip_proto_msgTypes[31]
+	mi := &file_trip_trip_proto_msgTypes[37]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2339,7 +2699,7 @@ func (x *CompleteTripResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CompleteTripResponse.ProtoReflect.Descriptor instead.
 func (*CompleteTripResponse) Descriptor() ([]byte, []int) {
-	return file_trip_trip_proto_rawDescGZIP(), []int{31}
+	return file_trip_trip_proto_rawDescGZIP(), []int{37}
 }
 
 func (x *CompleteTripResponse) GetDriverId() string {
@@ -2393,7 +2753,7 @@ type BiddingSession struct {
 
 func (x *BiddingSession) Reset() {
 	*x = BiddingSession{}
-	mi := &file_trip_trip_proto_msgTypes[32]
+	mi := &file_trip_trip_proto_msgTypes[38]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2405,7 +2765,7 @@ func (x *BiddingSession) String() string {
 func (*BiddingSession) ProtoMessage() {}
 
 func (x *BiddingSession) ProtoReflect() protoreflect.Message {
-	mi := &file_trip_trip_proto_msgTypes[32]
+	mi := &file_trip_trip_proto_msgTypes[38]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2418,7 +2778,7 @@ func (x *BiddingSession) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BiddingSession.ProtoReflect.Descriptor instead.
 func (*BiddingSession) Descriptor() ([]byte, []int) {
-	return file_trip_trip_proto_rawDescGZIP(), []int{32}
+	return file_trip_trip_proto_rawDescGZIP(), []int{38}
 }
 
 func (x *BiddingSession) GetSessionId() string {
@@ -2528,7 +2888,7 @@ type RqGetBiddingSession struct {
 
 func (x *RqGetBiddingSession) Reset() {
 	*x = RqGetBiddingSession{}
-	mi := &file_trip_trip_proto_msgTypes[33]
+	mi := &file_trip_trip_proto_msgTypes[39]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2540,7 +2900,7 @@ func (x *RqGetBiddingSession) String() string {
 func (*RqGetBiddingSession) ProtoMessage() {}
 
 func (x *RqGetBiddingSession) ProtoReflect() protoreflect.Message {
-	mi := &file_trip_trip_proto_msgTypes[33]
+	mi := &file_trip_trip_proto_msgTypes[39]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2553,12 +2913,220 @@ func (x *RqGetBiddingSession) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RqGetBiddingSession.ProtoReflect.Descriptor instead.
 func (*RqGetBiddingSession) Descriptor() ([]byte, []int) {
-	return file_trip_trip_proto_rawDescGZIP(), []int{33}
+	return file_trip_trip_proto_rawDescGZIP(), []int{39}
 }
 
 func (x *RqGetBiddingSession) GetTripId() string {
 	if x != nil {
 		return x.TripId
+	}
+	return ""
+}
+
+type GetBiddingSessionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	TripId        string                 `protobuf:"bytes,1,opt,name=trip_id,json=tripId,proto3" json:"trip_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetBiddingSessionRequest) Reset() {
+	*x = GetBiddingSessionRequest{}
+	mi := &file_trip_trip_proto_msgTypes[40]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetBiddingSessionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetBiddingSessionRequest) ProtoMessage() {}
+
+func (x *GetBiddingSessionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_trip_trip_proto_msgTypes[40]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetBiddingSessionRequest.ProtoReflect.Descriptor instead.
+func (*GetBiddingSessionRequest) Descriptor() ([]byte, []int) {
+	return file_trip_trip_proto_rawDescGZIP(), []int{40}
+}
+
+func (x *GetBiddingSessionRequest) GetTripId() string {
+	if x != nil {
+		return x.TripId
+	}
+	return ""
+}
+
+type GetBiddingSessionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Session       *BiddingSession        `protobuf:"bytes,1,opt,name=session,proto3" json:"session,omitempty"`
+	Message       string                 `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetBiddingSessionResponse) Reset() {
+	*x = GetBiddingSessionResponse{}
+	mi := &file_trip_trip_proto_msgTypes[41]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetBiddingSessionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetBiddingSessionResponse) ProtoMessage() {}
+
+func (x *GetBiddingSessionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_trip_trip_proto_msgTypes[41]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetBiddingSessionResponse.ProtoReflect.Descriptor instead.
+func (*GetBiddingSessionResponse) Descriptor() ([]byte, []int) {
+	return file_trip_trip_proto_rawDescGZIP(), []int{41}
+}
+
+func (x *GetBiddingSessionResponse) GetSession() *BiddingSession {
+	if x != nil {
+		return x.Session
+	}
+	return nil
+}
+
+func (x *GetBiddingSessionResponse) GetMessage() string {
+	if x != nil {
+		return x.Message
+	}
+	return ""
+}
+
+type GetBiddingSessionsByRiderRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	RiderId       string                 `protobuf:"bytes,1,opt,name=rider_id,json=riderId,proto3" json:"rider_id,omitempty"`
+	Limit         *int32                 `protobuf:"varint,2,opt,name=limit,proto3,oneof" json:"limit,omitempty"`
+	Offset        *int32                 `protobuf:"varint,3,opt,name=offset,proto3,oneof" json:"offset,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetBiddingSessionsByRiderRequest) Reset() {
+	*x = GetBiddingSessionsByRiderRequest{}
+	mi := &file_trip_trip_proto_msgTypes[42]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetBiddingSessionsByRiderRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetBiddingSessionsByRiderRequest) ProtoMessage() {}
+
+func (x *GetBiddingSessionsByRiderRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_trip_trip_proto_msgTypes[42]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetBiddingSessionsByRiderRequest.ProtoReflect.Descriptor instead.
+func (*GetBiddingSessionsByRiderRequest) Descriptor() ([]byte, []int) {
+	return file_trip_trip_proto_rawDescGZIP(), []int{42}
+}
+
+func (x *GetBiddingSessionsByRiderRequest) GetRiderId() string {
+	if x != nil {
+		return x.RiderId
+	}
+	return ""
+}
+
+func (x *GetBiddingSessionsByRiderRequest) GetLimit() int32 {
+	if x != nil && x.Limit != nil {
+		return *x.Limit
+	}
+	return 0
+}
+
+func (x *GetBiddingSessionsByRiderRequest) GetOffset() int32 {
+	if x != nil && x.Offset != nil {
+		return *x.Offset
+	}
+	return 0
+}
+
+type GetBiddingSessionsByRiderResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Sessions      []*BiddingSession      `protobuf:"bytes,1,rep,name=sessions,proto3" json:"sessions,omitempty"`
+	Message       string                 `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetBiddingSessionsByRiderResponse) Reset() {
+	*x = GetBiddingSessionsByRiderResponse{}
+	mi := &file_trip_trip_proto_msgTypes[43]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetBiddingSessionsByRiderResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetBiddingSessionsByRiderResponse) ProtoMessage() {}
+
+func (x *GetBiddingSessionsByRiderResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_trip_trip_proto_msgTypes[43]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetBiddingSessionsByRiderResponse.ProtoReflect.Descriptor instead.
+func (*GetBiddingSessionsByRiderResponse) Descriptor() ([]byte, []int) {
+	return file_trip_trip_proto_rawDescGZIP(), []int{43}
+}
+
+func (x *GetBiddingSessionsByRiderResponse) GetSessions() []*BiddingSession {
+	if x != nil {
+		return x.Sessions
+	}
+	return nil
+}
+
+func (x *GetBiddingSessionsByRiderResponse) GetMessage() string {
+	if x != nil {
+		return x.Message
 	}
 	return ""
 }
@@ -2572,7 +3140,7 @@ type BiddingSessionResponse struct {
 
 func (x *BiddingSessionResponse) Reset() {
 	*x = BiddingSessionResponse{}
-	mi := &file_trip_trip_proto_msgTypes[34]
+	mi := &file_trip_trip_proto_msgTypes[44]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2584,7 +3152,7 @@ func (x *BiddingSessionResponse) String() string {
 func (*BiddingSessionResponse) ProtoMessage() {}
 
 func (x *BiddingSessionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_trip_trip_proto_msgTypes[34]
+	mi := &file_trip_trip_proto_msgTypes[44]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2597,7 +3165,7 @@ func (x *BiddingSessionResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BiddingSessionResponse.ProtoReflect.Descriptor instead.
 func (*BiddingSessionResponse) Descriptor() ([]byte, []int) {
-	return file_trip_trip_proto_rawDescGZIP(), []int{34}
+	return file_trip_trip_proto_rawDescGZIP(), []int{44}
 }
 
 func (x *BiddingSessionResponse) GetSession() []*BiddingSession {
@@ -2622,7 +3190,7 @@ type BiddingSessionFilterRequest struct {
 
 func (x *BiddingSessionFilterRequest) Reset() {
 	*x = BiddingSessionFilterRequest{}
-	mi := &file_trip_trip_proto_msgTypes[35]
+	mi := &file_trip_trip_proto_msgTypes[45]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2634,7 +3202,7 @@ func (x *BiddingSessionFilterRequest) String() string {
 func (*BiddingSessionFilterRequest) ProtoMessage() {}
 
 func (x *BiddingSessionFilterRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_trip_trip_proto_msgTypes[35]
+	mi := &file_trip_trip_proto_msgTypes[45]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2647,7 +3215,7 @@ func (x *BiddingSessionFilterRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BiddingSessionFilterRequest.ProtoReflect.Descriptor instead.
 func (*BiddingSessionFilterRequest) Descriptor() ([]byte, []int) {
-	return file_trip_trip_proto_rawDescGZIP(), []int{35}
+	return file_trip_trip_proto_rawDescGZIP(), []int{45}
 }
 
 func (x *BiddingSessionFilterRequest) GetRiderId() string {
@@ -2709,7 +3277,7 @@ type GetBidRankingsRequest struct {
 
 func (x *GetBidRankingsRequest) Reset() {
 	*x = GetBidRankingsRequest{}
-	mi := &file_trip_trip_proto_msgTypes[36]
+	mi := &file_trip_trip_proto_msgTypes[46]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2721,7 +3289,7 @@ func (x *GetBidRankingsRequest) String() string {
 func (*GetBidRankingsRequest) ProtoMessage() {}
 
 func (x *GetBidRankingsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_trip_trip_proto_msgTypes[36]
+	mi := &file_trip_trip_proto_msgTypes[46]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2734,7 +3302,7 @@ func (x *GetBidRankingsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetBidRankingsRequest.ProtoReflect.Descriptor instead.
 func (*GetBidRankingsRequest) Descriptor() ([]byte, []int) {
-	return file_trip_trip_proto_rawDescGZIP(), []int{36}
+	return file_trip_trip_proto_rawDescGZIP(), []int{46}
 }
 
 func (x *GetBidRankingsRequest) GetSessionId() string {
@@ -2756,7 +3324,7 @@ type BidRanking struct {
 
 func (x *BidRanking) Reset() {
 	*x = BidRanking{}
-	mi := &file_trip_trip_proto_msgTypes[37]
+	mi := &file_trip_trip_proto_msgTypes[47]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2768,7 +3336,7 @@ func (x *BidRanking) String() string {
 func (*BidRanking) ProtoMessage() {}
 
 func (x *BidRanking) ProtoReflect() protoreflect.Message {
-	mi := &file_trip_trip_proto_msgTypes[37]
+	mi := &file_trip_trip_proto_msgTypes[47]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2781,7 +3349,7 @@ func (x *BidRanking) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BidRanking.ProtoReflect.Descriptor instead.
 func (*BidRanking) Descriptor() ([]byte, []int) {
-	return file_trip_trip_proto_rawDescGZIP(), []int{37}
+	return file_trip_trip_proto_rawDescGZIP(), []int{47}
 }
 
 func (x *BidRanking) GetRank() int32 {
@@ -2822,7 +3390,7 @@ type GetBidRankingsResponse struct {
 
 func (x *GetBidRankingsResponse) Reset() {
 	*x = GetBidRankingsResponse{}
-	mi := &file_trip_trip_proto_msgTypes[38]
+	mi := &file_trip_trip_proto_msgTypes[48]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2834,7 +3402,7 @@ func (x *GetBidRankingsResponse) String() string {
 func (*GetBidRankingsResponse) ProtoMessage() {}
 
 func (x *GetBidRankingsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_trip_trip_proto_msgTypes[38]
+	mi := &file_trip_trip_proto_msgTypes[48]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2847,7 +3415,7 @@ func (x *GetBidRankingsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetBidRankingsResponse.ProtoReflect.Descriptor instead.
 func (*GetBidRankingsResponse) Descriptor() ([]byte, []int) {
-	return file_trip_trip_proto_rawDescGZIP(), []int{38}
+	return file_trip_trip_proto_rawDescGZIP(), []int{48}
 }
 
 func (x *GetBidRankingsResponse) GetRankings() []*BidRanking {
@@ -2874,7 +3442,7 @@ type RqInstantMatch struct {
 
 func (x *RqInstantMatch) Reset() {
 	*x = RqInstantMatch{}
-	mi := &file_trip_trip_proto_msgTypes[39]
+	mi := &file_trip_trip_proto_msgTypes[49]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2886,7 +3454,7 @@ func (x *RqInstantMatch) String() string {
 func (*RqInstantMatch) ProtoMessage() {}
 
 func (x *RqInstantMatch) ProtoReflect() protoreflect.Message {
-	mi := &file_trip_trip_proto_msgTypes[39]
+	mi := &file_trip_trip_proto_msgTypes[49]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2899,7 +3467,7 @@ func (x *RqInstantMatch) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RqInstantMatch.ProtoReflect.Descriptor instead.
 func (*RqInstantMatch) Descriptor() ([]byte, []int) {
-	return file_trip_trip_proto_rawDescGZIP(), []int{39}
+	return file_trip_trip_proto_rawDescGZIP(), []int{49}
 }
 
 func (x *RqInstantMatch) GetTripId() string {
@@ -2931,7 +3499,7 @@ type RsInstantMatch struct {
 
 func (x *RsInstantMatch) Reset() {
 	*x = RsInstantMatch{}
-	mi := &file_trip_trip_proto_msgTypes[40]
+	mi := &file_trip_trip_proto_msgTypes[50]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2943,7 +3511,7 @@ func (x *RsInstantMatch) String() string {
 func (*RsInstantMatch) ProtoMessage() {}
 
 func (x *RsInstantMatch) ProtoReflect() protoreflect.Message {
-	mi := &file_trip_trip_proto_msgTypes[40]
+	mi := &file_trip_trip_proto_msgTypes[50]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2956,7 +3524,7 @@ func (x *RsInstantMatch) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RsInstantMatch.ProtoReflect.Descriptor instead.
 func (*RsInstantMatch) Descriptor() ([]byte, []int) {
-	return file_trip_trip_proto_rawDescGZIP(), []int{40}
+	return file_trip_trip_proto_rawDescGZIP(), []int{50}
 }
 
 func (x *RsInstantMatch) GetTripId() string {
@@ -3008,6 +3576,150 @@ func (x *RsInstantMatch) GetDistance() float64 {
 	return 0
 }
 
+type InstantMatchRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	TripId        string                 `protobuf:"bytes,1,opt,name=trip_id,json=tripId,proto3" json:"trip_id,omitempty"`
+	DriverId      *string                `protobuf:"bytes,2,opt,name=driver_id,json=driverId,proto3,oneof" json:"driver_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *InstantMatchRequest) Reset() {
+	*x = InstantMatchRequest{}
+	mi := &file_trip_trip_proto_msgTypes[51]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *InstantMatchRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*InstantMatchRequest) ProtoMessage() {}
+
+func (x *InstantMatchRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_trip_trip_proto_msgTypes[51]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use InstantMatchRequest.ProtoReflect.Descriptor instead.
+func (*InstantMatchRequest) Descriptor() ([]byte, []int) {
+	return file_trip_trip_proto_rawDescGZIP(), []int{51}
+}
+
+func (x *InstantMatchRequest) GetTripId() string {
+	if x != nil {
+		return x.TripId
+	}
+	return ""
+}
+
+func (x *InstantMatchRequest) GetDriverId() string {
+	if x != nil && x.DriverId != nil {
+		return *x.DriverId
+	}
+	return ""
+}
+
+type InstantMatchResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	TripId        string                 `protobuf:"bytes,1,opt,name=trip_id,json=tripId,proto3" json:"trip_id,omitempty"`
+	DriverId      *string                `protobuf:"bytes,2,opt,name=driver_id,json=driverId,proto3,oneof" json:"driver_id,omitempty"`
+	Status        *EnumResponse          `protobuf:"bytes,3,opt,name=status,proto3" json:"status,omitempty"`
+	Message       string                 `protobuf:"bytes,4,opt,name=message,proto3" json:"message,omitempty"`
+	EstimatedTime int32                  `protobuf:"varint,5,opt,name=estimated_time,json=estimatedTime,proto3" json:"estimated_time,omitempty"` // seconds
+	Price         *float64               `protobuf:"fixed64,6,opt,name=price,proto3,oneof" json:"price,omitempty"`
+	Distance      *float64               `protobuf:"fixed64,7,opt,name=distance,proto3,oneof" json:"distance,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *InstantMatchResponse) Reset() {
+	*x = InstantMatchResponse{}
+	mi := &file_trip_trip_proto_msgTypes[52]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *InstantMatchResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*InstantMatchResponse) ProtoMessage() {}
+
+func (x *InstantMatchResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_trip_trip_proto_msgTypes[52]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use InstantMatchResponse.ProtoReflect.Descriptor instead.
+func (*InstantMatchResponse) Descriptor() ([]byte, []int) {
+	return file_trip_trip_proto_rawDescGZIP(), []int{52}
+}
+
+func (x *InstantMatchResponse) GetTripId() string {
+	if x != nil {
+		return x.TripId
+	}
+	return ""
+}
+
+func (x *InstantMatchResponse) GetDriverId() string {
+	if x != nil && x.DriverId != nil {
+		return *x.DriverId
+	}
+	return ""
+}
+
+func (x *InstantMatchResponse) GetStatus() *EnumResponse {
+	if x != nil {
+		return x.Status
+	}
+	return nil
+}
+
+func (x *InstantMatchResponse) GetMessage() string {
+	if x != nil {
+		return x.Message
+	}
+	return ""
+}
+
+func (x *InstantMatchResponse) GetEstimatedTime() int32 {
+	if x != nil {
+		return x.EstimatedTime
+	}
+	return 0
+}
+
+func (x *InstantMatchResponse) GetPrice() float64 {
+	if x != nil && x.Price != nil {
+		return *x.Price
+	}
+	return 0
+}
+
+func (x *InstantMatchResponse) GetDistance() float64 {
+	if x != nil && x.Distance != nil {
+		return *x.Distance
+	}
+	return 0
+}
+
 type RqGetInstantMatchStatus struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	TripId        string                 `protobuf:"bytes,1,opt,name=trip_id,json=tripId,proto3" json:"trip_id,omitempty"`
@@ -3017,7 +3729,7 @@ type RqGetInstantMatchStatus struct {
 
 func (x *RqGetInstantMatchStatus) Reset() {
 	*x = RqGetInstantMatchStatus{}
-	mi := &file_trip_trip_proto_msgTypes[41]
+	mi := &file_trip_trip_proto_msgTypes[53]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3029,7 +3741,7 @@ func (x *RqGetInstantMatchStatus) String() string {
 func (*RqGetInstantMatchStatus) ProtoMessage() {}
 
 func (x *RqGetInstantMatchStatus) ProtoReflect() protoreflect.Message {
-	mi := &file_trip_trip_proto_msgTypes[41]
+	mi := &file_trip_trip_proto_msgTypes[53]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3042,7 +3754,7 @@ func (x *RqGetInstantMatchStatus) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RqGetInstantMatchStatus.ProtoReflect.Descriptor instead.
 func (*RqGetInstantMatchStatus) Descriptor() ([]byte, []int) {
-	return file_trip_trip_proto_rawDescGZIP(), []int{41}
+	return file_trip_trip_proto_rawDescGZIP(), []int{53}
 }
 
 func (x *RqGetInstantMatchStatus) GetTripId() string {
@@ -3067,7 +3779,7 @@ type RsGetInstantMatchStatus struct {
 
 func (x *RsGetInstantMatchStatus) Reset() {
 	*x = RsGetInstantMatchStatus{}
-	mi := &file_trip_trip_proto_msgTypes[42]
+	mi := &file_trip_trip_proto_msgTypes[54]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3079,7 +3791,7 @@ func (x *RsGetInstantMatchStatus) String() string {
 func (*RsGetInstantMatchStatus) ProtoMessage() {}
 
 func (x *RsGetInstantMatchStatus) ProtoReflect() protoreflect.Message {
-	mi := &file_trip_trip_proto_msgTypes[42]
+	mi := &file_trip_trip_proto_msgTypes[54]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3092,7 +3804,7 @@ func (x *RsGetInstantMatchStatus) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RsGetInstantMatchStatus.ProtoReflect.Descriptor instead.
 func (*RsGetInstantMatchStatus) Descriptor() ([]byte, []int) {
-	return file_trip_trip_proto_rawDescGZIP(), []int{42}
+	return file_trip_trip_proto_rawDescGZIP(), []int{54}
 }
 
 func (x *RsGetInstantMatchStatus) GetTripId() string {
@@ -3144,6 +3856,142 @@ func (x *RsGetInstantMatchStatus) GetMessage() string {
 	return ""
 }
 
+type GetInstantMatchStatusRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	TripId        string                 `protobuf:"bytes,1,opt,name=trip_id,json=tripId,proto3" json:"trip_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetInstantMatchStatusRequest) Reset() {
+	*x = GetInstantMatchStatusRequest{}
+	mi := &file_trip_trip_proto_msgTypes[55]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetInstantMatchStatusRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetInstantMatchStatusRequest) ProtoMessage() {}
+
+func (x *GetInstantMatchStatusRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_trip_trip_proto_msgTypes[55]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetInstantMatchStatusRequest.ProtoReflect.Descriptor instead.
+func (*GetInstantMatchStatusRequest) Descriptor() ([]byte, []int) {
+	return file_trip_trip_proto_rawDescGZIP(), []int{55}
+}
+
+func (x *GetInstantMatchStatusRequest) GetTripId() string {
+	if x != nil {
+		return x.TripId
+	}
+	return ""
+}
+
+type GetInstantMatchStatusResponse struct {
+	state            protoimpl.MessageState `protogen:"open.v1"`
+	TripId           string                 `protobuf:"bytes,1,opt,name=trip_id,json=tripId,proto3" json:"trip_id,omitempty"`
+	Status           *EnumResponse          `protobuf:"bytes,2,opt,name=status,proto3" json:"status,omitempty"`
+	DriversNotified  int32                  `protobuf:"varint,3,opt,name=drivers_notified,json=driversNotified,proto3" json:"drivers_notified,omitempty"`
+	SecondsRemaining int32                  `protobuf:"varint,4,opt,name=seconds_remaining,json=secondsRemaining,proto3" json:"seconds_remaining,omitempty"`
+	AssignedDriverId *string                `protobuf:"bytes,5,opt,name=assigned_driver_id,json=assignedDriverId,proto3,oneof" json:"assigned_driver_id,omitempty"`
+	DriverInfo       *DriverInfo            `protobuf:"bytes,6,opt,name=driver_info,json=driverInfo,proto3,oneof" json:"driver_info,omitempty"`
+	Message          string                 `protobuf:"bytes,7,opt,name=message,proto3" json:"message,omitempty"`
+	unknownFields    protoimpl.UnknownFields
+	sizeCache        protoimpl.SizeCache
+}
+
+func (x *GetInstantMatchStatusResponse) Reset() {
+	*x = GetInstantMatchStatusResponse{}
+	mi := &file_trip_trip_proto_msgTypes[56]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetInstantMatchStatusResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetInstantMatchStatusResponse) ProtoMessage() {}
+
+func (x *GetInstantMatchStatusResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_trip_trip_proto_msgTypes[56]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetInstantMatchStatusResponse.ProtoReflect.Descriptor instead.
+func (*GetInstantMatchStatusResponse) Descriptor() ([]byte, []int) {
+	return file_trip_trip_proto_rawDescGZIP(), []int{56}
+}
+
+func (x *GetInstantMatchStatusResponse) GetTripId() string {
+	if x != nil {
+		return x.TripId
+	}
+	return ""
+}
+
+func (x *GetInstantMatchStatusResponse) GetStatus() *EnumResponse {
+	if x != nil {
+		return x.Status
+	}
+	return nil
+}
+
+func (x *GetInstantMatchStatusResponse) GetDriversNotified() int32 {
+	if x != nil {
+		return x.DriversNotified
+	}
+	return 0
+}
+
+func (x *GetInstantMatchStatusResponse) GetSecondsRemaining() int32 {
+	if x != nil {
+		return x.SecondsRemaining
+	}
+	return 0
+}
+
+func (x *GetInstantMatchStatusResponse) GetAssignedDriverId() string {
+	if x != nil && x.AssignedDriverId != nil {
+		return *x.AssignedDriverId
+	}
+	return ""
+}
+
+func (x *GetInstantMatchStatusResponse) GetDriverInfo() *DriverInfo {
+	if x != nil {
+		return x.DriverInfo
+	}
+	return nil
+}
+
+func (x *GetInstantMatchStatusResponse) GetMessage() string {
+	if x != nil {
+		return x.Message
+	}
+	return ""
+}
+
 type RqCancelInstantMatch struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	TripId        string                 `protobuf:"bytes,1,opt,name=trip_id,json=tripId,proto3" json:"trip_id,omitempty"`
@@ -3154,7 +4002,7 @@ type RqCancelInstantMatch struct {
 
 func (x *RqCancelInstantMatch) Reset() {
 	*x = RqCancelInstantMatch{}
-	mi := &file_trip_trip_proto_msgTypes[43]
+	mi := &file_trip_trip_proto_msgTypes[57]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3166,7 +4014,7 @@ func (x *RqCancelInstantMatch) String() string {
 func (*RqCancelInstantMatch) ProtoMessage() {}
 
 func (x *RqCancelInstantMatch) ProtoReflect() protoreflect.Message {
-	mi := &file_trip_trip_proto_msgTypes[43]
+	mi := &file_trip_trip_proto_msgTypes[57]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3179,7 +4027,7 @@ func (x *RqCancelInstantMatch) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RqCancelInstantMatch.ProtoReflect.Descriptor instead.
 func (*RqCancelInstantMatch) Descriptor() ([]byte, []int) {
-	return file_trip_trip_proto_rawDescGZIP(), []int{43}
+	return file_trip_trip_proto_rawDescGZIP(), []int{57}
 }
 
 func (x *RqCancelInstantMatch) GetTripId() string {
@@ -3206,7 +4054,7 @@ type RsCancelInstantMatch struct {
 
 func (x *RsCancelInstantMatch) Reset() {
 	*x = RsCancelInstantMatch{}
-	mi := &file_trip_trip_proto_msgTypes[44]
+	mi := &file_trip_trip_proto_msgTypes[58]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3218,7 +4066,7 @@ func (x *RsCancelInstantMatch) String() string {
 func (*RsCancelInstantMatch) ProtoMessage() {}
 
 func (x *RsCancelInstantMatch) ProtoReflect() protoreflect.Message {
-	mi := &file_trip_trip_proto_msgTypes[44]
+	mi := &file_trip_trip_proto_msgTypes[58]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3231,7 +4079,7 @@ func (x *RsCancelInstantMatch) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RsCancelInstantMatch.ProtoReflect.Descriptor instead.
 func (*RsCancelInstantMatch) Descriptor() ([]byte, []int) {
-	return file_trip_trip_proto_rawDescGZIP(), []int{44}
+	return file_trip_trip_proto_rawDescGZIP(), []int{58}
 }
 
 func (x *RsCancelInstantMatch) GetCancelled() bool {
@@ -3248,6 +4096,238 @@ func (x *RsCancelInstantMatch) GetMessage() string {
 	return ""
 }
 
+type CancelInstantMatchRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	TripId        string                 `protobuf:"bytes,1,opt,name=trip_id,json=tripId,proto3" json:"trip_id,omitempty"`
+	RiderId       string                 `protobuf:"bytes,2,opt,name=rider_id,json=riderId,proto3" json:"rider_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CancelInstantMatchRequest) Reset() {
+	*x = CancelInstantMatchRequest{}
+	mi := &file_trip_trip_proto_msgTypes[59]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CancelInstantMatchRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CancelInstantMatchRequest) ProtoMessage() {}
+
+func (x *CancelInstantMatchRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_trip_trip_proto_msgTypes[59]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CancelInstantMatchRequest.ProtoReflect.Descriptor instead.
+func (*CancelInstantMatchRequest) Descriptor() ([]byte, []int) {
+	return file_trip_trip_proto_rawDescGZIP(), []int{59}
+}
+
+func (x *CancelInstantMatchRequest) GetTripId() string {
+	if x != nil {
+		return x.TripId
+	}
+	return ""
+}
+
+func (x *CancelInstantMatchRequest) GetRiderId() string {
+	if x != nil {
+		return x.RiderId
+	}
+	return ""
+}
+
+type CancelInstantMatchResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Cancelled     bool                   `protobuf:"varint,1,opt,name=cancelled,proto3" json:"cancelled,omitempty"`
+	Message       string                 `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CancelInstantMatchResponse) Reset() {
+	*x = CancelInstantMatchResponse{}
+	mi := &file_trip_trip_proto_msgTypes[60]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CancelInstantMatchResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CancelInstantMatchResponse) ProtoMessage() {}
+
+func (x *CancelInstantMatchResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_trip_trip_proto_msgTypes[60]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CancelInstantMatchResponse.ProtoReflect.Descriptor instead.
+func (*CancelInstantMatchResponse) Descriptor() ([]byte, []int) {
+	return file_trip_trip_proto_rawDescGZIP(), []int{60}
+}
+
+func (x *CancelInstantMatchResponse) GetCancelled() bool {
+	if x != nil {
+		return x.Cancelled
+	}
+	return false
+}
+
+func (x *CancelInstantMatchResponse) GetMessage() string {
+	if x != nil {
+		return x.Message
+	}
+	return ""
+}
+
+type InstantAcceptRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	TripId        string                 `protobuf:"bytes,1,opt,name=trip_id,json=tripId,proto3" json:"trip_id,omitempty"`
+	DriverId      string                 `protobuf:"bytes,2,opt,name=driver_id,json=driverId,proto3" json:"driver_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *InstantAcceptRequest) Reset() {
+	*x = InstantAcceptRequest{}
+	mi := &file_trip_trip_proto_msgTypes[61]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *InstantAcceptRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*InstantAcceptRequest) ProtoMessage() {}
+
+func (x *InstantAcceptRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_trip_trip_proto_msgTypes[61]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use InstantAcceptRequest.ProtoReflect.Descriptor instead.
+func (*InstantAcceptRequest) Descriptor() ([]byte, []int) {
+	return file_trip_trip_proto_rawDescGZIP(), []int{61}
+}
+
+func (x *InstantAcceptRequest) GetTripId() string {
+	if x != nil {
+		return x.TripId
+	}
+	return ""
+}
+
+func (x *InstantAcceptRequest) GetDriverId() string {
+	if x != nil {
+		return x.DriverId
+	}
+	return ""
+}
+
+type InstantAcceptResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	DriverId      string                 `protobuf:"bytes,1,opt,name=driver_id,json=driverId,proto3" json:"driver_id,omitempty"`
+	AcceptedFare  float64                `protobuf:"fixed64,2,opt,name=accepted_fare,json=acceptedFare,proto3" json:"accepted_fare,omitempty"`
+	Message       string                 `protobuf:"bytes,3,opt,name=message,proto3" json:"message,omitempty"`
+	IsWinner      bool                   `protobuf:"varint,4,opt,name=is_winner,json=isWinner,proto3" json:"is_winner,omitempty"`
+	Trip          *Trip                  `protobuf:"bytes,5,opt,name=trip,proto3" json:"trip,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *InstantAcceptResponse) Reset() {
+	*x = InstantAcceptResponse{}
+	mi := &file_trip_trip_proto_msgTypes[62]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *InstantAcceptResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*InstantAcceptResponse) ProtoMessage() {}
+
+func (x *InstantAcceptResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_trip_trip_proto_msgTypes[62]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use InstantAcceptResponse.ProtoReflect.Descriptor instead.
+func (*InstantAcceptResponse) Descriptor() ([]byte, []int) {
+	return file_trip_trip_proto_rawDescGZIP(), []int{62}
+}
+
+func (x *InstantAcceptResponse) GetDriverId() string {
+	if x != nil {
+		return x.DriverId
+	}
+	return ""
+}
+
+func (x *InstantAcceptResponse) GetAcceptedFare() float64 {
+	if x != nil {
+		return x.AcceptedFare
+	}
+	return 0
+}
+
+func (x *InstantAcceptResponse) GetMessage() string {
+	if x != nil {
+		return x.Message
+	}
+	return ""
+}
+
+func (x *InstantAcceptResponse) GetIsWinner() bool {
+	if x != nil {
+		return x.IsWinner
+	}
+	return false
+}
+
+func (x *InstantAcceptResponse) GetTrip() *Trip {
+	if x != nil {
+		return x.Trip
+	}
+	return nil
+}
+
 type TripHistoryFilterRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	RiderId       *string                `protobuf:"bytes,1,opt,name=rider_id,json=riderId,proto3,oneof" json:"rider_id,omitempty"`
@@ -3261,7 +4341,7 @@ type TripHistoryFilterRequest struct {
 
 func (x *TripHistoryFilterRequest) Reset() {
 	*x = TripHistoryFilterRequest{}
-	mi := &file_trip_trip_proto_msgTypes[45]
+	mi := &file_trip_trip_proto_msgTypes[63]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3273,7 +4353,7 @@ func (x *TripHistoryFilterRequest) String() string {
 func (*TripHistoryFilterRequest) ProtoMessage() {}
 
 func (x *TripHistoryFilterRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_trip_trip_proto_msgTypes[45]
+	mi := &file_trip_trip_proto_msgTypes[63]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3286,7 +4366,7 @@ func (x *TripHistoryFilterRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use TripHistoryFilterRequest.ProtoReflect.Descriptor instead.
 func (*TripHistoryFilterRequest) Descriptor() ([]byte, []int) {
-	return file_trip_trip_proto_rawDescGZIP(), []int{45}
+	return file_trip_trip_proto_rawDescGZIP(), []int{63}
 }
 
 func (x *TripHistoryFilterRequest) GetRiderId() string {
@@ -3324,6 +4404,186 @@ func (x *TripHistoryFilterRequest) GetOffset() int32 {
 	return 0
 }
 
+type GetTripHistoryByRiderRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	RiderId       string                 `protobuf:"bytes,1,opt,name=rider_id,json=riderId,proto3" json:"rider_id,omitempty"`
+	Limit         *int32                 `protobuf:"varint,2,opt,name=limit,proto3,oneof" json:"limit,omitempty"`
+	Offset        *int32                 `protobuf:"varint,3,opt,name=offset,proto3,oneof" json:"offset,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTripHistoryByRiderRequest) Reset() {
+	*x = GetTripHistoryByRiderRequest{}
+	mi := &file_trip_trip_proto_msgTypes[64]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTripHistoryByRiderRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTripHistoryByRiderRequest) ProtoMessage() {}
+
+func (x *GetTripHistoryByRiderRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_trip_trip_proto_msgTypes[64]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTripHistoryByRiderRequest.ProtoReflect.Descriptor instead.
+func (*GetTripHistoryByRiderRequest) Descriptor() ([]byte, []int) {
+	return file_trip_trip_proto_rawDescGZIP(), []int{64}
+}
+
+func (x *GetTripHistoryByRiderRequest) GetRiderId() string {
+	if x != nil {
+		return x.RiderId
+	}
+	return ""
+}
+
+func (x *GetTripHistoryByRiderRequest) GetLimit() int32 {
+	if x != nil && x.Limit != nil {
+		return *x.Limit
+	}
+	return 0
+}
+
+func (x *GetTripHistoryByRiderRequest) GetOffset() int32 {
+	if x != nil && x.Offset != nil {
+		return *x.Offset
+	}
+	return 0
+}
+
+type GetTripHistoryByDriverRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	DriverId      string                 `protobuf:"bytes,1,opt,name=driver_id,json=driverId,proto3" json:"driver_id,omitempty"`
+	Limit         *int32                 `protobuf:"varint,2,opt,name=limit,proto3,oneof" json:"limit,omitempty"`
+	Offset        *int32                 `protobuf:"varint,3,opt,name=offset,proto3,oneof" json:"offset,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTripHistoryByDriverRequest) Reset() {
+	*x = GetTripHistoryByDriverRequest{}
+	mi := &file_trip_trip_proto_msgTypes[65]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTripHistoryByDriverRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTripHistoryByDriverRequest) ProtoMessage() {}
+
+func (x *GetTripHistoryByDriverRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_trip_trip_proto_msgTypes[65]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTripHistoryByDriverRequest.ProtoReflect.Descriptor instead.
+func (*GetTripHistoryByDriverRequest) Descriptor() ([]byte, []int) {
+	return file_trip_trip_proto_rawDescGZIP(), []int{65}
+}
+
+func (x *GetTripHistoryByDriverRequest) GetDriverId() string {
+	if x != nil {
+		return x.DriverId
+	}
+	return ""
+}
+
+func (x *GetTripHistoryByDriverRequest) GetLimit() int32 {
+	if x != nil && x.Limit != nil {
+		return *x.Limit
+	}
+	return 0
+}
+
+func (x *GetTripHistoryByDriverRequest) GetOffset() int32 {
+	if x != nil && x.Offset != nil {
+		return *x.Offset
+	}
+	return 0
+}
+
+type GetTripHistoryResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Trips         []*Trip                `protobuf:"bytes,1,rep,name=trips,proto3" json:"trips,omitempty"`
+	Message       string                 `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`
+	Total         int32                  `protobuf:"varint,3,opt,name=total,proto3" json:"total,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTripHistoryResponse) Reset() {
+	*x = GetTripHistoryResponse{}
+	mi := &file_trip_trip_proto_msgTypes[66]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTripHistoryResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTripHistoryResponse) ProtoMessage() {}
+
+func (x *GetTripHistoryResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_trip_trip_proto_msgTypes[66]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTripHistoryResponse.ProtoReflect.Descriptor instead.
+func (*GetTripHistoryResponse) Descriptor() ([]byte, []int) {
+	return file_trip_trip_proto_rawDescGZIP(), []int{66}
+}
+
+func (x *GetTripHistoryResponse) GetTrips() []*Trip {
+	if x != nil {
+		return x.Trips
+	}
+	return nil
+}
+
+func (x *GetTripHistoryResponse) GetMessage() string {
+	if x != nil {
+		return x.Message
+	}
+	return ""
+}
+
+func (x *GetTripHistoryResponse) GetTotal() int32 {
+	if x != nil {
+		return x.Total
+	}
+	return 0
+}
+
 type TripHistoryResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Trips         []*Trip                `protobuf:"bytes,1,rep,name=trips,proto3" json:"trips,omitempty"`
@@ -3335,7 +4595,7 @@ type TripHistoryResponse struct {
 
 func (x *TripHistoryResponse) Reset() {
 	*x = TripHistoryResponse{}
-	mi := &file_trip_trip_proto_msgTypes[46]
+	mi := &file_trip_trip_proto_msgTypes[67]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3347,7 +4607,7 @@ func (x *TripHistoryResponse) String() string {
 func (*TripHistoryResponse) ProtoMessage() {}
 
 func (x *TripHistoryResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_trip_trip_proto_msgTypes[46]
+	mi := &file_trip_trip_proto_msgTypes[67]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3360,7 +4620,7 @@ func (x *TripHistoryResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use TripHistoryResponse.ProtoReflect.Descriptor instead.
 func (*TripHistoryResponse) Descriptor() ([]byte, []int) {
-	return file_trip_trip_proto_rawDescGZIP(), []int{46}
+	return file_trip_trip_proto_rawDescGZIP(), []int{67}
 }
 
 func (x *TripHistoryResponse) GetTrips() []*Trip {
@@ -3402,7 +4662,7 @@ type DriverInfo struct {
 
 func (x *DriverInfo) Reset() {
 	*x = DriverInfo{}
-	mi := &file_trip_trip_proto_msgTypes[47]
+	mi := &file_trip_trip_proto_msgTypes[68]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3414,7 +4674,7 @@ func (x *DriverInfo) String() string {
 func (*DriverInfo) ProtoMessage() {}
 
 func (x *DriverInfo) ProtoReflect() protoreflect.Message {
-	mi := &file_trip_trip_proto_msgTypes[47]
+	mi := &file_trip_trip_proto_msgTypes[68]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3427,7 +4687,7 @@ func (x *DriverInfo) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DriverInfo.ProtoReflect.Descriptor instead.
 func (*DriverInfo) Descriptor() ([]byte, []int) {
-	return file_trip_trip_proto_rawDescGZIP(), []int{47}
+	return file_trip_trip_proto_rawDescGZIP(), []int{68}
 }
 
 func (x *DriverInfo) GetDriverId() string {
@@ -3720,7 +4980,11 @@ const file_trip_trip_proto_rawDesc = "" +
 	"\x04trip\x18\x05 \x01(\v2\n" +
 	".trip.TripR\x04trip\")\n" +
 	"\x0eGetTripRequest\x12\x17\n" +
-	"\atrip_id\x18\x01 \x01(\tR\x06tripId\"\x8f\x02\n" +
+	"\atrip_id\x18\x01 \x01(\tR\x06tripId\"K\n" +
+	"\x0fGetTripResponse\x12\x18\n" +
+	"\amessage\x18\x01 \x01(\tR\amessage\x12\x1e\n" +
+	"\x04trip\x18\x02 \x01(\v2\n" +
+	".trip.TripR\x04trip\"\x8f\x02\n" +
 	"\x11TripFilterRequest\x12\x1e\n" +
 	"\brider_id\x18\x01 \x01(\tH\x00R\ariderId\x88\x01\x01\x12 \n" +
 	"\tdriver_id\x18\x02 \x01(\tH\x01R\bdriverId\x88\x01\x01\x12\x1c\n" +
@@ -3735,7 +4999,36 @@ const file_trip_trip_proto_rawDesc = "" +
 	"\b_trip_idB\b\n" +
 	"\x06_limitB\t\n" +
 	"\a_offsetB\t\n" +
-	"\a_status\"4\n" +
+	"\a_status\"\x93\x02\n" +
+	"\x15GetActiveTripsRequest\x12\x1e\n" +
+	"\brider_id\x18\x01 \x01(\tH\x00R\ariderId\x88\x01\x01\x12 \n" +
+	"\tdriver_id\x18\x02 \x01(\tH\x01R\bdriverId\x88\x01\x01\x12\x1c\n" +
+	"\atrip_id\x18\x03 \x01(\tH\x02R\x06tripId\x88\x01\x01\x12\x19\n" +
+	"\x05limit\x18\x04 \x01(\x05H\x03R\x05limit\x88\x01\x01\x12\x1b\n" +
+	"\x06offset\x18\x05 \x01(\x05H\x04R\x06offset\x88\x01\x01\x12\x1b\n" +
+	"\x06status\x18\x06 \x01(\x05H\x05R\x06status\x88\x01\x01B\v\n" +
+	"\t_rider_idB\f\n" +
+	"\n" +
+	"_driver_idB\n" +
+	"\n" +
+	"\b_trip_idB\b\n" +
+	"\x06_limitB\t\n" +
+	"\a_offsetB\t\n" +
+	"\a_status\"T\n" +
+	"\x16GetActiveTripsResponse\x12 \n" +
+	"\x05trips\x18\x01 \x03(\v2\n" +
+	".trip.TripR\x05trips\x12\x18\n" +
+	"\amessage\x18\x02 \x01(\tR\amessage\"\x86\x01\n" +
+	"\x1cGetActiveTripsByRiderRequest\x12\x19\n" +
+	"\brider_id\x18\x01 \x01(\tR\ariderId\x12\x19\n" +
+	"\x05limit\x18\x02 \x01(\x05H\x00R\x05limit\x88\x01\x01\x12\x1b\n" +
+	"\x06offset\x18\x03 \x01(\x05H\x01R\x06offset\x88\x01\x01B\b\n" +
+	"\x06_limitB\t\n" +
+	"\a_offset\"[\n" +
+	"\x1dGetActiveTripsByRiderResponse\x12 \n" +
+	"\x05trips\x18\x01 \x03(\v2\n" +
+	".trip.TripR\x05trips\x12\x18\n" +
+	"\amessage\x18\x02 \x01(\tR\amessage\"4\n" +
 	"\x10ListTripResponse\x12 \n" +
 	"\x05trips\x18\x01 \x03(\v2\n" +
 	".trip.TripR\x05trips\"\\\n" +
@@ -3743,7 +5036,12 @@ const file_trip_trip_proto_rawDesc = "" +
 	"\atrip_id\x18\x01 \x01(\tR\x06tripId\x12 \n" +
 	"\tdriver_id\x18\x02 \x01(\tH\x00R\bdriverId\x88\x01\x01B\f\n" +
 	"\n" +
-	"_driver_id\"\xb1\x01\n" +
+	"_driver_id\"k\n" +
+	"\x12AcceptTripResponse\x12\x1b\n" +
+	"\tdriver_id\x18\x01 \x01(\tR\bdriverId\x12\x18\n" +
+	"\amessage\x18\x02 \x01(\tR\amessage\x12\x1e\n" +
+	"\x04trip\x18\x03 \x01(\v2\n" +
+	".trip.TripR\x04trip\"\xb1\x01\n" +
 	"\x11CancelTripRequest\x12\x17\n" +
 	"\atrip_id\x18\x01 \x01(\tR\x06tripId\x12\x1e\n" +
 	"\brider_id\x18\x02 \x01(\tH\x00R\ariderId\x88\x01\x01\x12 \n" +
@@ -3794,7 +5092,21 @@ const file_trip_trip_proto_rawDesc = "" +
 	"\t_min_fareB\v\n" +
 	"\t_max_fare\".\n" +
 	"\x13RqGetBiddingSession\x12\x17\n" +
-	"\atrip_id\x18\x01 \x01(\tR\x06tripId\"H\n" +
+	"\atrip_id\x18\x01 \x01(\tR\x06tripId\"3\n" +
+	"\x18GetBiddingSessionRequest\x12\x17\n" +
+	"\atrip_id\x18\x01 \x01(\tR\x06tripId\"e\n" +
+	"\x19GetBiddingSessionResponse\x12.\n" +
+	"\asession\x18\x01 \x01(\v2\x14.trip.BiddingSessionR\asession\x12\x18\n" +
+	"\amessage\x18\x02 \x01(\tR\amessage\"\x8a\x01\n" +
+	" GetBiddingSessionsByRiderRequest\x12\x19\n" +
+	"\brider_id\x18\x01 \x01(\tR\ariderId\x12\x19\n" +
+	"\x05limit\x18\x02 \x01(\x05H\x00R\x05limit\x88\x01\x01\x12\x1b\n" +
+	"\x06offset\x18\x03 \x01(\x05H\x01R\x06offset\x88\x01\x01B\b\n" +
+	"\x06_limitB\t\n" +
+	"\a_offset\"o\n" +
+	"!GetBiddingSessionsByRiderResponse\x120\n" +
+	"\bsessions\x18\x01 \x03(\v2\x14.trip.BiddingSessionR\bsessions\x12\x18\n" +
+	"\amessage\x18\x02 \x01(\tR\amessage\"H\n" +
 	"\x16BiddingSessionResponse\x12.\n" +
 	"\asession\x18\x01 \x03(\v2\x14.trip.BiddingSessionR\asession\"\xcc\x02\n" +
 	"\x1bBiddingSessionFilterRequest\x12\x1e\n" +
@@ -3844,10 +5156,40 @@ const file_trip_trip_proto_rawDesc = "" +
 	"\n" +
 	"_driver_idB\b\n" +
 	"\x06_priceB\v\n" +
+	"\t_distance\"^\n" +
+	"\x13InstantMatchRequest\x12\x17\n" +
+	"\atrip_id\x18\x01 \x01(\tR\x06tripId\x12 \n" +
+	"\tdriver_id\x18\x02 \x01(\tH\x00R\bdriverId\x88\x01\x01B\f\n" +
+	"\n" +
+	"_driver_id\"\x9f\x02\n" +
+	"\x14InstantMatchResponse\x12\x17\n" +
+	"\atrip_id\x18\x01 \x01(\tR\x06tripId\x12 \n" +
+	"\tdriver_id\x18\x02 \x01(\tH\x00R\bdriverId\x88\x01\x01\x12*\n" +
+	"\x06status\x18\x03 \x01(\v2\x12.trip.EnumResponseR\x06status\x12\x18\n" +
+	"\amessage\x18\x04 \x01(\tR\amessage\x12%\n" +
+	"\x0eestimated_time\x18\x05 \x01(\x05R\restimatedTime\x12\x19\n" +
+	"\x05price\x18\x06 \x01(\x01H\x01R\x05price\x88\x01\x01\x12\x1f\n" +
+	"\bdistance\x18\a \x01(\x01H\x02R\bdistance\x88\x01\x01B\f\n" +
+	"\n" +
+	"_driver_idB\b\n" +
+	"\x06_priceB\v\n" +
 	"\t_distance\"2\n" +
 	"\x17RqGetInstantMatchStatus\x12\x17\n" +
 	"\atrip_id\x18\x01 \x01(\tR\x06tripId\"\xe2\x02\n" +
 	"\x17RsGetInstantMatchStatus\x12\x17\n" +
+	"\atrip_id\x18\x01 \x01(\tR\x06tripId\x12*\n" +
+	"\x06status\x18\x02 \x01(\v2\x12.trip.EnumResponseR\x06status\x12)\n" +
+	"\x10drivers_notified\x18\x03 \x01(\x05R\x0fdriversNotified\x12+\n" +
+	"\x11seconds_remaining\x18\x04 \x01(\x05R\x10secondsRemaining\x121\n" +
+	"\x12assigned_driver_id\x18\x05 \x01(\tH\x00R\x10assignedDriverId\x88\x01\x01\x126\n" +
+	"\vdriver_info\x18\x06 \x01(\v2\x10.trip.DriverInfoH\x01R\n" +
+	"driverInfo\x88\x01\x01\x12\x18\n" +
+	"\amessage\x18\a \x01(\tR\amessageB\x15\n" +
+	"\x13_assigned_driver_idB\x0e\n" +
+	"\f_driver_info\"7\n" +
+	"\x1cGetInstantMatchStatusRequest\x12\x17\n" +
+	"\atrip_id\x18\x01 \x01(\tR\x06tripId\"\xe8\x02\n" +
+	"\x1dGetInstantMatchStatusResponse\x12\x17\n" +
 	"\atrip_id\x18\x01 \x01(\tR\x06tripId\x12*\n" +
 	"\x06status\x18\x02 \x01(\v2\x12.trip.EnumResponseR\x06status\x12)\n" +
 	"\x10drivers_notified\x18\x03 \x01(\x05R\x0fdriversNotified\x12+\n" +
@@ -3863,7 +5205,23 @@ const file_trip_trip_proto_rawDesc = "" +
 	"\brider_id\x18\x02 \x01(\tR\ariderId\"N\n" +
 	"\x14RsCancelInstantMatch\x12\x1c\n" +
 	"\tcancelled\x18\x01 \x01(\bR\tcancelled\x12\x18\n" +
-	"\amessage\x18\x02 \x01(\tR\amessage\"\xee\x01\n" +
+	"\amessage\x18\x02 \x01(\tR\amessage\"O\n" +
+	"\x19CancelInstantMatchRequest\x12\x17\n" +
+	"\atrip_id\x18\x01 \x01(\tR\x06tripId\x12\x19\n" +
+	"\brider_id\x18\x02 \x01(\tR\ariderId\"T\n" +
+	"\x1aCancelInstantMatchResponse\x12\x1c\n" +
+	"\tcancelled\x18\x01 \x01(\bR\tcancelled\x12\x18\n" +
+	"\amessage\x18\x02 \x01(\tR\amessage\"L\n" +
+	"\x14InstantAcceptRequest\x12\x17\n" +
+	"\atrip_id\x18\x01 \x01(\tR\x06tripId\x12\x1b\n" +
+	"\tdriver_id\x18\x02 \x01(\tR\bdriverId\"\xb0\x01\n" +
+	"\x15InstantAcceptResponse\x12\x1b\n" +
+	"\tdriver_id\x18\x01 \x01(\tR\bdriverId\x12#\n" +
+	"\raccepted_fare\x18\x02 \x01(\x01R\facceptedFare\x12\x18\n" +
+	"\amessage\x18\x03 \x01(\tR\amessage\x12\x1b\n" +
+	"\tis_winner\x18\x04 \x01(\bR\bisWinner\x12\x1e\n" +
+	"\x04trip\x18\x05 \x01(\v2\n" +
+	".trip.TripR\x04trip\"\xee\x01\n" +
 	"\x18TripHistoryFilterRequest\x12\x1e\n" +
 	"\brider_id\x18\x01 \x01(\tH\x00R\ariderId\x88\x01\x01\x12 \n" +
 	"\tdriver_id\x18\x02 \x01(\tH\x01R\bdriverId\x88\x01\x01\x12\x1c\n" +
@@ -3876,7 +5234,24 @@ const file_trip_trip_proto_rawDesc = "" +
 	"\n" +
 	"\b_trip_idB\b\n" +
 	"\x06_limitB\t\n" +
-	"\a_offset\"g\n" +
+	"\a_offset\"\x86\x01\n" +
+	"\x1cGetTripHistoryByRiderRequest\x12\x19\n" +
+	"\brider_id\x18\x01 \x01(\tR\ariderId\x12\x19\n" +
+	"\x05limit\x18\x02 \x01(\x05H\x00R\x05limit\x88\x01\x01\x12\x1b\n" +
+	"\x06offset\x18\x03 \x01(\x05H\x01R\x06offset\x88\x01\x01B\b\n" +
+	"\x06_limitB\t\n" +
+	"\a_offset\"\x89\x01\n" +
+	"\x1dGetTripHistoryByDriverRequest\x12\x1b\n" +
+	"\tdriver_id\x18\x01 \x01(\tR\bdriverId\x12\x19\n" +
+	"\x05limit\x18\x02 \x01(\x05H\x00R\x05limit\x88\x01\x01\x12\x1b\n" +
+	"\x06offset\x18\x03 \x01(\x05H\x01R\x06offset\x88\x01\x01B\b\n" +
+	"\x06_limitB\t\n" +
+	"\a_offset\"j\n" +
+	"\x16GetTripHistoryResponse\x12 \n" +
+	"\x05trips\x18\x01 \x03(\v2\n" +
+	".trip.TripR\x05trips\x12\x18\n" +
+	"\amessage\x18\x02 \x01(\tR\amessage\x12\x14\n" +
+	"\x05total\x18\x03 \x01(\x05R\x05total\"g\n" +
 	"\x13TripHistoryResponse\x12 \n" +
 	"\x05trips\x18\x01 \x03(\v2\n" +
 	".trip.TripR\x05trips\x12\x18\n" +
@@ -3898,26 +5273,31 @@ const file_trip_trip_proto_rawDesc = "" +
 	" \x01(\x01H\x02R\bdistance\x88\x01\x01B\x10\n" +
 	"\x0e_profile_imageB\x06\n" +
 	"\x04_etaB\v\n" +
-	"\t_distance2\x99\v\n" +
+	"\t_distance2\x9f\x0f\n" +
 	"\vTripService\x123\n" +
 	"\n" +
 	"CreateTrip\x12\x11.trip.TripRequest\x1a\x12.trip.TripResponse\x12E\n" +
 	"\x10SubmitBidOrOffer\x12\x17.trip.BidOrOfferRequest\x1a\x18.trip.BidOrOfferResponse\x12B\n" +
 	"\vAcceptOffer\x12\x18.trip.AcceptOfferRequest\x1a\x19.trip.AcceptOfferResponse\x12E\n" +
-	"\fCounterOffer\x12\x19.trip.CounterOfferRequest\x1a\x1a.trip.CounterOfferResponse\x123\n" +
-	"\aGetTrip\x12\x14.trip.GetTripRequest\x1a\x12.trip.TripResponse\x12A\n" +
-	"\x0eGetActiveTrips\x12\x17.trip.TripFilterRequest\x1a\x16.trip.ListTripResponse\x129\n" +
+	"\fCounterOffer\x12\x19.trip.CounterOfferRequest\x1a\x1a.trip.CounterOfferResponse\x126\n" +
+	"\aGetTrip\x12\x14.trip.GetTripRequest\x1a\x15.trip.GetTripResponse\x12K\n" +
+	"\x0eGetActiveTrips\x12\x1b.trip.GetActiveTripsRequest\x1a\x1c.trip.GetActiveTripsResponse\x12`\n" +
+	"\x15GetActiveTripsByRider\x12\".trip.GetActiveTripsByRiderRequest\x1a#.trip.GetActiveTripsByRiderResponse\x12?\n" +
 	"\n" +
-	"AcceptTrip\x12\x17.trip.AcceptTripRequest\x1a\x12.trip.TripResponse\x12?\n" +
+	"AcceptTrip\x12\x17.trip.AcceptTripRequest\x1a\x18.trip.AcceptTripResponse\x12?\n" +
 	"\n" +
 	"CancelTrip\x12\x17.trip.CancelTripRequest\x1a\x18.trip.CancelTripResponse\x12E\n" +
 	"\fCompleteTrip\x12\x19.trip.CompleteTripRequest\x1a\x1a.trip.CompleteTripResponse\x12T\n" +
-	"\x11GetBiddingSession\x12!.trip.BiddingSessionFilterRequest\x1a\x1c.trip.BiddingSessionResponse\x12K\n" +
-	"\x0eGetBidRankings\x12\x1b.trip.GetBidRankingsRequest\x1a\x1c.trip.GetBidRankingsResponse\x12:\n" +
-	"\fInstantMatch\x12\x14.trip.RqInstantMatch\x1a\x14.trip.RsInstantMatch\x12U\n" +
-	"\x15GetInstantMatchStatus\x12\x1d.trip.RqGetInstantMatchStatus\x1a\x1d.trip.RsGetInstantMatchStatus\x12L\n" +
-	"\x12CancelInstantMatch\x12\x1a.trip.RqCancelInstantMatch\x1a\x1a.trip.RsCancelInstantMatch\x12K\n" +
-	"\x0eGetTripHistory\x12\x1e.trip.TripHistoryFilterRequest\x1a\x19.trip.TripHistoryResponse\x128\n" +
+	"\x11GetBiddingSession\x12\x1e.trip.GetBiddingSessionRequest\x1a\x1f.trip.GetBiddingSessionResponse\x12l\n" +
+	"\x19GetBiddingSessionsByRider\x12&.trip.GetBiddingSessionsByRiderRequest\x1a'.trip.GetBiddingSessionsByRiderResponse\x12K\n" +
+	"\x0eGetBidRankings\x12\x1b.trip.GetBidRankingsRequest\x1a\x1c.trip.GetBidRankingsResponse\x12E\n" +
+	"\fInstantMatch\x12\x19.trip.InstantMatchRequest\x1a\x1a.trip.InstantMatchResponse\x12`\n" +
+	"\x15GetInstantMatchStatus\x12\".trip.GetInstantMatchStatusRequest\x1a#.trip.GetInstantMatchStatusResponse\x12W\n" +
+	"\x12CancelInstantMatch\x12\x1f.trip.CancelInstantMatchRequest\x1a .trip.CancelInstantMatchResponse\x12H\n" +
+	"\rInstantAccept\x12\x1a.trip.InstantAcceptRequest\x1a\x1b.trip.InstantAcceptResponse\x12K\n" +
+	"\x0eGetTripHistory\x12\x1e.trip.TripHistoryFilterRequest\x1a\x19.trip.TripHistoryResponse\x12Y\n" +
+	"\x15GetTripHistoryByRider\x12\".trip.GetTripHistoryByRiderRequest\x1a\x1c.trip.GetTripHistoryResponse\x12[\n" +
+	"\x16GetTripHistoryByDriver\x12#.trip.GetTripHistoryByDriverRequest\x1a\x1c.trip.GetTripHistoryResponse\x128\n" +
 	"\fIsTripActive\x12\x14.trip.GetTripRequest\x1a\x12.trip.TripResponse\x129\n" +
 	"\fCreateRating\x12\x13.trip.RatingRequest\x1a\x14.trip.RatingResponse\x129\n" +
 	"\tGetRating\x12\x16.trip.GetRatingRequest\x1a\x14.trip.RatingResponse\x12?\n" +
@@ -3938,57 +5318,78 @@ func file_trip_trip_proto_rawDescGZIP() []byte {
 	return file_trip_trip_proto_rawDescData
 }
 
-var file_trip_trip_proto_msgTypes = make([]protoimpl.MessageInfo, 48)
+var file_trip_trip_proto_msgTypes = make([]protoimpl.MessageInfo, 69)
 var file_trip_trip_proto_goTypes = []any{
-	(*RatingRequest)(nil),               // 0: trip.RatingRequest
-	(*ListRatingRequest)(nil),           // 1: trip.ListRatingRequest
-	(*DeleteRatingRequest)(nil),         // 2: trip.DeleteRatingRequest
-	(*UpdateRatingRequest)(nil),         // 3: trip.UpdateRatingRequest
-	(*DeleteRatingResponse)(nil),        // 4: trip.DeleteRatingResponse
-	(*ListRatingResponse)(nil),          // 5: trip.ListRatingResponse
-	(*GetRatingRequest)(nil),            // 6: trip.GetRatingRequest
-	(*Rating)(nil),                      // 7: trip.Rating
-	(*RatingResponse)(nil),              // 8: trip.RatingResponse
-	(*EnumRequest)(nil),                 // 9: trip.EnumRequest
-	(*Enum)(nil),                        // 10: trip.Enum
-	(*EnumResponse)(nil),                // 11: trip.EnumResponse
-	(*ListEnumResponse)(nil),            // 12: trip.ListEnumResponse
-	(*LatLng)(nil),                      // 13: trip.LatLng
-	(*Location)(nil),                    // 14: trip.Location
-	(*Trip)(nil),                        // 15: trip.Trip
-	(*TripRequest)(nil),                 // 16: trip.TripRequest
-	(*TripResponse)(nil),                // 17: trip.TripResponse
-	(*BidOrOfferRequest)(nil),           // 18: trip.BidOrOfferRequest
-	(*BidOrOfferResponse)(nil),          // 19: trip.BidOrOfferResponse
-	(*AcceptOfferRequest)(nil),          // 20: trip.AcceptOfferRequest
-	(*AcceptOfferResponse)(nil),         // 21: trip.AcceptOfferResponse
-	(*CounterOfferRequest)(nil),         // 22: trip.CounterOfferRequest
-	(*CounterOfferResponse)(nil),        // 23: trip.CounterOfferResponse
-	(*GetTripRequest)(nil),              // 24: trip.GetTripRequest
-	(*TripFilterRequest)(nil),           // 25: trip.TripFilterRequest
-	(*ListTripResponse)(nil),            // 26: trip.ListTripResponse
-	(*AcceptTripRequest)(nil),           // 27: trip.AcceptTripRequest
-	(*CancelTripRequest)(nil),           // 28: trip.CancelTripRequest
-	(*CancelTripResponse)(nil),          // 29: trip.CancelTripResponse
-	(*CompleteTripRequest)(nil),         // 30: trip.CompleteTripRequest
-	(*CompleteTripResponse)(nil),        // 31: trip.CompleteTripResponse
-	(*BiddingSession)(nil),              // 32: trip.BiddingSession
-	(*RqGetBiddingSession)(nil),         // 33: trip.RqGetBiddingSession
-	(*BiddingSessionResponse)(nil),      // 34: trip.BiddingSessionResponse
-	(*BiddingSessionFilterRequest)(nil), // 35: trip.BiddingSessionFilterRequest
-	(*GetBidRankingsRequest)(nil),       // 36: trip.GetBidRankingsRequest
-	(*BidRanking)(nil),                  // 37: trip.BidRanking
-	(*GetBidRankingsResponse)(nil),      // 38: trip.GetBidRankingsResponse
-	(*RqInstantMatch)(nil),              // 39: trip.RqInstantMatch
-	(*RsInstantMatch)(nil),              // 40: trip.RsInstantMatch
-	(*RqGetInstantMatchStatus)(nil),     // 41: trip.RqGetInstantMatchStatus
-	(*RsGetInstantMatchStatus)(nil),     // 42: trip.RsGetInstantMatchStatus
-	(*RqCancelInstantMatch)(nil),        // 43: trip.RqCancelInstantMatch
-	(*RsCancelInstantMatch)(nil),        // 44: trip.RsCancelInstantMatch
-	(*TripHistoryFilterRequest)(nil),    // 45: trip.TripHistoryFilterRequest
-	(*TripHistoryResponse)(nil),         // 46: trip.TripHistoryResponse
-	(*DriverInfo)(nil),                  // 47: trip.DriverInfo
-	(*timestamppb.Timestamp)(nil),       // 48: google.protobuf.Timestamp
+	(*RatingRequest)(nil),                     // 0: trip.RatingRequest
+	(*ListRatingRequest)(nil),                 // 1: trip.ListRatingRequest
+	(*DeleteRatingRequest)(nil),               // 2: trip.DeleteRatingRequest
+	(*UpdateRatingRequest)(nil),               // 3: trip.UpdateRatingRequest
+	(*DeleteRatingResponse)(nil),              // 4: trip.DeleteRatingResponse
+	(*ListRatingResponse)(nil),                // 5: trip.ListRatingResponse
+	(*GetRatingRequest)(nil),                  // 6: trip.GetRatingRequest
+	(*Rating)(nil),                            // 7: trip.Rating
+	(*RatingResponse)(nil),                    // 8: trip.RatingResponse
+	(*EnumRequest)(nil),                       // 9: trip.EnumRequest
+	(*Enum)(nil),                              // 10: trip.Enum
+	(*EnumResponse)(nil),                      // 11: trip.EnumResponse
+	(*ListEnumResponse)(nil),                  // 12: trip.ListEnumResponse
+	(*LatLng)(nil),                            // 13: trip.LatLng
+	(*Location)(nil),                          // 14: trip.Location
+	(*Trip)(nil),                              // 15: trip.Trip
+	(*TripRequest)(nil),                       // 16: trip.TripRequest
+	(*TripResponse)(nil),                      // 17: trip.TripResponse
+	(*BidOrOfferRequest)(nil),                 // 18: trip.BidOrOfferRequest
+	(*BidOrOfferResponse)(nil),                // 19: trip.BidOrOfferResponse
+	(*AcceptOfferRequest)(nil),                // 20: trip.AcceptOfferRequest
+	(*AcceptOfferResponse)(nil),               // 21: trip.AcceptOfferResponse
+	(*CounterOfferRequest)(nil),               // 22: trip.CounterOfferRequest
+	(*CounterOfferResponse)(nil),              // 23: trip.CounterOfferResponse
+	(*GetTripRequest)(nil),                    // 24: trip.GetTripRequest
+	(*GetTripResponse)(nil),                   // 25: trip.GetTripResponse
+	(*TripFilterRequest)(nil),                 // 26: trip.TripFilterRequest
+	(*GetActiveTripsRequest)(nil),             // 27: trip.GetActiveTripsRequest
+	(*GetActiveTripsResponse)(nil),            // 28: trip.GetActiveTripsResponse
+	(*GetActiveTripsByRiderRequest)(nil),      // 29: trip.GetActiveTripsByRiderRequest
+	(*GetActiveTripsByRiderResponse)(nil),     // 30: trip.GetActiveTripsByRiderResponse
+	(*ListTripResponse)(nil),                  // 31: trip.ListTripResponse
+	(*AcceptTripRequest)(nil),                 // 32: trip.AcceptTripRequest
+	(*AcceptTripResponse)(nil),                // 33: trip.AcceptTripResponse
+	(*CancelTripRequest)(nil),                 // 34: trip.CancelTripRequest
+	(*CancelTripResponse)(nil),                // 35: trip.CancelTripResponse
+	(*CompleteTripRequest)(nil),               // 36: trip.CompleteTripRequest
+	(*CompleteTripResponse)(nil),              // 37: trip.CompleteTripResponse
+	(*BiddingSession)(nil),                    // 38: trip.BiddingSession
+	(*RqGetBiddingSession)(nil),               // 39: trip.RqGetBiddingSession
+	(*GetBiddingSessionRequest)(nil),          // 40: trip.GetBiddingSessionRequest
+	(*GetBiddingSessionResponse)(nil),         // 41: trip.GetBiddingSessionResponse
+	(*GetBiddingSessionsByRiderRequest)(nil),  // 42: trip.GetBiddingSessionsByRiderRequest
+	(*GetBiddingSessionsByRiderResponse)(nil), // 43: trip.GetBiddingSessionsByRiderResponse
+	(*BiddingSessionResponse)(nil),            // 44: trip.BiddingSessionResponse
+	(*BiddingSessionFilterRequest)(nil),       // 45: trip.BiddingSessionFilterRequest
+	(*GetBidRankingsRequest)(nil),             // 46: trip.GetBidRankingsRequest
+	(*BidRanking)(nil),                        // 47: trip.BidRanking
+	(*GetBidRankingsResponse)(nil),            // 48: trip.GetBidRankingsResponse
+	(*RqInstantMatch)(nil),                    // 49: trip.RqInstantMatch
+	(*RsInstantMatch)(nil),                    // 50: trip.RsInstantMatch
+	(*InstantMatchRequest)(nil),               // 51: trip.InstantMatchRequest
+	(*InstantMatchResponse)(nil),              // 52: trip.InstantMatchResponse
+	(*RqGetInstantMatchStatus)(nil),           // 53: trip.RqGetInstantMatchStatus
+	(*RsGetInstantMatchStatus)(nil),           // 54: trip.RsGetInstantMatchStatus
+	(*GetInstantMatchStatusRequest)(nil),      // 55: trip.GetInstantMatchStatusRequest
+	(*GetInstantMatchStatusResponse)(nil),     // 56: trip.GetInstantMatchStatusResponse
+	(*RqCancelInstantMatch)(nil),              // 57: trip.RqCancelInstantMatch
+	(*RsCancelInstantMatch)(nil),              // 58: trip.RsCancelInstantMatch
+	(*CancelInstantMatchRequest)(nil),         // 59: trip.CancelInstantMatchRequest
+	(*CancelInstantMatchResponse)(nil),        // 60: trip.CancelInstantMatchResponse
+	(*InstantAcceptRequest)(nil),              // 61: trip.InstantAcceptRequest
+	(*InstantAcceptResponse)(nil),             // 62: trip.InstantAcceptResponse
+	(*TripHistoryFilterRequest)(nil),          // 63: trip.TripHistoryFilterRequest
+	(*GetTripHistoryByRiderRequest)(nil),      // 64: trip.GetTripHistoryByRiderRequest
+	(*GetTripHistoryByDriverRequest)(nil),     // 65: trip.GetTripHistoryByDriverRequest
+	(*GetTripHistoryResponse)(nil),            // 66: trip.GetTripHistoryResponse
+	(*TripHistoryResponse)(nil),               // 67: trip.TripHistoryResponse
+	(*DriverInfo)(nil),                        // 68: trip.DriverInfo
+	(*timestamppb.Timestamp)(nil),             // 69: google.protobuf.Timestamp
 }
 var file_trip_trip_proto_depIdxs = []int32{
 	9,  // 0: trip.RatingRequest.reviewer_role:type_name -> trip.EnumRequest
@@ -4000,8 +5401,8 @@ var file_trip_trip_proto_depIdxs = []int32{
 	8,  // 6: trip.ListRatingResponse.ratings:type_name -> trip.RatingResponse
 	11, // 7: trip.Rating.reviewer_role:type_name -> trip.EnumResponse
 	11, // 8: trip.Rating.reviewee_role:type_name -> trip.EnumResponse
-	48, // 9: trip.Rating.created_at:type_name -> google.protobuf.Timestamp
-	48, // 10: trip.Rating.updated_at:type_name -> google.protobuf.Timestamp
+	69, // 9: trip.Rating.created_at:type_name -> google.protobuf.Timestamp
+	69, // 10: trip.Rating.updated_at:type_name -> google.protobuf.Timestamp
 	7,  // 11: trip.RatingResponse.rating:type_name -> trip.Rating
 	10, // 12: trip.EnumResponse.enum:type_name -> trip.Enum
 	10, // 13: trip.ListEnumResponse.enums:type_name -> trip.Enum
@@ -4036,65 +5437,86 @@ var file_trip_trip_proto_depIdxs = []int32{
 	15, // 42: trip.AcceptOfferResponse.trip:type_name -> trip.Trip
 	9,  // 43: trip.CounterOfferRequest.user_role:type_name -> trip.EnumRequest
 	15, // 44: trip.CounterOfferResponse.trip:type_name -> trip.Trip
-	15, // 45: trip.ListTripResponse.trips:type_name -> trip.Trip
-	15, // 46: trip.CompleteTripResponse.trip:type_name -> trip.Trip
-	11, // 47: trip.BiddingSession.status:type_name -> trip.EnumResponse
-	48, // 48: trip.BiddingSession.created_at:type_name -> google.protobuf.Timestamp
-	48, // 49: trip.BiddingSession.auto_close_at:type_name -> google.protobuf.Timestamp
-	32, // 50: trip.BiddingSessionResponse.session:type_name -> trip.BiddingSession
-	48, // 51: trip.BidRanking.bid_time:type_name -> google.protobuf.Timestamp
-	37, // 52: trip.GetBidRankingsResponse.rankings:type_name -> trip.BidRanking
-	11, // 53: trip.RsInstantMatch.status:type_name -> trip.EnumResponse
-	11, // 54: trip.RsGetInstantMatchStatus.status:type_name -> trip.EnumResponse
-	47, // 55: trip.RsGetInstantMatchStatus.driver_info:type_name -> trip.DriverInfo
-	15, // 56: trip.TripHistoryResponse.trips:type_name -> trip.Trip
-	16, // 57: trip.TripService.CreateTrip:input_type -> trip.TripRequest
-	18, // 58: trip.TripService.SubmitBidOrOffer:input_type -> trip.BidOrOfferRequest
-	20, // 59: trip.TripService.AcceptOffer:input_type -> trip.AcceptOfferRequest
-	22, // 60: trip.TripService.CounterOffer:input_type -> trip.CounterOfferRequest
-	24, // 61: trip.TripService.GetTrip:input_type -> trip.GetTripRequest
-	25, // 62: trip.TripService.GetActiveTrips:input_type -> trip.TripFilterRequest
-	27, // 63: trip.TripService.AcceptTrip:input_type -> trip.AcceptTripRequest
-	28, // 64: trip.TripService.CancelTrip:input_type -> trip.CancelTripRequest
-	30, // 65: trip.TripService.CompleteTrip:input_type -> trip.CompleteTripRequest
-	35, // 66: trip.TripService.GetBiddingSession:input_type -> trip.BiddingSessionFilterRequest
-	36, // 67: trip.TripService.GetBidRankings:input_type -> trip.GetBidRankingsRequest
-	39, // 68: trip.TripService.InstantMatch:input_type -> trip.RqInstantMatch
-	41, // 69: trip.TripService.GetInstantMatchStatus:input_type -> trip.RqGetInstantMatchStatus
-	43, // 70: trip.TripService.CancelInstantMatch:input_type -> trip.RqCancelInstantMatch
-	45, // 71: trip.TripService.GetTripHistory:input_type -> trip.TripHistoryFilterRequest
-	24, // 72: trip.TripService.IsTripActive:input_type -> trip.GetTripRequest
-	0,  // 73: trip.TripService.CreateRating:input_type -> trip.RatingRequest
-	6,  // 74: trip.TripService.GetRating:input_type -> trip.GetRatingRequest
-	1,  // 75: trip.TripService.ListRating:input_type -> trip.ListRatingRequest
-	2,  // 76: trip.TripService.DeleteRating:input_type -> trip.DeleteRatingRequest
-	3,  // 77: trip.TripService.UpdateRating:input_type -> trip.UpdateRatingRequest
-	17, // 78: trip.TripService.CreateTrip:output_type -> trip.TripResponse
-	19, // 79: trip.TripService.SubmitBidOrOffer:output_type -> trip.BidOrOfferResponse
-	21, // 80: trip.TripService.AcceptOffer:output_type -> trip.AcceptOfferResponse
-	23, // 81: trip.TripService.CounterOffer:output_type -> trip.CounterOfferResponse
-	17, // 82: trip.TripService.GetTrip:output_type -> trip.TripResponse
-	26, // 83: trip.TripService.GetActiveTrips:output_type -> trip.ListTripResponse
-	17, // 84: trip.TripService.AcceptTrip:output_type -> trip.TripResponse
-	29, // 85: trip.TripService.CancelTrip:output_type -> trip.CancelTripResponse
-	31, // 86: trip.TripService.CompleteTrip:output_type -> trip.CompleteTripResponse
-	34, // 87: trip.TripService.GetBiddingSession:output_type -> trip.BiddingSessionResponse
-	38, // 88: trip.TripService.GetBidRankings:output_type -> trip.GetBidRankingsResponse
-	40, // 89: trip.TripService.InstantMatch:output_type -> trip.RsInstantMatch
-	42, // 90: trip.TripService.GetInstantMatchStatus:output_type -> trip.RsGetInstantMatchStatus
-	44, // 91: trip.TripService.CancelInstantMatch:output_type -> trip.RsCancelInstantMatch
-	46, // 92: trip.TripService.GetTripHistory:output_type -> trip.TripHistoryResponse
-	17, // 93: trip.TripService.IsTripActive:output_type -> trip.TripResponse
-	8,  // 94: trip.TripService.CreateRating:output_type -> trip.RatingResponse
-	8,  // 95: trip.TripService.GetRating:output_type -> trip.RatingResponse
-	5,  // 96: trip.TripService.ListRating:output_type -> trip.ListRatingResponse
-	4,  // 97: trip.TripService.DeleteRating:output_type -> trip.DeleteRatingResponse
-	8,  // 98: trip.TripService.UpdateRating:output_type -> trip.RatingResponse
-	78, // [78:99] is the sub-list for method output_type
-	57, // [57:78] is the sub-list for method input_type
-	57, // [57:57] is the sub-list for extension type_name
-	57, // [57:57] is the sub-list for extension extendee
-	0,  // [0:57] is the sub-list for field type_name
+	15, // 45: trip.GetTripResponse.trip:type_name -> trip.Trip
+	15, // 46: trip.GetActiveTripsResponse.trips:type_name -> trip.Trip
+	15, // 47: trip.GetActiveTripsByRiderResponse.trips:type_name -> trip.Trip
+	15, // 48: trip.ListTripResponse.trips:type_name -> trip.Trip
+	15, // 49: trip.AcceptTripResponse.trip:type_name -> trip.Trip
+	15, // 50: trip.CompleteTripResponse.trip:type_name -> trip.Trip
+	11, // 51: trip.BiddingSession.status:type_name -> trip.EnumResponse
+	69, // 52: trip.BiddingSession.created_at:type_name -> google.protobuf.Timestamp
+	69, // 53: trip.BiddingSession.auto_close_at:type_name -> google.protobuf.Timestamp
+	38, // 54: trip.GetBiddingSessionResponse.session:type_name -> trip.BiddingSession
+	38, // 55: trip.GetBiddingSessionsByRiderResponse.sessions:type_name -> trip.BiddingSession
+	38, // 56: trip.BiddingSessionResponse.session:type_name -> trip.BiddingSession
+	69, // 57: trip.BidRanking.bid_time:type_name -> google.protobuf.Timestamp
+	47, // 58: trip.GetBidRankingsResponse.rankings:type_name -> trip.BidRanking
+	11, // 59: trip.RsInstantMatch.status:type_name -> trip.EnumResponse
+	11, // 60: trip.InstantMatchResponse.status:type_name -> trip.EnumResponse
+	11, // 61: trip.RsGetInstantMatchStatus.status:type_name -> trip.EnumResponse
+	68, // 62: trip.RsGetInstantMatchStatus.driver_info:type_name -> trip.DriverInfo
+	11, // 63: trip.GetInstantMatchStatusResponse.status:type_name -> trip.EnumResponse
+	68, // 64: trip.GetInstantMatchStatusResponse.driver_info:type_name -> trip.DriverInfo
+	15, // 65: trip.InstantAcceptResponse.trip:type_name -> trip.Trip
+	15, // 66: trip.GetTripHistoryResponse.trips:type_name -> trip.Trip
+	15, // 67: trip.TripHistoryResponse.trips:type_name -> trip.Trip
+	16, // 68: trip.TripService.CreateTrip:input_type -> trip.TripRequest
+	18, // 69: trip.TripService.SubmitBidOrOffer:input_type -> trip.BidOrOfferRequest
+	20, // 70: trip.TripService.AcceptOffer:input_type -> trip.AcceptOfferRequest
+	22, // 71: trip.TripService.CounterOffer:input_type -> trip.CounterOfferRequest
+	24, // 72: trip.TripService.GetTrip:input_type -> trip.GetTripRequest
+	27, // 73: trip.TripService.GetActiveTrips:input_type -> trip.GetActiveTripsRequest
+	29, // 74: trip.TripService.GetActiveTripsByRider:input_type -> trip.GetActiveTripsByRiderRequest
+	32, // 75: trip.TripService.AcceptTrip:input_type -> trip.AcceptTripRequest
+	34, // 76: trip.TripService.CancelTrip:input_type -> trip.CancelTripRequest
+	36, // 77: trip.TripService.CompleteTrip:input_type -> trip.CompleteTripRequest
+	40, // 78: trip.TripService.GetBiddingSession:input_type -> trip.GetBiddingSessionRequest
+	42, // 79: trip.TripService.GetBiddingSessionsByRider:input_type -> trip.GetBiddingSessionsByRiderRequest
+	46, // 80: trip.TripService.GetBidRankings:input_type -> trip.GetBidRankingsRequest
+	51, // 81: trip.TripService.InstantMatch:input_type -> trip.InstantMatchRequest
+	55, // 82: trip.TripService.GetInstantMatchStatus:input_type -> trip.GetInstantMatchStatusRequest
+	59, // 83: trip.TripService.CancelInstantMatch:input_type -> trip.CancelInstantMatchRequest
+	61, // 84: trip.TripService.InstantAccept:input_type -> trip.InstantAcceptRequest
+	63, // 85: trip.TripService.GetTripHistory:input_type -> trip.TripHistoryFilterRequest
+	64, // 86: trip.TripService.GetTripHistoryByRider:input_type -> trip.GetTripHistoryByRiderRequest
+	65, // 87: trip.TripService.GetTripHistoryByDriver:input_type -> trip.GetTripHistoryByDriverRequest
+	24, // 88: trip.TripService.IsTripActive:input_type -> trip.GetTripRequest
+	0,  // 89: trip.TripService.CreateRating:input_type -> trip.RatingRequest
+	6,  // 90: trip.TripService.GetRating:input_type -> trip.GetRatingRequest
+	1,  // 91: trip.TripService.ListRating:input_type -> trip.ListRatingRequest
+	2,  // 92: trip.TripService.DeleteRating:input_type -> trip.DeleteRatingRequest
+	3,  // 93: trip.TripService.UpdateRating:input_type -> trip.UpdateRatingRequest
+	17, // 94: trip.TripService.CreateTrip:output_type -> trip.TripResponse
+	19, // 95: trip.TripService.SubmitBidOrOffer:output_type -> trip.BidOrOfferResponse
+	21, // 96: trip.TripService.AcceptOffer:output_type -> trip.AcceptOfferResponse
+	23, // 97: trip.TripService.CounterOffer:output_type -> trip.CounterOfferResponse
+	25, // 98: trip.TripService.GetTrip:output_type -> trip.GetTripResponse
+	28, // 99: trip.TripService.GetActiveTrips:output_type -> trip.GetActiveTripsResponse
+	30, // 100: trip.TripService.GetActiveTripsByRider:output_type -> trip.GetActiveTripsByRiderResponse
+	33, // 101: trip.TripService.AcceptTrip:output_type -> trip.AcceptTripResponse
+	35, // 102: trip.TripService.CancelTrip:output_type -> trip.CancelTripResponse
+	37, // 103: trip.TripService.CompleteTrip:output_type -> trip.CompleteTripResponse
+	41, // 104: trip.TripService.GetBiddingSession:output_type -> trip.GetBiddingSessionResponse
+	43, // 105: trip.TripService.GetBiddingSessionsByRider:output_type -> trip.GetBiddingSessionsByRiderResponse
+	48, // 106: trip.TripService.GetBidRankings:output_type -> trip.GetBidRankingsResponse
+	52, // 107: trip.TripService.InstantMatch:output_type -> trip.InstantMatchResponse
+	56, // 108: trip.TripService.GetInstantMatchStatus:output_type -> trip.GetInstantMatchStatusResponse
+	60, // 109: trip.TripService.CancelInstantMatch:output_type -> trip.CancelInstantMatchResponse
+	62, // 110: trip.TripService.InstantAccept:output_type -> trip.InstantAcceptResponse
+	67, // 111: trip.TripService.GetTripHistory:output_type -> trip.TripHistoryResponse
+	66, // 112: trip.TripService.GetTripHistoryByRider:output_type -> trip.GetTripHistoryResponse
+	66, // 113: trip.TripService.GetTripHistoryByDriver:output_type -> trip.GetTripHistoryResponse
+	17, // 114: trip.TripService.IsTripActive:output_type -> trip.TripResponse
+	8,  // 115: trip.TripService.CreateRating:output_type -> trip.RatingResponse
+	8,  // 116: trip.TripService.GetRating:output_type -> trip.RatingResponse
+	5,  // 117: trip.TripService.ListRating:output_type -> trip.ListRatingResponse
+	4,  // 118: trip.TripService.DeleteRating:output_type -> trip.DeleteRatingResponse
+	8,  // 119: trip.TripService.UpdateRating:output_type -> trip.RatingResponse
+	94, // [94:120] is the sub-list for method output_type
+	68, // [68:94] is the sub-list for method input_type
+	68, // [68:68] is the sub-list for extension type_name
+	68, // [68:68] is the sub-list for extension extendee
+	0,  // [0:68] is the sub-list for field type_name
 }
 
 func init() { file_trip_trip_proto_init() }
@@ -4110,23 +5532,31 @@ func file_trip_trip_proto_init() {
 	file_trip_trip_proto_msgTypes[17].OneofWrappers = []any{}
 	file_trip_trip_proto_msgTypes[18].OneofWrappers = []any{}
 	file_trip_trip_proto_msgTypes[22].OneofWrappers = []any{}
-	file_trip_trip_proto_msgTypes[25].OneofWrappers = []any{}
+	file_trip_trip_proto_msgTypes[26].OneofWrappers = []any{}
 	file_trip_trip_proto_msgTypes[27].OneofWrappers = []any{}
-	file_trip_trip_proto_msgTypes[28].OneofWrappers = []any{}
+	file_trip_trip_proto_msgTypes[29].OneofWrappers = []any{}
 	file_trip_trip_proto_msgTypes[32].OneofWrappers = []any{}
-	file_trip_trip_proto_msgTypes[35].OneofWrappers = []any{}
-	file_trip_trip_proto_msgTypes[39].OneofWrappers = []any{}
-	file_trip_trip_proto_msgTypes[40].OneofWrappers = []any{}
+	file_trip_trip_proto_msgTypes[34].OneofWrappers = []any{}
+	file_trip_trip_proto_msgTypes[38].OneofWrappers = []any{}
 	file_trip_trip_proto_msgTypes[42].OneofWrappers = []any{}
 	file_trip_trip_proto_msgTypes[45].OneofWrappers = []any{}
-	file_trip_trip_proto_msgTypes[47].OneofWrappers = []any{}
+	file_trip_trip_proto_msgTypes[49].OneofWrappers = []any{}
+	file_trip_trip_proto_msgTypes[50].OneofWrappers = []any{}
+	file_trip_trip_proto_msgTypes[51].OneofWrappers = []any{}
+	file_trip_trip_proto_msgTypes[52].OneofWrappers = []any{}
+	file_trip_trip_proto_msgTypes[54].OneofWrappers = []any{}
+	file_trip_trip_proto_msgTypes[56].OneofWrappers = []any{}
+	file_trip_trip_proto_msgTypes[63].OneofWrappers = []any{}
+	file_trip_trip_proto_msgTypes[64].OneofWrappers = []any{}
+	file_trip_trip_proto_msgTypes[65].OneofWrappers = []any{}
+	file_trip_trip_proto_msgTypes[68].OneofWrappers = []any{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_trip_trip_proto_rawDesc), len(file_trip_trip_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   48,
+			NumMessages:   69,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
