@@ -270,17 +270,17 @@ func (x *RiderInfoRequest) GetRiderId() string {
 
 // Rider info response
 type RiderInfoResponse struct {
-	state                protoimpl.MessageState `protogen:"open.v1"`
-	RiderId              string                 `protobuf:"bytes,1,opt,name=rider_id,json=riderId,proto3" json:"rider_id,omitempty"`
-	Name                 string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
-	Phone                string                 `protobuf:"bytes,3,opt,name=phone,proto3" json:"phone,omitempty"`
-	Email                string                 `protobuf:"bytes,4,opt,name=email,proto3" json:"email,omitempty"`
-	Rating               float64                `protobuf:"fixed64,5,opt,name=rating,proto3" json:"rating,omitempty"`
-	PreferredVehicleType *EnumResponse          `protobuf:"bytes,6,opt,name=preferred_vehicle_type,json=preferredVehicleType,proto3" json:"preferred_vehicle_type,omitempty"`
-	InstantMatchEnabled  bool                   `protobuf:"varint,7,opt,name=instant_match_enabled,json=instantMatchEnabled,proto3" json:"instant_match_enabled,omitempty"`
-	PaymentMethod        *EnumResponse          `protobuf:"bytes,8,opt,name=payment_method,json=paymentMethod,proto3" json:"payment_method,omitempty"`
-	unknownFields        protoimpl.UnknownFields
-	sizeCache            protoimpl.SizeCache
+	state                 protoimpl.MessageState `protogen:"open.v1"`
+	RiderId               string                 `protobuf:"bytes,1,opt,name=rider_id,json=riderId,proto3" json:"rider_id,omitempty"`
+	Name                  string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+	Phone                 string                 `protobuf:"bytes,3,opt,name=phone,proto3" json:"phone,omitempty"`
+	Email                 string                 `protobuf:"bytes,4,opt,name=email,proto3" json:"email,omitempty"`
+	Rating                float64                `protobuf:"fixed64,5,opt,name=rating,proto3" json:"rating,omitempty"`
+	PreferredVehicleClass *EnumResponse          `protobuf:"bytes,6,opt,name=preferred_vehicle_class,json=preferredVehicleClass,proto3" json:"preferred_vehicle_class,omitempty"`
+	InstantMatchEnabled   bool                   `protobuf:"varint,7,opt,name=instant_match_enabled,json=instantMatchEnabled,proto3" json:"instant_match_enabled,omitempty"`
+	PaymentMethod         *EnumResponse          `protobuf:"bytes,8,opt,name=payment_method,json=paymentMethod,proto3" json:"payment_method,omitempty"`
+	unknownFields         protoimpl.UnknownFields
+	sizeCache             protoimpl.SizeCache
 }
 
 func (x *RiderInfoResponse) Reset() {
@@ -348,9 +348,9 @@ func (x *RiderInfoResponse) GetRating() float64 {
 	return 0
 }
 
-func (x *RiderInfoResponse) GetPreferredVehicleType() *EnumResponse {
+func (x *RiderInfoResponse) GetPreferredVehicleClass() *EnumResponse {
 	if x != nil {
-		return x.PreferredVehicleType
+		return x.PreferredVehicleClass
 	}
 	return nil
 }
@@ -375,7 +375,7 @@ type TripSummary struct {
 	TripId         string                 `protobuf:"bytes,1,opt,name=trip_id,json=tripId,proto3" json:"trip_id,omitempty"`
 	DriverId       string                 `protobuf:"bytes,2,opt,name=driver_id,json=driverId,proto3" json:"driver_id,omitempty"`
 	DriverName     string                 `protobuf:"bytes,3,opt,name=driver_name,json=driverName,proto3" json:"driver_name,omitempty"`
-	VehicleType    *EnumResponse          `protobuf:"bytes,4,opt,name=vehicle_type,json=vehicleType,proto3" json:"vehicle_type,omitempty"`
+	VehicleClass   *EnumResponse          `protobuf:"bytes,4,opt,name=vehicle_class,json=vehicleClass,proto3" json:"vehicle_class,omitempty"`
 	StartLatitude  float64                `protobuf:"fixed64,5,opt,name=start_latitude,json=startLatitude,proto3" json:"start_latitude,omitempty"`
 	StartLongitude float64                `protobuf:"fixed64,6,opt,name=start_longitude,json=startLongitude,proto3" json:"start_longitude,omitempty"`
 	EndLatitude    float64                `protobuf:"fixed64,7,opt,name=end_latitude,json=endLatitude,proto3" json:"end_latitude,omitempty"`
@@ -439,9 +439,9 @@ func (x *TripSummary) GetDriverName() string {
 	return ""
 }
 
-func (x *TripSummary) GetVehicleType() *EnumResponse {
+func (x *TripSummary) GetVehicleClass() *EnumResponse {
 	if x != nil {
-		return x.VehicleType
+		return x.VehicleClass
 	}
 	return nil
 }
@@ -549,15 +549,15 @@ func (x *RiderPreferenceRequest) GetRiderId() string {
 
 // Rider preferences response
 type GetRiderPreferenceResponse struct {
-	state                protoimpl.MessageState `protogen:"open.v1"`
-	RiderId              string                 `protobuf:"bytes,1,opt,name=rider_id,json=riderId,proto3" json:"rider_id,omitempty"`
-	PreferredVehicleType *EnumResponse          `protobuf:"bytes,2,opt,name=preferred_vehicle_type,json=preferredVehicleType,proto3" json:"preferred_vehicle_type,omitempty"`
-	InstantMatchEnabled  bool                   `protobuf:"varint,3,opt,name=instant_match_enabled,json=instantMatchEnabled,proto3" json:"instant_match_enabled,omitempty"`
-	PaymentMethod        *EnumResponse          `protobuf:"bytes,4,opt,name=payment_method,json=paymentMethod,proto3" json:"payment_method,omitempty"`
-	NotificationsEnabled bool                   `protobuf:"varint,5,opt,name=notifications_enabled,json=notificationsEnabled,proto3" json:"notifications_enabled,omitempty"`
-	Language             *EnumResponse          `protobuf:"bytes,6,opt,name=language,proto3" json:"language,omitempty"`
-	unknownFields        protoimpl.UnknownFields
-	sizeCache            protoimpl.SizeCache
+	state                 protoimpl.MessageState `protogen:"open.v1"`
+	RiderId               string                 `protobuf:"bytes,1,opt,name=rider_id,json=riderId,proto3" json:"rider_id,omitempty"`
+	PreferredVehicleClass *EnumResponse          `protobuf:"bytes,2,opt,name=preferred_vehicle_class,json=preferredVehicleClass,proto3" json:"preferred_vehicle_class,omitempty"`
+	InstantMatchEnabled   bool                   `protobuf:"varint,3,opt,name=instant_match_enabled,json=instantMatchEnabled,proto3" json:"instant_match_enabled,omitempty"`
+	PaymentMethod         *EnumResponse          `protobuf:"bytes,4,opt,name=payment_method,json=paymentMethod,proto3" json:"payment_method,omitempty"`
+	NotificationsEnabled  bool                   `protobuf:"varint,5,opt,name=notifications_enabled,json=notificationsEnabled,proto3" json:"notifications_enabled,omitempty"`
+	Language              *EnumResponse          `protobuf:"bytes,6,opt,name=language,proto3" json:"language,omitempty"`
+	unknownFields         protoimpl.UnknownFields
+	sizeCache             protoimpl.SizeCache
 }
 
 func (x *GetRiderPreferenceResponse) Reset() {
@@ -597,9 +597,9 @@ func (x *GetRiderPreferenceResponse) GetRiderId() string {
 	return ""
 }
 
-func (x *GetRiderPreferenceResponse) GetPreferredVehicleType() *EnumResponse {
+func (x *GetRiderPreferenceResponse) GetPreferredVehicleClass() *EnumResponse {
 	if x != nil {
-		return x.PreferredVehicleType
+		return x.PreferredVehicleClass
 	}
 	return nil
 }
@@ -634,16 +634,15 @@ func (x *GetRiderPreferenceResponse) GetLanguage() *EnumResponse {
 
 // Update rider preferences request
 type UpdateRiderPreferenceRequest struct {
-	state                    protoimpl.MessageState `protogen:"open.v1"`
-	RiderId                  string                 `protobuf:"bytes,1,opt,name=rider_id,json=riderId,proto3" json:"rider_id,omitempty"`
-	PreferredVehicleType     *EnumRequest           `protobuf:"bytes,2,opt,name=preferred_vehicle_type,json=preferredVehicleType,proto3" json:"preferred_vehicle_type,omitempty"`
-	PreferredVehicleCategory *EnumRequest           `protobuf:"bytes,3,opt,name=preferred_vehicle_category,json=preferredVehicleCategory,proto3" json:"preferred_vehicle_category,omitempty"`
-	InstantMatchEnabled      bool                   `protobuf:"varint,4,opt,name=instant_match_enabled,json=instantMatchEnabled,proto3" json:"instant_match_enabled,omitempty"`
-	PaymentMethod            *EnumRequest           `protobuf:"bytes,5,opt,name=payment_method,json=paymentMethod,proto3" json:"payment_method,omitempty"`
-	NotificationsEnabled     bool                   `protobuf:"varint,6,opt,name=notifications_enabled,json=notificationsEnabled,proto3" json:"notifications_enabled,omitempty"`
-	Language                 *EnumRequest           `protobuf:"bytes,7,opt,name=language,proto3" json:"language,omitempty"`
-	unknownFields            protoimpl.UnknownFields
-	sizeCache                protoimpl.SizeCache
+	state                 protoimpl.MessageState `protogen:"open.v1"`
+	RiderId               string                 `protobuf:"bytes,1,opt,name=rider_id,json=riderId,proto3" json:"rider_id,omitempty"`
+	PreferredVehicleClass *EnumRequest           `protobuf:"bytes,2,opt,name=preferred_vehicle_class,json=preferredVehicleClass,proto3" json:"preferred_vehicle_class,omitempty"`
+	InstantMatchEnabled   bool                   `protobuf:"varint,4,opt,name=instant_match_enabled,json=instantMatchEnabled,proto3" json:"instant_match_enabled,omitempty"`
+	PaymentMethod         *EnumRequest           `protobuf:"bytes,5,opt,name=payment_method,json=paymentMethod,proto3" json:"payment_method,omitempty"`
+	NotificationsEnabled  bool                   `protobuf:"varint,6,opt,name=notifications_enabled,json=notificationsEnabled,proto3" json:"notifications_enabled,omitempty"`
+	Language              *EnumRequest           `protobuf:"bytes,7,opt,name=language,proto3" json:"language,omitempty"`
+	unknownFields         protoimpl.UnknownFields
+	sizeCache             protoimpl.SizeCache
 }
 
 func (x *UpdateRiderPreferenceRequest) Reset() {
@@ -683,16 +682,9 @@ func (x *UpdateRiderPreferenceRequest) GetRiderId() string {
 	return ""
 }
 
-func (x *UpdateRiderPreferenceRequest) GetPreferredVehicleType() *EnumRequest {
+func (x *UpdateRiderPreferenceRequest) GetPreferredVehicleClass() *EnumRequest {
 	if x != nil {
-		return x.PreferredVehicleType
-	}
-	return nil
-}
-
-func (x *UpdateRiderPreferenceRequest) GetPreferredVehicleCategory() *EnumRequest {
-	if x != nil {
-		return x.PreferredVehicleCategory
+		return x.PreferredVehicleClass
 	}
 	return nil
 }
@@ -795,22 +787,22 @@ const file_rider_rider_proto_rawDesc = "" +
 	"\x10ListEnumResponse\x12\x1f\n" +
 	"\x04enum\x18\x01 \x03(\v2\v.rider.EnumR\x04enum\"-\n" +
 	"\x10RiderInfoRequest\x12\x19\n" +
-	"\brider_id\x18\x01 \x01(\tR\ariderId\"\xc1\x02\n" +
+	"\brider_id\x18\x01 \x01(\tR\ariderId\"\xc3\x02\n" +
 	"\x11RiderInfoResponse\x12\x19\n" +
 	"\brider_id\x18\x01 \x01(\tR\ariderId\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12\x14\n" +
 	"\x05phone\x18\x03 \x01(\tR\x05phone\x12\x14\n" +
 	"\x05email\x18\x04 \x01(\tR\x05email\x12\x16\n" +
-	"\x06rating\x18\x05 \x01(\x01R\x06rating\x12I\n" +
-	"\x16preferred_vehicle_type\x18\x06 \x01(\v2\x13.rider.EnumResponseR\x14preferredVehicleType\x122\n" +
+	"\x06rating\x18\x05 \x01(\x01R\x06rating\x12K\n" +
+	"\x17preferred_vehicle_class\x18\x06 \x01(\v2\x13.rider.EnumResponseR\x15preferredVehicleClass\x122\n" +
 	"\x15instant_match_enabled\x18\a \x01(\bR\x13instantMatchEnabled\x12:\n" +
-	"\x0epayment_method\x18\b \x01(\v2\x13.rider.EnumResponseR\rpaymentMethod\"\xb9\x03\n" +
+	"\x0epayment_method\x18\b \x01(\v2\x13.rider.EnumResponseR\rpaymentMethod\"\xbb\x03\n" +
 	"\vTripSummary\x12\x17\n" +
 	"\atrip_id\x18\x01 \x01(\tR\x06tripId\x12\x1b\n" +
 	"\tdriver_id\x18\x02 \x01(\tR\bdriverId\x12\x1f\n" +
 	"\vdriver_name\x18\x03 \x01(\tR\n" +
-	"driverName\x126\n" +
-	"\fvehicle_type\x18\x04 \x01(\v2\x13.rider.EnumResponseR\vvehicleType\x12%\n" +
+	"driverName\x128\n" +
+	"\rvehicle_class\x18\x04 \x01(\v2\x13.rider.EnumResponseR\fvehicleClass\x12%\n" +
 	"\x0estart_latitude\x18\x05 \x01(\x01R\rstartLatitude\x12'\n" +
 	"\x0fstart_longitude\x18\x06 \x01(\x01R\x0estartLongitude\x12!\n" +
 	"\fend_latitude\x18\a \x01(\x01R\vendLatitude\x12#\n" +
@@ -822,18 +814,17 @@ const file_rider_rider_proto_rawDesc = "" +
 	"created_at\x18\v \x01(\tR\tcreatedAt\x12!\n" +
 	"\fcompleted_at\x18\f \x01(\tR\vcompletedAt\"3\n" +
 	"\x16RiderPreferenceRequest\x12\x19\n" +
-	"\brider_id\x18\x01 \x01(\tR\ariderId\"\xd8\x02\n" +
+	"\brider_id\x18\x01 \x01(\tR\ariderId\"\xda\x02\n" +
 	"\x1aGetRiderPreferenceResponse\x12\x19\n" +
-	"\brider_id\x18\x01 \x01(\tR\ariderId\x12I\n" +
-	"\x16preferred_vehicle_type\x18\x02 \x01(\v2\x13.rider.EnumResponseR\x14preferredVehicleType\x122\n" +
+	"\brider_id\x18\x01 \x01(\tR\ariderId\x12K\n" +
+	"\x17preferred_vehicle_class\x18\x02 \x01(\v2\x13.rider.EnumResponseR\x15preferredVehicleClass\x122\n" +
 	"\x15instant_match_enabled\x18\x03 \x01(\bR\x13instantMatchEnabled\x12:\n" +
 	"\x0epayment_method\x18\x04 \x01(\v2\x13.rider.EnumResponseR\rpaymentMethod\x123\n" +
 	"\x15notifications_enabled\x18\x05 \x01(\bR\x14notificationsEnabled\x12/\n" +
-	"\blanguage\x18\x06 \x01(\v2\x13.rider.EnumResponseR\blanguage\"\xa9\x03\n" +
+	"\blanguage\x18\x06 \x01(\v2\x13.rider.EnumResponseR\blanguage\"\xd9\x02\n" +
 	"\x1cUpdateRiderPreferenceRequest\x12\x19\n" +
-	"\brider_id\x18\x01 \x01(\tR\ariderId\x12H\n" +
-	"\x16preferred_vehicle_type\x18\x02 \x01(\v2\x12.rider.EnumRequestR\x14preferredVehicleType\x12P\n" +
-	"\x1apreferred_vehicle_category\x18\x03 \x01(\v2\x12.rider.EnumRequestR\x18preferredVehicleCategory\x122\n" +
+	"\brider_id\x18\x01 \x01(\tR\ariderId\x12J\n" +
+	"\x17preferred_vehicle_class\x18\x02 \x01(\v2\x12.rider.EnumRequestR\x15preferredVehicleClass\x122\n" +
 	"\x15instant_match_enabled\x18\x04 \x01(\bR\x13instantMatchEnabled\x129\n" +
 	"\x0epayment_method\x18\x05 \x01(\v2\x12.rider.EnumRequestR\rpaymentMethod\x123\n" +
 	"\x15notifications_enabled\x18\x06 \x01(\bR\x14notificationsEnabled\x12.\n" +
@@ -875,28 +866,27 @@ var file_rider_rider_proto_goTypes = []any{
 var file_rider_rider_proto_depIdxs = []int32{
 	0,  // 0: rider.EnumResponse.enum:type_name -> rider.Enum
 	0,  // 1: rider.ListEnumResponse.enum:type_name -> rider.Enum
-	1,  // 2: rider.RiderInfoResponse.preferred_vehicle_type:type_name -> rider.EnumResponse
+	1,  // 2: rider.RiderInfoResponse.preferred_vehicle_class:type_name -> rider.EnumResponse
 	1,  // 3: rider.RiderInfoResponse.payment_method:type_name -> rider.EnumResponse
-	1,  // 4: rider.TripSummary.vehicle_type:type_name -> rider.EnumResponse
+	1,  // 4: rider.TripSummary.vehicle_class:type_name -> rider.EnumResponse
 	1,  // 5: rider.TripSummary.status:type_name -> rider.EnumResponse
-	1,  // 6: rider.GetRiderPreferenceResponse.preferred_vehicle_type:type_name -> rider.EnumResponse
+	1,  // 6: rider.GetRiderPreferenceResponse.preferred_vehicle_class:type_name -> rider.EnumResponse
 	1,  // 7: rider.GetRiderPreferenceResponse.payment_method:type_name -> rider.EnumResponse
 	1,  // 8: rider.GetRiderPreferenceResponse.language:type_name -> rider.EnumResponse
-	2,  // 9: rider.UpdateRiderPreferenceRequest.preferred_vehicle_type:type_name -> rider.EnumRequest
-	2,  // 10: rider.UpdateRiderPreferenceRequest.preferred_vehicle_category:type_name -> rider.EnumRequest
-	2,  // 11: rider.UpdateRiderPreferenceRequest.payment_method:type_name -> rider.EnumRequest
-	2,  // 12: rider.UpdateRiderPreferenceRequest.language:type_name -> rider.EnumRequest
-	4,  // 13: rider.RiderService.GetRiderInfo:input_type -> rider.RiderInfoRequest
-	7,  // 14: rider.RiderService.GetRiderPreferences:input_type -> rider.RiderPreferenceRequest
-	9,  // 15: rider.RiderService.UpdateRiderPreferences:input_type -> rider.UpdateRiderPreferenceRequest
-	5,  // 16: rider.RiderService.GetRiderInfo:output_type -> rider.RiderInfoResponse
-	8,  // 17: rider.RiderService.GetRiderPreferences:output_type -> rider.GetRiderPreferenceResponse
-	10, // 18: rider.RiderService.UpdateRiderPreferences:output_type -> rider.UpdateRiderPreferenceResponse
-	16, // [16:19] is the sub-list for method output_type
-	13, // [13:16] is the sub-list for method input_type
-	13, // [13:13] is the sub-list for extension type_name
-	13, // [13:13] is the sub-list for extension extendee
-	0,  // [0:13] is the sub-list for field type_name
+	2,  // 9: rider.UpdateRiderPreferenceRequest.preferred_vehicle_class:type_name -> rider.EnumRequest
+	2,  // 10: rider.UpdateRiderPreferenceRequest.payment_method:type_name -> rider.EnumRequest
+	2,  // 11: rider.UpdateRiderPreferenceRequest.language:type_name -> rider.EnumRequest
+	4,  // 12: rider.RiderService.GetRiderInfo:input_type -> rider.RiderInfoRequest
+	7,  // 13: rider.RiderService.GetRiderPreferences:input_type -> rider.RiderPreferenceRequest
+	9,  // 14: rider.RiderService.UpdateRiderPreferences:input_type -> rider.UpdateRiderPreferenceRequest
+	5,  // 15: rider.RiderService.GetRiderInfo:output_type -> rider.RiderInfoResponse
+	8,  // 16: rider.RiderService.GetRiderPreferences:output_type -> rider.GetRiderPreferenceResponse
+	10, // 17: rider.RiderService.UpdateRiderPreferences:output_type -> rider.UpdateRiderPreferenceResponse
+	15, // [15:18] is the sub-list for method output_type
+	12, // [12:15] is the sub-list for method input_type
+	12, // [12:12] is the sub-list for extension type_name
+	12, // [12:12] is the sub-list for extension extendee
+	0,  // [0:12] is the sub-list for field type_name
 }
 
 func init() { file_rider_rider_proto_init() }
