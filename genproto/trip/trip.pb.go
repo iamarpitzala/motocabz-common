@@ -1900,7 +1900,8 @@ func (x *CounterOfferResponse) GetTrip() *Trip {
 
 type GetTripRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	TripId        string                 `protobuf:"bytes,1,opt,name=trip_id,json=tripId,proto3" json:"trip_id,omitempty"`
+	RiderId       *string                `protobuf:"bytes,1,opt,name=rider_id,json=riderId,proto3,oneof" json:"rider_id,omitempty"`
+	TripId        string                 `protobuf:"bytes,2,opt,name=trip_id,json=tripId,proto3" json:"trip_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1933,6 +1934,13 @@ func (x *GetTripRequest) ProtoReflect() protoreflect.Message {
 // Deprecated: Use GetTripRequest.ProtoReflect.Descriptor instead.
 func (*GetTripRequest) Descriptor() ([]byte, []int) {
 	return file_trip_trip_proto_rawDescGZIP(), []int{24}
+}
+
+func (x *GetTripRequest) GetRiderId() string {
+	if x != nil && x.RiderId != nil {
+		return *x.RiderId
+	}
+	return ""
 }
 
 func (x *GetTripRequest) GetTripId() string {
@@ -2925,7 +2933,8 @@ func (x *RqGetBiddingSession) GetTripId() string {
 
 type GetBiddingSessionRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	TripId        string                 `protobuf:"bytes,1,opt,name=trip_id,json=tripId,proto3" json:"trip_id,omitempty"`
+	RiderId       *string                `protobuf:"bytes,1,opt,name=rider_id,json=riderId,proto3,oneof" json:"rider_id,omitempty"`
+	TripId        string                 `protobuf:"bytes,2,opt,name=trip_id,json=tripId,proto3" json:"trip_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -2958,6 +2967,13 @@ func (x *GetBiddingSessionRequest) ProtoReflect() protoreflect.Message {
 // Deprecated: Use GetBiddingSessionRequest.ProtoReflect.Descriptor instead.
 func (*GetBiddingSessionRequest) Descriptor() ([]byte, []int) {
 	return file_trip_trip_proto_rawDescGZIP(), []int{40}
+}
+
+func (x *GetBiddingSessionRequest) GetRiderId() string {
+	if x != nil && x.RiderId != nil {
+		return *x.RiderId
+	}
+	return ""
 }
 
 func (x *GetBiddingSessionRequest) GetTripId() string {
@@ -4978,9 +4994,11 @@ const file_trip_trip_proto_rawDesc = "" +
 	"\fround_number\x18\x03 \x01(\x05R\vroundNumber\x12\x18\n" +
 	"\amessage\x18\x04 \x01(\tR\amessage\x12\x1e\n" +
 	"\x04trip\x18\x05 \x01(\v2\n" +
-	".trip.TripR\x04trip\")\n" +
-	"\x0eGetTripRequest\x12\x17\n" +
-	"\atrip_id\x18\x01 \x01(\tR\x06tripId\"K\n" +
+	".trip.TripR\x04trip\"V\n" +
+	"\x0eGetTripRequest\x12\x1e\n" +
+	"\brider_id\x18\x01 \x01(\tH\x00R\ariderId\x88\x01\x01\x12\x17\n" +
+	"\atrip_id\x18\x02 \x01(\tR\x06tripIdB\v\n" +
+	"\t_rider_id\"K\n" +
 	"\x0fGetTripResponse\x12\x18\n" +
 	"\amessage\x18\x01 \x01(\tR\amessage\x12\x1e\n" +
 	"\x04trip\x18\x02 \x01(\v2\n" +
@@ -5092,9 +5110,11 @@ const file_trip_trip_proto_rawDesc = "" +
 	"\t_min_fareB\v\n" +
 	"\t_max_fare\".\n" +
 	"\x13RqGetBiddingSession\x12\x17\n" +
-	"\atrip_id\x18\x01 \x01(\tR\x06tripId\"3\n" +
-	"\x18GetBiddingSessionRequest\x12\x17\n" +
-	"\atrip_id\x18\x01 \x01(\tR\x06tripId\"e\n" +
+	"\atrip_id\x18\x01 \x01(\tR\x06tripId\"`\n" +
+	"\x18GetBiddingSessionRequest\x12\x1e\n" +
+	"\brider_id\x18\x01 \x01(\tH\x00R\ariderId\x88\x01\x01\x12\x17\n" +
+	"\atrip_id\x18\x02 \x01(\tR\x06tripIdB\v\n" +
+	"\t_rider_id\"e\n" +
 	"\x19GetBiddingSessionResponse\x12.\n" +
 	"\asession\x18\x01 \x01(\v2\x14.trip.BiddingSessionR\asession\x12\x18\n" +
 	"\amessage\x18\x02 \x01(\tR\amessage\"\x8a\x01\n" +
@@ -5532,12 +5552,14 @@ func file_trip_trip_proto_init() {
 	file_trip_trip_proto_msgTypes[17].OneofWrappers = []any{}
 	file_trip_trip_proto_msgTypes[18].OneofWrappers = []any{}
 	file_trip_trip_proto_msgTypes[22].OneofWrappers = []any{}
+	file_trip_trip_proto_msgTypes[24].OneofWrappers = []any{}
 	file_trip_trip_proto_msgTypes[26].OneofWrappers = []any{}
 	file_trip_trip_proto_msgTypes[27].OneofWrappers = []any{}
 	file_trip_trip_proto_msgTypes[29].OneofWrappers = []any{}
 	file_trip_trip_proto_msgTypes[32].OneofWrappers = []any{}
 	file_trip_trip_proto_msgTypes[34].OneofWrappers = []any{}
 	file_trip_trip_proto_msgTypes[38].OneofWrappers = []any{}
+	file_trip_trip_proto_msgTypes[40].OneofWrappers = []any{}
 	file_trip_trip_proto_msgTypes[42].OneofWrappers = []any{}
 	file_trip_trip_proto_msgTypes[45].OneofWrappers = []any{}
 	file_trip_trip_proto_msgTypes[49].OneofWrappers = []any{}
