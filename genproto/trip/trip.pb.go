@@ -4344,6 +4344,134 @@ func (x *InstantAcceptResponse) GetTrip() *Trip {
 	return nil
 }
 
+type UpdateTripStatusRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	TripId        string                 `protobuf:"bytes,1,opt,name=trip_id,json=tripId,proto3" json:"trip_id,omitempty"`
+	DriverId      string                 `protobuf:"bytes,2,opt,name=driver_id,json=driverId,proto3" json:"driver_id,omitempty"`
+	Status        *EnumRequest           `protobuf:"bytes,3,opt,name=status,proto3" json:"status,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UpdateTripStatusRequest) Reset() {
+	*x = UpdateTripStatusRequest{}
+	mi := &file_trip_trip_proto_msgTypes[63]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UpdateTripStatusRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdateTripStatusRequest) ProtoMessage() {}
+
+func (x *UpdateTripStatusRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_trip_trip_proto_msgTypes[63]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdateTripStatusRequest.ProtoReflect.Descriptor instead.
+func (*UpdateTripStatusRequest) Descriptor() ([]byte, []int) {
+	return file_trip_trip_proto_rawDescGZIP(), []int{63}
+}
+
+func (x *UpdateTripStatusRequest) GetTripId() string {
+	if x != nil {
+		return x.TripId
+	}
+	return ""
+}
+
+func (x *UpdateTripStatusRequest) GetDriverId() string {
+	if x != nil {
+		return x.DriverId
+	}
+	return ""
+}
+
+func (x *UpdateTripStatusRequest) GetStatus() *EnumRequest {
+	if x != nil {
+		return x.Status
+	}
+	return nil
+}
+
+type UpdateTripStatusResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	DriverId      string                 `protobuf:"bytes,1,opt,name=driver_id,json=driverId,proto3" json:"driver_id,omitempty"`
+	Status        *EnumResponse          `protobuf:"bytes,2,opt,name=status,proto3" json:"status,omitempty"`
+	Message       string                 `protobuf:"bytes,3,opt,name=message,proto3" json:"message,omitempty"`
+	Trip          *Trip                  `protobuf:"bytes,4,opt,name=trip,proto3" json:"trip,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UpdateTripStatusResponse) Reset() {
+	*x = UpdateTripStatusResponse{}
+	mi := &file_trip_trip_proto_msgTypes[64]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UpdateTripStatusResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdateTripStatusResponse) ProtoMessage() {}
+
+func (x *UpdateTripStatusResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_trip_trip_proto_msgTypes[64]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdateTripStatusResponse.ProtoReflect.Descriptor instead.
+func (*UpdateTripStatusResponse) Descriptor() ([]byte, []int) {
+	return file_trip_trip_proto_rawDescGZIP(), []int{64}
+}
+
+func (x *UpdateTripStatusResponse) GetDriverId() string {
+	if x != nil {
+		return x.DriverId
+	}
+	return ""
+}
+
+func (x *UpdateTripStatusResponse) GetStatus() *EnumResponse {
+	if x != nil {
+		return x.Status
+	}
+	return nil
+}
+
+func (x *UpdateTripStatusResponse) GetMessage() string {
+	if x != nil {
+		return x.Message
+	}
+	return ""
+}
+
+func (x *UpdateTripStatusResponse) GetTrip() *Trip {
+	if x != nil {
+		return x.Trip
+	}
+	return nil
+}
+
 type TripHistoryFilterRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	RiderId       *string                `protobuf:"bytes,1,opt,name=rider_id,json=riderId,proto3,oneof" json:"rider_id,omitempty"`
@@ -4357,7 +4485,7 @@ type TripHistoryFilterRequest struct {
 
 func (x *TripHistoryFilterRequest) Reset() {
 	*x = TripHistoryFilterRequest{}
-	mi := &file_trip_trip_proto_msgTypes[63]
+	mi := &file_trip_trip_proto_msgTypes[65]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4369,7 +4497,7 @@ func (x *TripHistoryFilterRequest) String() string {
 func (*TripHistoryFilterRequest) ProtoMessage() {}
 
 func (x *TripHistoryFilterRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_trip_trip_proto_msgTypes[63]
+	mi := &file_trip_trip_proto_msgTypes[65]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4382,7 +4510,7 @@ func (x *TripHistoryFilterRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use TripHistoryFilterRequest.ProtoReflect.Descriptor instead.
 func (*TripHistoryFilterRequest) Descriptor() ([]byte, []int) {
-	return file_trip_trip_proto_rawDescGZIP(), []int{63}
+	return file_trip_trip_proto_rawDescGZIP(), []int{65}
 }
 
 func (x *TripHistoryFilterRequest) GetRiderId() string {
@@ -4431,7 +4559,7 @@ type GetTripHistoryByRiderRequest struct {
 
 func (x *GetTripHistoryByRiderRequest) Reset() {
 	*x = GetTripHistoryByRiderRequest{}
-	mi := &file_trip_trip_proto_msgTypes[64]
+	mi := &file_trip_trip_proto_msgTypes[66]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4443,7 +4571,7 @@ func (x *GetTripHistoryByRiderRequest) String() string {
 func (*GetTripHistoryByRiderRequest) ProtoMessage() {}
 
 func (x *GetTripHistoryByRiderRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_trip_trip_proto_msgTypes[64]
+	mi := &file_trip_trip_proto_msgTypes[66]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4456,7 +4584,7 @@ func (x *GetTripHistoryByRiderRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetTripHistoryByRiderRequest.ProtoReflect.Descriptor instead.
 func (*GetTripHistoryByRiderRequest) Descriptor() ([]byte, []int) {
-	return file_trip_trip_proto_rawDescGZIP(), []int{64}
+	return file_trip_trip_proto_rawDescGZIP(), []int{66}
 }
 
 func (x *GetTripHistoryByRiderRequest) GetRiderId() string {
@@ -4491,7 +4619,7 @@ type GetTripHistoryByDriverRequest struct {
 
 func (x *GetTripHistoryByDriverRequest) Reset() {
 	*x = GetTripHistoryByDriverRequest{}
-	mi := &file_trip_trip_proto_msgTypes[65]
+	mi := &file_trip_trip_proto_msgTypes[67]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4503,7 +4631,7 @@ func (x *GetTripHistoryByDriverRequest) String() string {
 func (*GetTripHistoryByDriverRequest) ProtoMessage() {}
 
 func (x *GetTripHistoryByDriverRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_trip_trip_proto_msgTypes[65]
+	mi := &file_trip_trip_proto_msgTypes[67]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4516,7 +4644,7 @@ func (x *GetTripHistoryByDriverRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetTripHistoryByDriverRequest.ProtoReflect.Descriptor instead.
 func (*GetTripHistoryByDriverRequest) Descriptor() ([]byte, []int) {
-	return file_trip_trip_proto_rawDescGZIP(), []int{65}
+	return file_trip_trip_proto_rawDescGZIP(), []int{67}
 }
 
 func (x *GetTripHistoryByDriverRequest) GetDriverId() string {
@@ -4551,7 +4679,7 @@ type GetTripHistoryResponse struct {
 
 func (x *GetTripHistoryResponse) Reset() {
 	*x = GetTripHistoryResponse{}
-	mi := &file_trip_trip_proto_msgTypes[66]
+	mi := &file_trip_trip_proto_msgTypes[68]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4563,7 +4691,7 @@ func (x *GetTripHistoryResponse) String() string {
 func (*GetTripHistoryResponse) ProtoMessage() {}
 
 func (x *GetTripHistoryResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_trip_trip_proto_msgTypes[66]
+	mi := &file_trip_trip_proto_msgTypes[68]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4576,7 +4704,7 @@ func (x *GetTripHistoryResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetTripHistoryResponse.ProtoReflect.Descriptor instead.
 func (*GetTripHistoryResponse) Descriptor() ([]byte, []int) {
-	return file_trip_trip_proto_rawDescGZIP(), []int{66}
+	return file_trip_trip_proto_rawDescGZIP(), []int{68}
 }
 
 func (x *GetTripHistoryResponse) GetTrips() []*Trip {
@@ -4611,7 +4739,7 @@ type TripHistoryResponse struct {
 
 func (x *TripHistoryResponse) Reset() {
 	*x = TripHistoryResponse{}
-	mi := &file_trip_trip_proto_msgTypes[67]
+	mi := &file_trip_trip_proto_msgTypes[69]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4623,7 +4751,7 @@ func (x *TripHistoryResponse) String() string {
 func (*TripHistoryResponse) ProtoMessage() {}
 
 func (x *TripHistoryResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_trip_trip_proto_msgTypes[67]
+	mi := &file_trip_trip_proto_msgTypes[69]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4636,7 +4764,7 @@ func (x *TripHistoryResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use TripHistoryResponse.ProtoReflect.Descriptor instead.
 func (*TripHistoryResponse) Descriptor() ([]byte, []int) {
-	return file_trip_trip_proto_rawDescGZIP(), []int{67}
+	return file_trip_trip_proto_rawDescGZIP(), []int{69}
 }
 
 func (x *TripHistoryResponse) GetTrips() []*Trip {
@@ -4678,7 +4806,7 @@ type DriverInfo struct {
 
 func (x *DriverInfo) Reset() {
 	*x = DriverInfo{}
-	mi := &file_trip_trip_proto_msgTypes[68]
+	mi := &file_trip_trip_proto_msgTypes[70]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4690,7 +4818,7 @@ func (x *DriverInfo) String() string {
 func (*DriverInfo) ProtoMessage() {}
 
 func (x *DriverInfo) ProtoReflect() protoreflect.Message {
-	mi := &file_trip_trip_proto_msgTypes[68]
+	mi := &file_trip_trip_proto_msgTypes[70]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4703,7 +4831,7 @@ func (x *DriverInfo) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DriverInfo.ProtoReflect.Descriptor instead.
 func (*DriverInfo) Descriptor() ([]byte, []int) {
-	return file_trip_trip_proto_rawDescGZIP(), []int{68}
+	return file_trip_trip_proto_rawDescGZIP(), []int{70}
 }
 
 func (x *DriverInfo) GetDriverId() string {
@@ -5241,6 +5369,16 @@ const file_trip_trip_proto_rawDesc = "" +
 	"\amessage\x18\x03 \x01(\tR\amessage\x12\x1b\n" +
 	"\tis_winner\x18\x04 \x01(\bR\bisWinner\x12\x1e\n" +
 	"\x04trip\x18\x05 \x01(\v2\n" +
+	".trip.TripR\x04trip\"z\n" +
+	"\x17UpdateTripStatusRequest\x12\x17\n" +
+	"\atrip_id\x18\x01 \x01(\tR\x06tripId\x12\x1b\n" +
+	"\tdriver_id\x18\x02 \x01(\tR\bdriverId\x12)\n" +
+	"\x06status\x18\x03 \x01(\v2\x11.trip.EnumRequestR\x06status\"\x9d\x01\n" +
+	"\x18UpdateTripStatusResponse\x12\x1b\n" +
+	"\tdriver_id\x18\x01 \x01(\tR\bdriverId\x12*\n" +
+	"\x06status\x18\x02 \x01(\v2\x12.trip.EnumResponseR\x06status\x12\x18\n" +
+	"\amessage\x18\x03 \x01(\tR\amessage\x12\x1e\n" +
+	"\x04trip\x18\x04 \x01(\v2\n" +
 	".trip.TripR\x04trip\"\xee\x01\n" +
 	"\x18TripHistoryFilterRequest\x12\x1e\n" +
 	"\brider_id\x18\x01 \x01(\tH\x00R\ariderId\x88\x01\x01\x12 \n" +
@@ -5293,7 +5431,7 @@ const file_trip_trip_proto_rawDesc = "" +
 	" \x01(\x01H\x02R\bdistance\x88\x01\x01B\x10\n" +
 	"\x0e_profile_imageB\x06\n" +
 	"\x04_etaB\v\n" +
-	"\t_distance2\x9f\x0f\n" +
+	"\t_distance2\xf2\x0f\n" +
 	"\vTripService\x123\n" +
 	"\n" +
 	"CreateTrip\x12\x11.trip.TripRequest\x1a\x12.trip.TripResponse\x12E\n" +
@@ -5314,7 +5452,8 @@ const file_trip_trip_proto_rawDesc = "" +
 	"\fInstantMatch\x12\x19.trip.InstantMatchRequest\x1a\x1a.trip.InstantMatchResponse\x12`\n" +
 	"\x15GetInstantMatchStatus\x12\".trip.GetInstantMatchStatusRequest\x1a#.trip.GetInstantMatchStatusResponse\x12W\n" +
 	"\x12CancelInstantMatch\x12\x1f.trip.CancelInstantMatchRequest\x1a .trip.CancelInstantMatchResponse\x12H\n" +
-	"\rInstantAccept\x12\x1a.trip.InstantAcceptRequest\x1a\x1b.trip.InstantAcceptResponse\x12K\n" +
+	"\rInstantAccept\x12\x1a.trip.InstantAcceptRequest\x1a\x1b.trip.InstantAcceptResponse\x12Q\n" +
+	"\x10UpdateTripStatus\x12\x1d.trip.UpdateTripStatusRequest\x1a\x1e.trip.UpdateTripStatusResponse\x12K\n" +
 	"\x0eGetTripHistory\x12\x1e.trip.TripHistoryFilterRequest\x1a\x19.trip.TripHistoryResponse\x12Y\n" +
 	"\x15GetTripHistoryByRider\x12\".trip.GetTripHistoryByRiderRequest\x1a\x1c.trip.GetTripHistoryResponse\x12[\n" +
 	"\x16GetTripHistoryByDriver\x12#.trip.GetTripHistoryByDriverRequest\x1a\x1c.trip.GetTripHistoryResponse\x128\n" +
@@ -5338,7 +5477,7 @@ func file_trip_trip_proto_rawDescGZIP() []byte {
 	return file_trip_trip_proto_rawDescData
 }
 
-var file_trip_trip_proto_msgTypes = make([]protoimpl.MessageInfo, 69)
+var file_trip_trip_proto_msgTypes = make([]protoimpl.MessageInfo, 71)
 var file_trip_trip_proto_goTypes = []any{
 	(*RatingRequest)(nil),                     // 0: trip.RatingRequest
 	(*ListRatingRequest)(nil),                 // 1: trip.ListRatingRequest
@@ -5403,13 +5542,15 @@ var file_trip_trip_proto_goTypes = []any{
 	(*CancelInstantMatchResponse)(nil),        // 60: trip.CancelInstantMatchResponse
 	(*InstantAcceptRequest)(nil),              // 61: trip.InstantAcceptRequest
 	(*InstantAcceptResponse)(nil),             // 62: trip.InstantAcceptResponse
-	(*TripHistoryFilterRequest)(nil),          // 63: trip.TripHistoryFilterRequest
-	(*GetTripHistoryByRiderRequest)(nil),      // 64: trip.GetTripHistoryByRiderRequest
-	(*GetTripHistoryByDriverRequest)(nil),     // 65: trip.GetTripHistoryByDriverRequest
-	(*GetTripHistoryResponse)(nil),            // 66: trip.GetTripHistoryResponse
-	(*TripHistoryResponse)(nil),               // 67: trip.TripHistoryResponse
-	(*DriverInfo)(nil),                        // 68: trip.DriverInfo
-	(*timestamppb.Timestamp)(nil),             // 69: google.protobuf.Timestamp
+	(*UpdateTripStatusRequest)(nil),           // 63: trip.UpdateTripStatusRequest
+	(*UpdateTripStatusResponse)(nil),          // 64: trip.UpdateTripStatusResponse
+	(*TripHistoryFilterRequest)(nil),          // 65: trip.TripHistoryFilterRequest
+	(*GetTripHistoryByRiderRequest)(nil),      // 66: trip.GetTripHistoryByRiderRequest
+	(*GetTripHistoryByDriverRequest)(nil),     // 67: trip.GetTripHistoryByDriverRequest
+	(*GetTripHistoryResponse)(nil),            // 68: trip.GetTripHistoryResponse
+	(*TripHistoryResponse)(nil),               // 69: trip.TripHistoryResponse
+	(*DriverInfo)(nil),                        // 70: trip.DriverInfo
+	(*timestamppb.Timestamp)(nil),             // 71: google.protobuf.Timestamp
 }
 var file_trip_trip_proto_depIdxs = []int32{
 	9,  // 0: trip.RatingRequest.reviewer_role:type_name -> trip.EnumRequest
@@ -5421,8 +5562,8 @@ var file_trip_trip_proto_depIdxs = []int32{
 	8,  // 6: trip.ListRatingResponse.ratings:type_name -> trip.RatingResponse
 	11, // 7: trip.Rating.reviewer_role:type_name -> trip.EnumResponse
 	11, // 8: trip.Rating.reviewee_role:type_name -> trip.EnumResponse
-	69, // 9: trip.Rating.created_at:type_name -> google.protobuf.Timestamp
-	69, // 10: trip.Rating.updated_at:type_name -> google.protobuf.Timestamp
+	71, // 9: trip.Rating.created_at:type_name -> google.protobuf.Timestamp
+	71, // 10: trip.Rating.updated_at:type_name -> google.protobuf.Timestamp
 	7,  // 11: trip.RatingResponse.rating:type_name -> trip.Rating
 	10, // 12: trip.EnumResponse.enum:type_name -> trip.Enum
 	10, // 13: trip.ListEnumResponse.enums:type_name -> trip.Enum
@@ -5464,79 +5605,84 @@ var file_trip_trip_proto_depIdxs = []int32{
 	15, // 49: trip.AcceptTripResponse.trip:type_name -> trip.Trip
 	15, // 50: trip.CompleteTripResponse.trip:type_name -> trip.Trip
 	11, // 51: trip.BiddingSession.status:type_name -> trip.EnumResponse
-	69, // 52: trip.BiddingSession.created_at:type_name -> google.protobuf.Timestamp
-	69, // 53: trip.BiddingSession.auto_close_at:type_name -> google.protobuf.Timestamp
+	71, // 52: trip.BiddingSession.created_at:type_name -> google.protobuf.Timestamp
+	71, // 53: trip.BiddingSession.auto_close_at:type_name -> google.protobuf.Timestamp
 	38, // 54: trip.GetBiddingSessionResponse.session:type_name -> trip.BiddingSession
 	38, // 55: trip.GetBiddingSessionsByRiderResponse.sessions:type_name -> trip.BiddingSession
 	38, // 56: trip.BiddingSessionResponse.session:type_name -> trip.BiddingSession
-	69, // 57: trip.BidRanking.bid_time:type_name -> google.protobuf.Timestamp
+	71, // 57: trip.BidRanking.bid_time:type_name -> google.protobuf.Timestamp
 	47, // 58: trip.GetBidRankingsResponse.rankings:type_name -> trip.BidRanking
 	11, // 59: trip.RsInstantMatch.status:type_name -> trip.EnumResponse
 	11, // 60: trip.InstantMatchResponse.status:type_name -> trip.EnumResponse
 	11, // 61: trip.RsGetInstantMatchStatus.status:type_name -> trip.EnumResponse
-	68, // 62: trip.RsGetInstantMatchStatus.driver_info:type_name -> trip.DriverInfo
+	70, // 62: trip.RsGetInstantMatchStatus.driver_info:type_name -> trip.DriverInfo
 	11, // 63: trip.GetInstantMatchStatusResponse.status:type_name -> trip.EnumResponse
-	68, // 64: trip.GetInstantMatchStatusResponse.driver_info:type_name -> trip.DriverInfo
+	70, // 64: trip.GetInstantMatchStatusResponse.driver_info:type_name -> trip.DriverInfo
 	15, // 65: trip.InstantAcceptResponse.trip:type_name -> trip.Trip
-	15, // 66: trip.GetTripHistoryResponse.trips:type_name -> trip.Trip
-	15, // 67: trip.TripHistoryResponse.trips:type_name -> trip.Trip
-	16, // 68: trip.TripService.CreateTrip:input_type -> trip.TripRequest
-	18, // 69: trip.TripService.SubmitBidOrOffer:input_type -> trip.BidOrOfferRequest
-	20, // 70: trip.TripService.AcceptOffer:input_type -> trip.AcceptOfferRequest
-	22, // 71: trip.TripService.CounterOffer:input_type -> trip.CounterOfferRequest
-	24, // 72: trip.TripService.GetTrip:input_type -> trip.GetTripRequest
-	27, // 73: trip.TripService.GetActiveTrips:input_type -> trip.GetActiveTripsRequest
-	29, // 74: trip.TripService.GetActiveTripsByRider:input_type -> trip.GetActiveTripsByRiderRequest
-	32, // 75: trip.TripService.AcceptTrip:input_type -> trip.AcceptTripRequest
-	34, // 76: trip.TripService.CancelTrip:input_type -> trip.CancelTripRequest
-	36, // 77: trip.TripService.CompleteTrip:input_type -> trip.CompleteTripRequest
-	40, // 78: trip.TripService.GetBiddingSession:input_type -> trip.GetBiddingSessionRequest
-	42, // 79: trip.TripService.GetBiddingSessionsByRider:input_type -> trip.GetBiddingSessionsByRiderRequest
-	46, // 80: trip.TripService.GetBidRankings:input_type -> trip.GetBidRankingsRequest
-	51, // 81: trip.TripService.InstantMatch:input_type -> trip.InstantMatchRequest
-	55, // 82: trip.TripService.GetInstantMatchStatus:input_type -> trip.GetInstantMatchStatusRequest
-	59, // 83: trip.TripService.CancelInstantMatch:input_type -> trip.CancelInstantMatchRequest
-	61, // 84: trip.TripService.InstantAccept:input_type -> trip.InstantAcceptRequest
-	63, // 85: trip.TripService.GetTripHistory:input_type -> trip.TripHistoryFilterRequest
-	64, // 86: trip.TripService.GetTripHistoryByRider:input_type -> trip.GetTripHistoryByRiderRequest
-	65, // 87: trip.TripService.GetTripHistoryByDriver:input_type -> trip.GetTripHistoryByDriverRequest
-	24, // 88: trip.TripService.IsTripActive:input_type -> trip.GetTripRequest
-	0,  // 89: trip.TripService.CreateRating:input_type -> trip.RatingRequest
-	6,  // 90: trip.TripService.GetRating:input_type -> trip.GetRatingRequest
-	1,  // 91: trip.TripService.ListRating:input_type -> trip.ListRatingRequest
-	2,  // 92: trip.TripService.DeleteRating:input_type -> trip.DeleteRatingRequest
-	3,  // 93: trip.TripService.UpdateRating:input_type -> trip.UpdateRatingRequest
-	17, // 94: trip.TripService.CreateTrip:output_type -> trip.TripResponse
-	19, // 95: trip.TripService.SubmitBidOrOffer:output_type -> trip.BidOrOfferResponse
-	21, // 96: trip.TripService.AcceptOffer:output_type -> trip.AcceptOfferResponse
-	23, // 97: trip.TripService.CounterOffer:output_type -> trip.CounterOfferResponse
-	25, // 98: trip.TripService.GetTrip:output_type -> trip.GetTripResponse
-	28, // 99: trip.TripService.GetActiveTrips:output_type -> trip.GetActiveTripsResponse
-	30, // 100: trip.TripService.GetActiveTripsByRider:output_type -> trip.GetActiveTripsByRiderResponse
-	33, // 101: trip.TripService.AcceptTrip:output_type -> trip.AcceptTripResponse
-	35, // 102: trip.TripService.CancelTrip:output_type -> trip.CancelTripResponse
-	37, // 103: trip.TripService.CompleteTrip:output_type -> trip.CompleteTripResponse
-	41, // 104: trip.TripService.GetBiddingSession:output_type -> trip.GetBiddingSessionResponse
-	43, // 105: trip.TripService.GetBiddingSessionsByRider:output_type -> trip.GetBiddingSessionsByRiderResponse
-	48, // 106: trip.TripService.GetBidRankings:output_type -> trip.GetBidRankingsResponse
-	52, // 107: trip.TripService.InstantMatch:output_type -> trip.InstantMatchResponse
-	56, // 108: trip.TripService.GetInstantMatchStatus:output_type -> trip.GetInstantMatchStatusResponse
-	60, // 109: trip.TripService.CancelInstantMatch:output_type -> trip.CancelInstantMatchResponse
-	62, // 110: trip.TripService.InstantAccept:output_type -> trip.InstantAcceptResponse
-	67, // 111: trip.TripService.GetTripHistory:output_type -> trip.TripHistoryResponse
-	66, // 112: trip.TripService.GetTripHistoryByRider:output_type -> trip.GetTripHistoryResponse
-	66, // 113: trip.TripService.GetTripHistoryByDriver:output_type -> trip.GetTripHistoryResponse
-	17, // 114: trip.TripService.IsTripActive:output_type -> trip.TripResponse
-	8,  // 115: trip.TripService.CreateRating:output_type -> trip.RatingResponse
-	8,  // 116: trip.TripService.GetRating:output_type -> trip.RatingResponse
-	5,  // 117: trip.TripService.ListRating:output_type -> trip.ListRatingResponse
-	4,  // 118: trip.TripService.DeleteRating:output_type -> trip.DeleteRatingResponse
-	8,  // 119: trip.TripService.UpdateRating:output_type -> trip.RatingResponse
-	94, // [94:120] is the sub-list for method output_type
-	68, // [68:94] is the sub-list for method input_type
-	68, // [68:68] is the sub-list for extension type_name
-	68, // [68:68] is the sub-list for extension extendee
-	0,  // [0:68] is the sub-list for field type_name
+	9,  // 66: trip.UpdateTripStatusRequest.status:type_name -> trip.EnumRequest
+	11, // 67: trip.UpdateTripStatusResponse.status:type_name -> trip.EnumResponse
+	15, // 68: trip.UpdateTripStatusResponse.trip:type_name -> trip.Trip
+	15, // 69: trip.GetTripHistoryResponse.trips:type_name -> trip.Trip
+	15, // 70: trip.TripHistoryResponse.trips:type_name -> trip.Trip
+	16, // 71: trip.TripService.CreateTrip:input_type -> trip.TripRequest
+	18, // 72: trip.TripService.SubmitBidOrOffer:input_type -> trip.BidOrOfferRequest
+	20, // 73: trip.TripService.AcceptOffer:input_type -> trip.AcceptOfferRequest
+	22, // 74: trip.TripService.CounterOffer:input_type -> trip.CounterOfferRequest
+	24, // 75: trip.TripService.GetTrip:input_type -> trip.GetTripRequest
+	27, // 76: trip.TripService.GetActiveTrips:input_type -> trip.GetActiveTripsRequest
+	29, // 77: trip.TripService.GetActiveTripsByRider:input_type -> trip.GetActiveTripsByRiderRequest
+	32, // 78: trip.TripService.AcceptTrip:input_type -> trip.AcceptTripRequest
+	34, // 79: trip.TripService.CancelTrip:input_type -> trip.CancelTripRequest
+	36, // 80: trip.TripService.CompleteTrip:input_type -> trip.CompleteTripRequest
+	40, // 81: trip.TripService.GetBiddingSession:input_type -> trip.GetBiddingSessionRequest
+	42, // 82: trip.TripService.GetBiddingSessionsByRider:input_type -> trip.GetBiddingSessionsByRiderRequest
+	46, // 83: trip.TripService.GetBidRankings:input_type -> trip.GetBidRankingsRequest
+	51, // 84: trip.TripService.InstantMatch:input_type -> trip.InstantMatchRequest
+	55, // 85: trip.TripService.GetInstantMatchStatus:input_type -> trip.GetInstantMatchStatusRequest
+	59, // 86: trip.TripService.CancelInstantMatch:input_type -> trip.CancelInstantMatchRequest
+	61, // 87: trip.TripService.InstantAccept:input_type -> trip.InstantAcceptRequest
+	63, // 88: trip.TripService.UpdateTripStatus:input_type -> trip.UpdateTripStatusRequest
+	65, // 89: trip.TripService.GetTripHistory:input_type -> trip.TripHistoryFilterRequest
+	66, // 90: trip.TripService.GetTripHistoryByRider:input_type -> trip.GetTripHistoryByRiderRequest
+	67, // 91: trip.TripService.GetTripHistoryByDriver:input_type -> trip.GetTripHistoryByDriverRequest
+	24, // 92: trip.TripService.IsTripActive:input_type -> trip.GetTripRequest
+	0,  // 93: trip.TripService.CreateRating:input_type -> trip.RatingRequest
+	6,  // 94: trip.TripService.GetRating:input_type -> trip.GetRatingRequest
+	1,  // 95: trip.TripService.ListRating:input_type -> trip.ListRatingRequest
+	2,  // 96: trip.TripService.DeleteRating:input_type -> trip.DeleteRatingRequest
+	3,  // 97: trip.TripService.UpdateRating:input_type -> trip.UpdateRatingRequest
+	17, // 98: trip.TripService.CreateTrip:output_type -> trip.TripResponse
+	19, // 99: trip.TripService.SubmitBidOrOffer:output_type -> trip.BidOrOfferResponse
+	21, // 100: trip.TripService.AcceptOffer:output_type -> trip.AcceptOfferResponse
+	23, // 101: trip.TripService.CounterOffer:output_type -> trip.CounterOfferResponse
+	25, // 102: trip.TripService.GetTrip:output_type -> trip.GetTripResponse
+	28, // 103: trip.TripService.GetActiveTrips:output_type -> trip.GetActiveTripsResponse
+	30, // 104: trip.TripService.GetActiveTripsByRider:output_type -> trip.GetActiveTripsByRiderResponse
+	33, // 105: trip.TripService.AcceptTrip:output_type -> trip.AcceptTripResponse
+	35, // 106: trip.TripService.CancelTrip:output_type -> trip.CancelTripResponse
+	37, // 107: trip.TripService.CompleteTrip:output_type -> trip.CompleteTripResponse
+	41, // 108: trip.TripService.GetBiddingSession:output_type -> trip.GetBiddingSessionResponse
+	43, // 109: trip.TripService.GetBiddingSessionsByRider:output_type -> trip.GetBiddingSessionsByRiderResponse
+	48, // 110: trip.TripService.GetBidRankings:output_type -> trip.GetBidRankingsResponse
+	52, // 111: trip.TripService.InstantMatch:output_type -> trip.InstantMatchResponse
+	56, // 112: trip.TripService.GetInstantMatchStatus:output_type -> trip.GetInstantMatchStatusResponse
+	60, // 113: trip.TripService.CancelInstantMatch:output_type -> trip.CancelInstantMatchResponse
+	62, // 114: trip.TripService.InstantAccept:output_type -> trip.InstantAcceptResponse
+	64, // 115: trip.TripService.UpdateTripStatus:output_type -> trip.UpdateTripStatusResponse
+	69, // 116: trip.TripService.GetTripHistory:output_type -> trip.TripHistoryResponse
+	68, // 117: trip.TripService.GetTripHistoryByRider:output_type -> trip.GetTripHistoryResponse
+	68, // 118: trip.TripService.GetTripHistoryByDriver:output_type -> trip.GetTripHistoryResponse
+	17, // 119: trip.TripService.IsTripActive:output_type -> trip.TripResponse
+	8,  // 120: trip.TripService.CreateRating:output_type -> trip.RatingResponse
+	8,  // 121: trip.TripService.GetRating:output_type -> trip.RatingResponse
+	5,  // 122: trip.TripService.ListRating:output_type -> trip.ListRatingResponse
+	4,  // 123: trip.TripService.DeleteRating:output_type -> trip.DeleteRatingResponse
+	8,  // 124: trip.TripService.UpdateRating:output_type -> trip.RatingResponse
+	98, // [98:125] is the sub-list for method output_type
+	71, // [71:98] is the sub-list for method input_type
+	71, // [71:71] is the sub-list for extension type_name
+	71, // [71:71] is the sub-list for extension extendee
+	0,  // [0:71] is the sub-list for field type_name
 }
 
 func init() { file_trip_trip_proto_init() }
@@ -5568,17 +5714,17 @@ func file_trip_trip_proto_init() {
 	file_trip_trip_proto_msgTypes[52].OneofWrappers = []any{}
 	file_trip_trip_proto_msgTypes[54].OneofWrappers = []any{}
 	file_trip_trip_proto_msgTypes[56].OneofWrappers = []any{}
-	file_trip_trip_proto_msgTypes[63].OneofWrappers = []any{}
-	file_trip_trip_proto_msgTypes[64].OneofWrappers = []any{}
 	file_trip_trip_proto_msgTypes[65].OneofWrappers = []any{}
-	file_trip_trip_proto_msgTypes[68].OneofWrappers = []any{}
+	file_trip_trip_proto_msgTypes[66].OneofWrappers = []any{}
+	file_trip_trip_proto_msgTypes[67].OneofWrappers = []any{}
+	file_trip_trip_proto_msgTypes[70].OneofWrappers = []any{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_trip_trip_proto_rawDesc), len(file_trip_trip_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   69,
+			NumMessages:   71,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

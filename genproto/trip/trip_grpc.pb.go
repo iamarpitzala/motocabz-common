@@ -36,6 +36,7 @@ const (
 	TripService_GetInstantMatchStatus_FullMethodName     = "/trip.TripService/GetInstantMatchStatus"
 	TripService_CancelInstantMatch_FullMethodName        = "/trip.TripService/CancelInstantMatch"
 	TripService_InstantAccept_FullMethodName             = "/trip.TripService/InstantAccept"
+	TripService_UpdateTripStatus_FullMethodName          = "/trip.TripService/UpdateTripStatus"
 	TripService_GetTripHistory_FullMethodName            = "/trip.TripService/GetTripHistory"
 	TripService_GetTripHistoryByRider_FullMethodName     = "/trip.TripService/GetTripHistoryByRider"
 	TripService_GetTripHistoryByDriver_FullMethodName    = "/trip.TripService/GetTripHistoryByDriver"
@@ -71,6 +72,7 @@ type TripServiceClient interface {
 	GetInstantMatchStatus(ctx context.Context, in *GetInstantMatchStatusRequest, opts ...grpc.CallOption) (*GetInstantMatchStatusResponse, error)
 	CancelInstantMatch(ctx context.Context, in *CancelInstantMatchRequest, opts ...grpc.CallOption) (*CancelInstantMatchResponse, error)
 	InstantAccept(ctx context.Context, in *InstantAcceptRequest, opts ...grpc.CallOption) (*InstantAcceptResponse, error)
+	UpdateTripStatus(ctx context.Context, in *UpdateTripStatusRequest, opts ...grpc.CallOption) (*UpdateTripStatusResponse, error)
 	//Trip History
 	GetTripHistory(ctx context.Context, in *TripHistoryFilterRequest, opts ...grpc.CallOption) (*TripHistoryResponse, error)
 	GetTripHistoryByRider(ctx context.Context, in *GetTripHistoryByRiderRequest, opts ...grpc.CallOption) (*GetTripHistoryResponse, error)
@@ -262,6 +264,16 @@ func (c *tripServiceClient) InstantAccept(ctx context.Context, in *InstantAccept
 	return out, nil
 }
 
+func (c *tripServiceClient) UpdateTripStatus(ctx context.Context, in *UpdateTripStatusRequest, opts ...grpc.CallOption) (*UpdateTripStatusResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UpdateTripStatusResponse)
+	err := c.cc.Invoke(ctx, TripService_UpdateTripStatus_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *tripServiceClient) GetTripHistory(ctx context.Context, in *TripHistoryFilterRequest, opts ...grpc.CallOption) (*TripHistoryResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(TripHistoryResponse)
@@ -376,6 +388,7 @@ type TripServiceServer interface {
 	GetInstantMatchStatus(context.Context, *GetInstantMatchStatusRequest) (*GetInstantMatchStatusResponse, error)
 	CancelInstantMatch(context.Context, *CancelInstantMatchRequest) (*CancelInstantMatchResponse, error)
 	InstantAccept(context.Context, *InstantAcceptRequest) (*InstantAcceptResponse, error)
+	UpdateTripStatus(context.Context, *UpdateTripStatusRequest) (*UpdateTripStatusResponse, error)
 	//Trip History
 	GetTripHistory(context.Context, *TripHistoryFilterRequest) (*TripHistoryResponse, error)
 	GetTripHistoryByRider(context.Context, *GetTripHistoryByRiderRequest) (*GetTripHistoryResponse, error)
@@ -447,6 +460,9 @@ func (UnimplementedTripServiceServer) CancelInstantMatch(context.Context, *Cance
 }
 func (UnimplementedTripServiceServer) InstantAccept(context.Context, *InstantAcceptRequest) (*InstantAcceptResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method InstantAccept not implemented")
+}
+func (UnimplementedTripServiceServer) UpdateTripStatus(context.Context, *UpdateTripStatusRequest) (*UpdateTripStatusResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method UpdateTripStatus not implemented")
 }
 func (UnimplementedTripServiceServer) GetTripHistory(context.Context, *TripHistoryFilterRequest) (*TripHistoryResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetTripHistory not implemented")
@@ -802,6 +818,24 @@ func _TripService_InstantAccept_Handler(srv interface{}, ctx context.Context, de
 	return interceptor(ctx, in, info, handler)
 }
 
+func _TripService_UpdateTripStatus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateTripStatusRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TripServiceServer).UpdateTripStatus(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TripService_UpdateTripStatus_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TripServiceServer).UpdateTripStatus(ctx, req.(*UpdateTripStatusRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _TripService_GetTripHistory_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(TripHistoryFilterRequest)
 	if err := dec(in); err != nil {
@@ -1038,6 +1072,10 @@ var TripService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "InstantAccept",
 			Handler:    _TripService_InstantAccept_Handler,
+		},
+		{
+			MethodName: "UpdateTripStatus",
+			Handler:    _TripService_UpdateTripStatus_Handler,
 		},
 		{
 			MethodName: "GetTripHistory",
